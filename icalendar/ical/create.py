@@ -16,7 +16,8 @@ from datetime import datetime
 
 from icalendar import vCalAddress, vText
 from icalendar import vDatetime, Calendar, Event
-import pytz
+import pytz, os
+from tempfile import gettempdir
 
 __all__ = []
 __version__ = 0.1
@@ -60,6 +61,11 @@ event.add('attendee', attendee, encode=0)
 
 cal.add_component(event)
 
-f = open('example.ics', 'wb')
+newdir = os.path.join(gettempdir(), 'icalendar') 
+newfile = os.path.join(newdir, 'example.ics')
+if not os.path.exists(newdir):
+    os.makedirs(newdir)
+f = open(newfile, 'wb')
 f.write(cal.to_ical())
 f.close()
+print('saved:' + newfile)
