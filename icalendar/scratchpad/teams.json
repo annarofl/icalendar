@@ -1,0 +1,24 @@
+{
+	"teams" :[
+		{
+			"id": "HOLYC",
+			"name": "Holy Cross",
+			"location": "Musgrave"
+		},
+		{
+			"id": "HANAH",
+			"name": "Hannahstown",
+			"location": "Musgrave"
+		},
+		{
+			"id": "WOODB",
+			"name": "Woodbourne",
+			"location": "Musgrave"
+		},
+		{
+			"id": "FALLS",
+			"name": "Falls",
+			"location": "Falls"
+		}
+	]
+}	
