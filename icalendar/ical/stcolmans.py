@@ -3,7 +3,7 @@ from ical import bowls_funcs
 
 
 year = '2017-18'
-me = 'fallsindoor'
+me = 'stcolmans'
 bowls_funcs.init(me, year)
 
 json_teamdata = bowls_funcs.load_json('%s_teams.json' % me)
