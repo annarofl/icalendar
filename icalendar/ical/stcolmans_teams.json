@@ -1,0 +1,44 @@
+{
+  "teams": [
+    {
+      "id": "STCOL",
+      "name": "St Colmans",
+      "location": "Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom"
+    },
+    {
+      "id": "AGHAG",
+      "name": "Aghagallon",
+      "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
+    },
+    {
+      "id": "STMAR",
+      "name": "St Mark's",
+      "location": "Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK"
+    },
+    {
+      "id": "EGLAN",
+      "name": "Eglantine",
+      "location": "47 Beechmount Avenue, Belfast BT12, UK"
+    },
+    {
+      "id": "STCLA",
+      "name": "St Clares",
+      "location": "40 Herbert St, Belfast BT14 7FH"
+    },
+    {
+      "id": "ROCK",
+      "name": "Rock",
+      "location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
+    },
+    {
+      "id": "SUFFO",
+      "name": "Suffolk",
+      "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
+    },
+    {
+      "id": "BROOM",
+      "name": "Broomhedge",
+      "location": "St Anne's Presbytery, Kingsway, Belfast BT10 0LF"
+    }
+  ]
+}
