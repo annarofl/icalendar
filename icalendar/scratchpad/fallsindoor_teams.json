@@ -1,0 +1,49 @@
+{
+  "teams": [
+    {
+      "id": "FALLS",
+      "name": "Falls",
+      "location": "Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom"
+    },
+    {
+      "id": "CLONA",
+      "name": "Clonard",
+      "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
+    },
+    {
+      "id": "WOODB",
+      "name": "Woodbourne",
+      "location": "Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK"
+    },
+    {
+      "id": "STPAU",
+      "name": "St Paul's",
+      "location": "47 Beechmount Avenue, Belfast BT12, UK"
+    },
+    {
+      "id": "HOLYC",
+      "name": "Holy Cross",
+      "location": "40 Herbert St, Belfast BT14 7FH"
+    },
+    {
+      "id": "STMIC",
+      "name": "St Michael's",
+      "location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
+    },
+    {
+      "id": "RIVERD",
+      "name": "Riverdale",
+      "location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
+    },
+    {
+      "id": "STANN",
+      "name": "St Anne's",
+      "location": "St Anne's Presbytery, Kingsway, Belfast BT10 0LF"
+    },
+    {
+      "id": "HOLYC",
+      "name": "Holy Cross",
+      "location": "Holy Cross"
+    }
+  ]
+}
