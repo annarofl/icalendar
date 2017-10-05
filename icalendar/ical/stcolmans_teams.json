@@ -3,32 +3,32 @@
     {
       "id": "STCOL",
       "name": "St Colmans",
-      "location": "Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom"
+      "location": "St. Colman's Church, 111 Queensway, Lisburn, County Antrim BT27"
     },
     {
       "id": "AGHAG",
       "name": "Aghagallon",
-      "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
+      "location": "Aghagallon Community Centre, Aghalee Rd, Aghagallon, Craigavon BT67 0AR"
     },
     {
       "id": "STMAR",
       "name": "St Mark's",
-      "location": "Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK"
+      "location": "St. Mark's Church, Ballymacash Rd, Lisburn BT28 3EZ, UK"
     },
     {
       "id": "EGLAN",
       "name": "Eglantine",
-      "location": "47 Beechmount Avenue, Belfast BT12, UK"
+      "location": "All Saints' Parish, Eglantine, Eglantine Road, Lisburn BT27 5RQ"
     },
     {
       "id": "STCLA",
       "name": "St Clares",
-      "location": "40 Herbert St, Belfast BT14 7FH"
+      "location": "Ballymacrickett Primary School, 41 Scroggy Rd, Glenavy, Crumlin"
     },
     {
       "id": "ROCK",
       "name": "Rock",
-      "location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
+      "location": "11 Belsize Road, Lisburn, BT27 4AL"
     },
     {
       "id": "SUFFO",
@@ -36,9 +36,20 @@
       "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
     },
     {
+      "id": "STJOS",
+      "name": "St Joseph's",
+      "location": "St. Patrick´s Church, Chapel Hill, Lisburn BT28 1BW, UK"
+    }
+    {
+      "id": "ANNAH",
+      "name": "Annahilt",
+      "location": "The Church of the Acension Annahilt, 24 Glebe Road, Hillsborough"
+    }
+    {
       "id": "BROOM",
       "name": "Broomhedge",
-      "location": "St Anne's Presbytery, Kingsway, Belfast BT10 0LF"
+      "location": ""
     }
   ]
 }
+
