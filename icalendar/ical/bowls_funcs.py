@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta
 
 from icalendar import Event
-import pytz, os
+import os
 from tempfile import gettempdir
 
 _club = ""
@@ -23,34 +23,35 @@ def load_json( json_filename ):
 
 def create_event( match_data, team_data ):
 #    print(match_data)
-#    print(match_data['home'])
 #    print(team_data)
     """Create an event for the given match_data"""
-    home = match_data['home']
-    away = match_data['away']
-    for team in team_data:
-        if team['id'] == match_data['home']:
-            home = team['name']
-            location = team['location']
-        if team['id'] == match_data['away']:
-            away = team['name']
+    home = team_data[match_data['home']]
+    away = team_data[match_data['away']]
+    home_team = home['name']
+    home_score = match_data['home_score']
+    away_team = away['name']
+    away_score = match_data['away_score']
+    location = home['location']
+    
+    date_fmt_in = '%Y-%m-%d_%H:%M'
+    match_start = datetime.strptime(match_data['date'], date_fmt_in)
+    match_end = match_start + timedelta(hours=+3)
 
-    fmt_in = '%Y-%m-%d_%H:%M'
-    fmtical = '%Y%m%dT%H%M00Z'
-    match_date = datetime.strptime(match_data['date'], fmt_in)
-    end_date = match_date + timedelta(hours=+3)
-    display_date = match_date.strftime(fmt_in)
-    idate = match_date.strftime(fmtical)
-    print('%-10s v %-10s on %s' % (home,away, display_date))
+    date_fmt_ical = '%Y%m%dT%H%M00Z'
+    display_date = match_start.strftime(date_fmt_in)
+    idate = match_start.strftime(date_fmt_ical)
+    description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team,home_score,away_score,away_team, display_date)
+    print(description)
     event = Event()
-    event['uid'] = '%s%s@mc-williams.co.uk' % (idate, home)
+    event['uid'] = '%s%s@mc-williams.co.uk' % (idate, match_data['home'])
     event['location'] = location
     event.add('priority', 5)
 
-    event.add('summary', '%s v %s' % (home,away))
-    event.add('dtstart', match_date)
-    event.add('dtend', end_date)
-    event.add('dtstamp', datetime(2005, 4, 4, 0, 10, 0, tzinfo=pytz.utc))
+    event.add('summary', '%s v %s' % (home_team,away_team))
+    event.add('description', description)
+    event.add('dtstart', match_start)
+    event.add('dtend', match_end)
+    event.add('dtstamp', datetime.utcnow())
     
     return event
 

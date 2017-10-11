@@ -1,69 +1,44 @@
 {
-  "teams": [
-    {
-      "id": "STCOL",
-      "name": "St Colmans",
-      "location": "St. Colman's Church, 111 Queensway, Lisburn, County Antrim BT27"
-    },
-    {
-      "id": "AGHAG",
-      "name": "Aghagallon",
-      "location": "Aghagallon Community Centre, Aghalee Rd, Aghagallon, Craigavon BT67 0AR"
-    },
-    {
-      "id": "STMAR",
-      "name": "St Mark's",
-      "location": "St. Mark's Church, Ballymacash Rd, Lisburn BT28 3EZ, UK"
-    },
-    {
-      "id": "EGLAN",
-      "name": "Eglantine",
-      "location": "All Saints' Parish, Eglantine, Eglantine Road, Lisburn BT27 5RQ"
-    },
-    {
-      "id": "STCLA",
-      "name": "St Clares",
-      "location": "Ballymacrickett Primary School, 41 Scroggy Rd, Glenavy, Crumlin"
-    },
-    {
-      "id": "ROCK",
-      "name": "Rock",
-      "location": "11 Belsize Road, Lisburn, BT27 4AL"
-    },
-    {
-      "id": "SUFFO",
-      "name": "Suffolk",
-      "location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
-    },
-    {
-      "id": "STJOS",
-      "name": "St Joseph's",
-      "location": "St. Patrick�s Church, Chapel Hill, Lisburn BT28 1BW, UK"
-    },
-    {
-      "id": "ANNAH",
-      "name": "Annahilt",
-      "location": "The Church of the Acension Annahilt, 24 Glebe Road, Hillsborough"
-    },
-    {
-      "id": "BROOM",
-      "name": "Broomhedge",
-      "location": "St Mathews Church Hall, Lurganure Road, Lisburn BT28 2TSt"
-    }
-  ],
-
-  "teamsnew":
-  {
-	  "AGHAG":
-	  {
-		  "location": "loc2",
-		  "name": "Aghagallon"
-	  },
-	  "STCOL":
-	  {
-		  "location": "loc1",
-		  "name": "St Colmans"
-	  }
-  }
+	"teams": {
+		"STCOL": {
+			"name": "St Colmans",
+			"location": "St. Colman's Church, 111 Queensway, Lisburn, County Antrim BT27"
+		},
+		"AGHAG": {
+			"name": "Aghagallon",
+			"location": "Aghagallon Community Centre, Aghalee Rd, Aghagallon, Craigavon BT67 0AR"
+		},
+		"STMAR": {
+			"name": "St Mark's",
+			"location": "St. Mark's Church, Ballymacash Rd, Lisburn BT28 3EZ, UK"
+		},
+		"EGLAN": {
+			"name": "Eglantine",
+			"location": "All Saints' Parish, Eglantine, Eglantine Road, Lisburn BT27 5RQ"
+		},
+		"STCLA": {
+			"name": "St Clares",
+			"location": "Ballymacrickett Primary School, 41 Scroggy Rd, Glenavy, Crumlin"
+		},
+		"ROCK": {
+			"name": "Rock",
+			"location": "11 Belsize Road, Lisburn, BT27 4AL"
+		},
+		"SUFFO": {
+			"name": "Suffolk",
+			"location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
+		},
+		"STJOS": {
+			"name": "St Joseph's",
+			"location": "St. Patrick?s Church, Chapel Hill, Lisburn BT28 1BW, UK"
+		},
+		"ANNAH": {
+			"name": "Annahilt",
+			"location": "The Church of the Acension Annahilt, 24 Glebe Road, Hillsborough"
+		},
+		"BROOM": {
+			"name": "Broomhedge",
+			"location": "St Mathews Church Hall, Lurganure Road, Lisburn BT28 2TSt"
+		}
+	}
 }
-
