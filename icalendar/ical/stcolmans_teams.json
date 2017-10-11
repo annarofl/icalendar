@@ -50,6 +50,20 @@
       "name": "Broomhedge",
       "location": "St Mathews Church Hall, Lurganure Road, Lisburn BT28 2TSt"
     }
-  ]
+  ],
+
+  "teamsnew":
+  {
+	  "AGHAG":
+	  {
+		  "location": "loc2",
+		  "name": "Aghagallon"
+	  },
+	  "STCOL":
+	  {
+		  "location": "loc1",
+		  "name": "St Colmans"
+	  }
+  }
 }
 
