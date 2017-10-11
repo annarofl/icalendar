@@ -1,14 +1,44 @@
 {
-  "matches": [
-    {
-      "home": "STCOL",
-      "away": "AGHAG",
-      "date": "2017-09-28_20:00"
-    },
-    {
-      "home": "STMAR",
-      "away": "STCOL",
-      "date": "2017-10-05_20:00"
-    }
-  ]
+	"matches": [
+	{
+		"home": "STCOL",
+		"away": "AGHAG",
+		"date": "2017-09-28_20:00"
+	},
+	{
+		"home": "STMAR",
+		"away": "STCOL",
+		"date": "2017-10-05_20:00"
+	},
+	{
+		"home": "EGLAN",
+		"away": "STCOL",
+		"date": "2017-10-18_20:00"
+	},
+	{
+		"home": "STCOL",
+		"away": "STCLA",
+		"date": "2017-11-02_20:00"
+	},
+	{
+		"home": "STCOL",
+		"away": "ROCK",
+		"date": "2017-11-09_20:00"
+	},
+	{
+		"home": "STCOL",
+		"away": "SUFFO",
+		"date": "2017-11-30_20:00"
+	},
+	{
+		"home": "BROOM",
+		"away": "STCOL",
+		"date": "2017-12-04_20:00"
+	},
+	{
+		"home": "AGHAG",
+		"away": "STCOL",
+		"date": "2017-12-14_20:00"
+	}
+	]
 }
