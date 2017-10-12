@@ -76,7 +76,7 @@ class Events:
         event['location'] = location
         event.add('priority', 5)
     
-        event.add('summary', '%s v %s' % (home_team, away_team))
+        event.add('summary', '%s (%s) v (%s) %s' % (home_team, home_score, away_score, away_team))
         event.add('description', description)
         event.add('dtstart', match_start)
         event.add('dtend', match_end)
