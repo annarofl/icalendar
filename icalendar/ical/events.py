@@ -30,7 +30,7 @@ class Events:
         self.cal.add('calscale', 'GREGORIAN')
         self.cal.add('X-WR-TIMEZONE', 'Europe/London')
 
-        self.json_matchdata = self._load_json('%s_matches_%s.json' % (club,year))
+        self.json_matchdata = self._load_json('%s_matches_%s.json' % (club, year))
         
         json_teamdata = self._load_json('%s_teams.json' % club)
         self.team_data = json_teamdata['teams']
@@ -69,14 +69,17 @@ class Events:
         date_fmt_ical = '%Y%m%dT%H%M00Z'
         display_date = match_start.strftime(date_fmt_in)
         idate = match_start.strftime(date_fmt_ical)
-        description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score, away_score, away_team, display_date)
+        description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score,
+                                                           away_score, away_team,
+                                                           display_date)
         print(description)
         event = Event()
         event['uid'] = '%s%s@mc-williams.co.uk' % (idate, match_data['home'])
         event['location'] = location
         event.add('priority', 5)
     
-        event.add('summary', '%s (%s) v (%s) %s' % (home_team, home_score, away_score, away_team))
+        event.add('summary', '%s (%s) v (%s) %s' % (home_team, home_score,
+                                                    away_score, away_team))
         event.add('description', description)
         event.add('dtstart', match_start)
         event.add('dtend', match_end)
@@ -91,7 +94,7 @@ class Events:
         return newdir
     
     def _write_file(self):
-        filename = '%s_%s' % (self.club,self.year)
+        filename = '%s_%s' % (self.club, self.year)
         newfile = os.path.join(self._mk_save_dir(), '%s.ics' % filename)
         f = open(newfile, 'wb')
         f.write(self.cal.to_ical())
@@ -100,4 +103,3 @@ class Events:
     
     def _print_cal(self):
         print(self.cal.to_ical())
-            
