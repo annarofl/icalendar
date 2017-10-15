@@ -34,6 +34,7 @@ class Events:
         
         json_teamdata = self._load_json('%s_teams.json' % club)
         self.team_data = json_teamdata['teams']
+        self.myclub = json_teamdata['me'] 
     
     def add_events(self):
         for match in self.json_matchdata['matches']:
@@ -66,15 +67,13 @@ class Events:
         match_start = datetime.strptime(match_data['date'], date_fmt_in)
         match_end = match_start + timedelta(hours=+3)
     
-        date_fmt_ical = '%Y%m%dT%H%M00Z'
         display_date = match_start.strftime(date_fmt_in)
-        idate = match_start.strftime(date_fmt_ical)
         description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score,
                                                            away_score, away_team,
                                                            display_date)
         print(description)
         event = Event()
-        event['uid'] = '%s%s@mc-williams.co.uk' % (idate, match_data['home'])
+        event['uid'] = self._gen_id(match_data)
         event['location'] = location
         event.add('priority', 5)
     
@@ -86,6 +85,13 @@ class Events:
         event.add('dtstamp', datetime.utcnow())
         
         return event
+
+    def _gen_id(self, match_data):
+        id_club = '%s-%s' % (match_data['home'],'AWAY')
+        if (match_data['home'] == self.myclub):
+            id_club = '%s-%s' % (match_data['away'],'HOME')
+
+        return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.year, id_club)
         
     def _mk_save_dir(self):    
         newdir = os.path.join(gettempdir(), 'icalendar') 
