@@ -71,14 +71,21 @@ class Events:
         description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score,
                                                            away_score, away_team,
                                                            display_date)
+        if ("label" in match_data):
+            description = '%s (%s)' % (description, match_data['label'])
+
         print(description)
         event = Event()
         event['uid'] = self._gen_id(match_data)
         event['location'] = location
         event.add('priority', 5)
     
-        event.add('summary', '%s (%s) v (%s) %s' % (home_team, home_score,
-                                                    away_score, away_team))
+        summary = '%s (%s) v (%s) %s' % (home_team, home_score,
+                                                    away_score, away_team)
+        if ("label" in match_data):
+            summary = '%s (%s)' % (summary, match_data['label'])
+
+        event.add('summary', summary)
         event.add('description', description)
         event.add('dtstart', match_start)
         event.add('dtend', match_end)
