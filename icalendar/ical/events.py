@@ -54,55 +54,21 @@ class Events:
     def _create_event(self, match_data):
     #    print(match_data)
     #    print(team_data)
-        """Create an event for the given match_data"""
-        home = self.team_data[match_data['home']]
-        away = self.team_data[match_data['away']]
-        home_team = home['name']
-        home_score = match_data['home_score']
-        away_team = away['name']
-        away_score = match_data['away_score']
-        location = home['location']
-        
-        date_fmt_in = '%Y-%m-%d_%H:%M'
-        match_start = datetime.strptime(match_data['date'], date_fmt_in)
-        match_end = match_start + timedelta(hours=+3)
+        match = Match(match_data, self.team_data, self.myclub)
 
-        label = ''
-        if ('label' in match_data):
-            label = ' (%s)' % (match_data['label'])
-    
-        display_date = match_start.strftime(date_fmt_in)
-        description = '%-12s (%2s) v (%2s) %-12s on %s%s' % (home_team, home_score,
-                                                           away_score, away_team,
-                                                           display_date, label)
-        print(description)
         event = Event()
-        event['uid'] = self._gen_id(match_data)
-        event['location'] = location
+        event['uid'] = match.id(self.year)
+        event['location'] = match.location()
         event.add('priority', 5)
     
-        summary = '%s (%s) v (%s) %s%s' % (home_team, home_score,
-                                         away_score, away_team, label)
-
-        event.add('summary', summary)
-        event.add('description', description)
-        event.add('dtstart', match_start)
-        event.add('dtend', match_end)
+        event.add('summary', match.summary())
+        event.add('description', match.description())
+        event.add('dtstart', match.match_start())
+        event.add('dtend', match.match_end())
         event.add('dtstamp', datetime.utcnow())
         
         return event
 
-    def _gen_id(self, match_data):
-        id_club = '%s-%s' % (match_data['home'],'AWAY')
-        if (match_data['home'] == self.myclub):
-            id_club = '%s-%s' % (match_data['away'],'HOME')
-
-        label = ''
-        if ('label' in match_data):
-            label = '-%s' % (match_data['label'].replace(' ','').upper())
-
-        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, self.year, id_club, label)
-        
     def _mk_save_dir(self):    
         newdir = os.path.join(gettempdir(), 'icalendar') 
         if not os.path.exists(newdir):
@@ -119,3 +85,55 @@ class Events:
     
     def _print_cal(self):
         print(self.cal.to_ical())
+
+
+class Match:
+    '''
+    Manage one match
+    '''
+
+    def __init__(self, match_data, team_data, myclub):
+        '''
+        Constructor
+        '''
+
+        self.match_data = match_data
+        self.team_data = team_data
+        self.myclub = myclub
+        home = self.team_data[match_data['home']]
+        away = self.team_data[match_data['away']]
+        self.home_team = home['name']
+        self.home_score = match_data['home_score']
+        self.away_team = away['name']
+        self.away_score = match_data['away_score']
+        self.location = home['location']
+        self.date_fmt_in = '%Y-%m-%d_%H:%M'
+        self.match_start = datetime.strptime(match_data['date'], self.date_fmt_in)
+        self.match_end = self.match_start + timedelta(hours=+3)
+        self.label = ''
+        if ('label' in match_data):
+            self.label = ' (%s)' % (match_data['label'])
+    
+    def summary(self):
+        summary = '%s (%s) v (%s) %s%s' % (self.home_team, self.home_score,
+                                         self.away_score, self.away_team, self.label)
+        return summary
+
+    def description(self):    
+        display_date = self.match_start.strftime(self.date_fmt_in)
+        description = '%-12s (%2s) v (%2s) %-12s on %s%s' % (self.home_team, self.home_score,
+                                                           self.away_score, self.away_team,
+                                                           display_date, self.label)
+        print(description)
+        return description
+
+    def id(self, year):
+        id_club = '%s-%s' % (self.match_data['home'],'AWAY')
+        if (self.match_data['home'] == self.myclub):
+            id_club = '%s-%s' % (self.match_data['away'],'HOME')
+
+        label = ''
+        if ('label' in self.match_data):
+            label = '-%s' % (self.match_data['label'].replace(' ','').upper())
+
+        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, year, id_club, label)
