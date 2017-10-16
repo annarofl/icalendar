@@ -30,10 +30,11 @@ class Events:
         self.cal.add('calscale', 'GREGORIAN')
         self.cal.add('X-WR-TIMEZONE', 'Europe/London')
 
-        self.json_matchdata = self._load_json('%s_matches_%s.json' % (club,year))
+        self.json_matchdata = self._load_json('%s_matches_%s.json' % (club, year))
         
         json_teamdata = self._load_json('%s_teams.json' % club)
         self.team_data = json_teamdata['teams']
+        self.myclub = json_teamdata['me'] 
     
     def add_events(self):
         for match in self.json_matchdata['matches']:
@@ -66,23 +67,38 @@ class Events:
         match_start = datetime.strptime(match_data['date'], date_fmt_in)
         match_end = match_start + timedelta(hours=+3)
     
-        date_fmt_ical = '%Y%m%dT%H%M00Z'
         display_date = match_start.strftime(date_fmt_in)
-        idate = match_start.strftime(date_fmt_ical)
-        description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score, away_score, away_team, display_date)
+        description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score,
+                                                           away_score, away_team,
+                                                           display_date)
+        if ("label" in match_data):
+            description = '%s (%s)' % (description, match_data['label'])
+
         print(description)
         event = Event()
-        event['uid'] = '%s%s@mc-williams.co.uk' % (idate, match_data['home'])
+        event['uid'] = self._gen_id(match_data)
         event['location'] = location
         event.add('priority', 5)
     
-        event.add('summary', '%s (%s) v (%s) %s' % (home_team, home_score, away_score, away_team))
+        summary = '%s (%s) v (%s) %s' % (home_team, home_score,
+                                         away_score, away_team)
+        if ("label" in match_data):
+            summary = '%s (%s)' % (summary, match_data['label'])
+
+        event.add('summary', summary)
         event.add('description', description)
         event.add('dtstart', match_start)
         event.add('dtend', match_end)
         event.add('dtstamp', datetime.utcnow())
         
         return event
+
+    def _gen_id(self, match_data):
+        id_club = '%s-%s' % (match_data['home'],'AWAY')
+        if (match_data['home'] == self.myclub):
+            id_club = '%s-%s' % (match_data['away'],'HOME')
+
+        return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.year, id_club)
         
     def _mk_save_dir(self):    
         newdir = os.path.join(gettempdir(), 'icalendar') 
@@ -91,7 +107,7 @@ class Events:
         return newdir
     
     def _write_file(self):
-        filename = '%s_%s' % (self.club,self.year)
+        filename = '%s_%s' % (self.club, self.year)
         newfile = os.path.join(self._mk_save_dir(), '%s.ics' % filename)
         f = open(newfile, 'wb')
         f.write(self.cal.to_ical())
@@ -100,4 +116,3 @@ class Events:
     
     def _print_cal(self):
         print(self.cal.to_ical())
-            
