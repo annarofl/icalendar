@@ -66,24 +66,23 @@ class Events:
         date_fmt_in = '%Y-%m-%d_%H:%M'
         match_start = datetime.strptime(match_data['date'], date_fmt_in)
         match_end = match_start + timedelta(hours=+3)
+
+        label = ''
+        if ('label' in match_data):
+            label = ' (%s)' % (match_data['label'])
     
         display_date = match_start.strftime(date_fmt_in)
-        description = '%-12s (%2s) v (%2s) %-12s on %s' % (home_team, home_score,
+        description = '%-12s (%2s) v (%2s) %-12s on %s%s' % (home_team, home_score,
                                                            away_score, away_team,
-                                                           display_date)
-        if ("label" in match_data):
-            description = '%s (%s)' % (description, match_data['label'])
-
+                                                           display_date, label)
         print(description)
         event = Event()
         event['uid'] = self._gen_id(match_data)
         event['location'] = location
         event.add('priority', 5)
     
-        summary = '%s (%s) v (%s) %s' % (home_team, home_score,
-                                         away_score, away_team)
-        if ("label" in match_data):
-            summary = '%s (%s)' % (summary, match_data['label'])
+        summary = '%s (%s) v (%s) %s%s' % (home_team, home_score,
+                                         away_score, away_team, label)
 
         event.add('summary', summary)
         event.add('description', description)
@@ -98,7 +97,11 @@ class Events:
         if (match_data['home'] == self.myclub):
             id_club = '%s-%s' % (match_data['away'],'HOME')
 
-        return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.year, id_club)
+        label = ''
+        if ('label' in match_data):
+            label = '-%s' % (match_data['label'].replace(' ','').upper())
+
+        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, self.year, id_club, label)
         
     def _mk_save_dir(self):    
         newdir = os.path.join(gettempdir(), 'icalendar') 
