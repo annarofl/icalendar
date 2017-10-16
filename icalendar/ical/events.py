@@ -58,13 +58,13 @@ class Events:
 
         event = Event()
         event['uid'] = match.id(self.year)
-        event['location'] = match.location()
+        event['location'] = match.location
         event.add('priority', 5)
     
         event.add('summary', match.summary())
         event.add('description', match.description())
-        event.add('dtstart', match.match_start())
-        event.add('dtend', match.match_end())
+        event.add('dtstart', match.match_start)
+        event.add('dtend', match.match_end)
         event.add('dtstamp', datetime.utcnow())
         
         return event
@@ -132,8 +132,4 @@ class Match:
         if (self.match_data['home'] == self.myclub):
             id_club = '%s-%s' % (self.match_data['away'],'HOME')
 
-        label = ''
-        if ('label' in self.match_data):
-            label = '-%s' % (self.match_data['label'].replace(' ','').upper())
-
-        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, year, id_club, label)
+        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, year, id_club, self.label)
