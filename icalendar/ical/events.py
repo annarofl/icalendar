@@ -114,9 +114,11 @@ class Match:
         self.away_team_name = self.away_team_data['name']
         self.away_score = match_data['away_score']
 
-        self.match_start = datetime.strptime(match_data['date'], self.date_fmt_in)
-        self.match_end = self.match_start + timedelta(hours=+3)
-
+        match_time = datetime.strptime(match_data['date'], self.date_fmt_in)
+        self.match_end = match_time + timedelta(hours=3)
+        # expect to arrive 10 mins early
+        self.match_start = match_time - timedelta(minutes=10)
+        
         self.label = ''
         if ('label' in match_data):
             self.label = ' (%s)' % (match_data['label'])
