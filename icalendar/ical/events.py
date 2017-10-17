@@ -107,7 +107,6 @@ class Match:
         self.team_data = team_data
         self.myclub = myclub
         self.year = year
-        self.date_fmt_in = '%Y-%m-%d_%H:%M'
 
         self.home_id = match_data['home']
         home_team_data = self.team_data[self.home_id]
@@ -121,10 +120,11 @@ class Match:
         self.away_team_name = away_team_data['name']
         self.away_score = match_data['away_score']
 
-        match_time = datetime.strptime(match_data['date'], self.date_fmt_in)
-        self.match_end = match_time + timedelta(hours=3)
+        date_fmt_in = '%Y-%m-%d_%H:%M'
+        self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
+        self.match_end = self.match_time + timedelta(hours=3)
         # expect to arrive 10 mins early
-        self.match_start = match_time - timedelta(minutes=10)
+        self.match_start = self.match_time - timedelta(minutes=10)
         
         self.label = ''
         if ('label' in match_data):
@@ -136,7 +136,8 @@ class Match:
         return summary
 
     def description(self):    
-        display_date = self.match_start.strftime(self.date_fmt_in)
+        #display_date = self.match_start.strftime(self.date_fmt_in)
+        display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
         print_description = '%-12s (%2s) v (%2s) %-12s on %s%13s %s' % (self.home_team_name, self.home_score,
                                                            self.away_score, self.away_team_name,
                                                            display_date, self.label, self.id())
