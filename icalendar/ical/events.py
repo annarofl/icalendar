@@ -30,14 +30,15 @@ class Events:
         self.cal.add('calscale', 'GREGORIAN')
         self.cal.add('X-WR-TIMEZONE', 'Europe/London')
 
-        self.json_matchdata = self._load_json('%s_matches_%s.json' % (club, year))
+        json_matchdata = self._load_json('%s_matches_%s.json' % (club, year))
+        self.matches = json_matchdata['matches']
         
         json_teamdata = self._load_json('%s_teams.json' % club)
         self.team_data = json_teamdata['teams']
         self.myclub = json_teamdata['me'] 
     
     def add_events(self):
-        for match in self.json_matchdata['matches']:
+        for match in self.matches:
             match = Match(match, self.team_data, self.myclub, self.year)
             self.cal.add_component(self._create_event(match))
 
@@ -109,15 +110,15 @@ class Match:
         self.date_fmt_in = '%Y-%m-%d_%H:%M'
 
         self.home_id = match_data['home']
-        self.home_team_data = self.team_data[self.home_id]
-        self.home_team_name = self.home_team_data['name']
+        home_team_data = self.team_data[self.home_id]
+        self.home_team_name = home_team_data['name']
         self.home_score = match_data['home_score']
 
-        self.location = self.home_team_data['location']
+        self.location = home_team_data['location']
 
         self.away_id = match_data['away']
-        self.away_team_data = self.team_data[self.away_id]
-        self.away_team_name = self.away_team_data['name']
+        away_team_data = self.team_data[self.away_id]
+        self.away_team_name = away_team_data['name']
         self.away_score = match_data['away_score']
 
         match_time = datetime.strptime(match_data['date'], self.date_fmt_in)
