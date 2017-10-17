@@ -3,7 +3,7 @@ Created on 11 Oct 2017
 
 @author: gmcwilliams
 '''
-from icalendar import Calendar
+from icalendar import Calendar, Alarm
 import json
 from datetime import timedelta, datetime
 from icalendar.cal import Event
@@ -67,6 +67,12 @@ class Events:
         event.add('dtend', match.match_end)
         event.add('dtstamp', datetime.utcnow())
         
+        alarm = Alarm()
+        alarm.add("action", "DISPLAY")
+        alarm.add('description', "Reminder")
+        alarm.add("trigger", timedelta(hours=-1))
+        event.add_component(alarm)
+
         return event
 
     def _mk_save_dir(self):    
