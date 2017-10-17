@@ -1,21 +1,22 @@
 # Source files
 # ============
-*.pxd		text
-*.py 		text
-*.py3 	text
-*.pyw		text
-*.pyx 	text
-*.json  text
-*.ics   text
+*.pxd       text
+*.py        text
+*.py3       text
+*.pyw       text
+*.pyx       text
+*.json      text
+*.ics       text
+*.xml       text
 
 # Binary files
 # ============
-*.db		binary
-*.p 		binary
-*.pkl		binary
-*.pyc		binary
-*.pyd		binary
-*.pyo		binary
+*.db        binary
+*.p         binary
+*.pkl       binary
+*.pyc       binary
+*.pyd       binary
+*.pyo       binary
 
 # Note: .db, .p, and .pkl files are associated
 # with the python modules ``pickle``, ``dbm.*``,
