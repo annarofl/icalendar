@@ -16,10 +16,18 @@
 		},
 		{
 			"home": "EGLAN",
+			"home_score": 6,
+			"away": "STCOL",
+			"away_score": 1,
+			"date": "2017-10-18_20:00"
+		},
+		{
+			"label": "Charity Cup",
+			"home": "STCLA",
 			"home_score": 0,
 			"away": "STCOL",
 			"away_score": 0,
-			"date": "2017-10-18_20:00"
+			"date": "2017-10-23_19:30"
 		},
 		{
 			"home": "STCOL",
