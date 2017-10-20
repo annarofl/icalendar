@@ -7,7 +7,6 @@ from icalendar import Calendar, Alarm
 import json
 from datetime import timedelta, datetime
 from icalendar.cal import Event
-from tempfile import gettempdir
 import os
 
 class Events:
@@ -15,6 +14,7 @@ class Events:
     Manage calendar events
     '''
 
+    savedir = "C:/Users/gmcwilliams/Dropbox/Apps"
 
     def __init__(self, club, year):
         '''
@@ -45,6 +45,9 @@ class Events:
         self._print_cal()
         self._write_file()
 
+    def set_savedir(self, savedir):
+        self.savedir = savedir
+        
     def _load_json(self, json_filename):
         "loads the JSON file"
         with open(json_filename) as data_file:    
@@ -76,8 +79,11 @@ class Events:
 
         return event
 
+    def _get_savedir(self):
+        return self.savedir 
+        
     def _mk_save_dir(self):    
-        newdir = os.path.join(gettempdir(), 'icalendar') 
+        newdir = os.path.join(self._get_savedir(), 'icalendar') 
         if not os.path.exists(newdir):
             os.makedirs(newdir)
         return newdir
