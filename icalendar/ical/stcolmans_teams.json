@@ -5,6 +5,14 @@
 			"name": "St Colmans",
 			"location": "St. Colman's Church, 111 Queensway, Lisburn, County Antrim BT27"
 		},
+        "ZONE": {
+            "name": "Lisburn Zone",
+            "location": "Zone"
+        },
+        "NRTDN": {
+            "name": "North Down",
+            "location": "Strean Presbyterian Church, West St, Newtownards BT23 4EN, UK"
+        },
 		"AGHAG": {
 			"name": "Aghagallon",
 			"location": "Aghagallon Community Centre, Aghalee Rd, Aghagallon, Craigavon BT67 0AR"
