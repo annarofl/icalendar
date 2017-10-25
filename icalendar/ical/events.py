@@ -8,19 +8,34 @@ import json
 from datetime import timedelta, datetime
 from icalendar.cal import Event
 import os
+from pathlib import Path
+
+
+def get_dropbox_path():
+    
+    try:
+        json_path = (Path(os.getenv('LOCALAPPDATA'))/'Dropbox'/'info.json').resolve()
+    except FileNotFoundError:
+        json_path = (Path(os.getenv('APPDATA'))/'Dropbox'/'info.json').resolve()
+    
+    with open(str(json_path)) as f:
+        j = json.load(f)
+    
+    return Path(j['personal']['path']).absolute()
+
 
 class Events:
     '''
     Manage calendar events
     '''
-
-    savedir = "C:/Users/gmcwilliams/Dropbox/Apps"
-
     def __init__(self, club, year):
         '''
         Constructor
         '''
 
+        self.savedir = get_dropbox_path()
+        print(self.savedir)
+        
         self.club = club
         self.year = year
                 
@@ -79,18 +94,20 @@ class Events:
 
         return event
 
-    def _get_savedir(self):
-        return self.savedir 
-        
     def _mk_save_dir(self):    
-        newdir = os.path.join(self._get_savedir(), 'icalendar') 
-        if not os.path.exists(newdir):
+        newdir = (Path(self.savedir/'Apps'/'icalendar')).resolve()
+
+        if not newdir.exists():
+            print("Foo")
+            newdir.mkdir()
             os.makedirs(newdir)
+            
         return newdir
     
     def _write_file(self):
-        filename = '%s_%s' % (self.club, self.year)
-        newfile = os.path.join(self._mk_save_dir(), '%s.ics' % filename)
+        filename = '%s_%s.ics' % (self.club, self.year)
+        newfile = (Path(self._mk_save_dir()/filename)).resolve() 
+#        os.path.join(self._mk_save_dir(), '%s.ics' % filename)
         f = open(newfile, 'wb')
         f.write(self.cal.to_ical())
         f.close()
