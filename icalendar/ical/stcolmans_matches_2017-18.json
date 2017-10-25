@@ -21,6 +21,14 @@
 			"away_score": 1,
 			"date": "2017-10-18_20:00"
 		},
+        {
+            "label": "Zone",
+            "home": "NRTDN",
+            "home_score": 43,
+            "away": "ZONE",
+            "away_score": 52,
+            "date": "2017-10-21_14:00"
+        },
 		{
 			"label": "Charity Cup",
 			"home": "STCLA",
