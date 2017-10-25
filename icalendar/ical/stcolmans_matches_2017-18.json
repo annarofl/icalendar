@@ -51,6 +51,14 @@
 			"away_score": 0,
 			"date": "2017-11-09_20:00"
 		},
+        {
+            "label": "Zone",
+            "home": "ZONE",
+            "home_score": 0,
+            "away": "MNGHN",
+            "away_score": 0,
+            "date": "2017-11-25_14:00"
+        },
 		{
 			"home": "STCOL",
 			"home_score": 0,
