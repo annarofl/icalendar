@@ -29,7 +29,8 @@
 		},
 		"STEVE": {
 			"name": "Stevenson",
-			"location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
+			"location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK",
+			"phone": "07749070387"
 		},
 		"DOYLE": {
 			"name": "C Doyle",
@@ -43,7 +44,8 @@
         ,
         "BARRE": {
             "name": "Barrett",
-            "location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
+            "location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK",
+            "phone": "07902302936"
         }
         ,
         "IRWIN": {
