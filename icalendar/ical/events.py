@@ -128,6 +128,10 @@ class Match:
 
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
+        # for consistency, always use the original date for id, even if match time moves
+        self.id_time = self.match_time.strftime('%Y-%m-%d_%H:%M')
+        if ('newdate' in match_data):
+            self.match_time = datetime.strptime(match_data['newdate'], date_fmt_in)
         self.match_end = self.match_time + timedelta(hours=3)
         # expect to arrive 10 mins early
         self.match_start = self.match_time - timedelta(minutes=10)
@@ -163,5 +167,4 @@ class Match:
         if (self.home_id == self.myclub) or (self.home_id == 'ZONE'):
             id_club = '%s-%s' % (self.away_id,'HOME')
 
-        return '%s-%s-%s%s@mc-williams.co.uk' % (self.myclub, self.year, id_club,
-                                                 self.label.replace(' ','').replace('(','').replace(')','').upper())
+        return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.id_time, id_club)
