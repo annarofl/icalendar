@@ -34,10 +34,26 @@
 		"DOYLE": {
 			"name": "C Doyle",
 			"location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
-		},
-		"BARRE": {
-			"name": "Barrett",
+		}
+		,
+		"BIRD": {
+			"name": "B Bird",
 			"location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
 		}
+        ,
+        "BARRE": {
+            "name": "Barrett",
+            "location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
+        }
+        ,
+        "IRWIN": {
+            "name": "S Irwin",
+            "location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
+        }
+        ,
+        "MOREL": {
+            "name": "K Moreland",
+            "location": "Belfast Indoor Bowls Club, 115 Milltown Rd, Belfast BT8 7XP, UK"
+        }
 	}
 }
