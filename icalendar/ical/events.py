@@ -14,14 +14,14 @@ from pathlib import Path
 def get_dropbox_path():
     
     try:
-        json_path = (Path(os.getenv('LOCALAPPDATA'))/'Dropbox'/'info.json').resolve()
+        json_path = Path(os.getenv('LOCALAPPDATA'))/'Dropbox'/'info.json'
     except FileNotFoundError:
-        json_path = (Path(os.getenv('APPDATA'))/'Dropbox'/'info.json').resolve()
+        json_path = Path(os.getenv('APPDATA'))/'Dropbox'/'info.json'
     
     with open(str(json_path)) as f:
         j = json.load(f)
     
-    return Path(j['personal']['path']).absolute()
+    return Path(j['personal']['path']).resolve().absolute()
 
 
 class Events:
@@ -95,23 +95,18 @@ class Events:
         return event
 
     def _mk_save_dir(self):    
-        newdir = (Path(self.savedir/'Apps'/'icalendar')).resolve()
+        newdir = Path(self.savedir) / 'Apps' / 'icalendar'
 
         if not newdir.exists():
-            print("Foo")
-            newdir.mkdir()
-            os.makedirs(newdir)
+            newdir.mkdir(parents=True)
             
         return newdir
     
     def _write_file(self):
         filename = '%s_%s.ics' % (self.club, self.year)
-        newfile = (Path(self._mk_save_dir()/filename)).resolve() 
-#        os.path.join(self._mk_save_dir(), '%s.ics' % filename)
-        f = open(newfile, 'wb')
-        f.write(self.cal.to_ical())
-        f.close()
-        print('saved:' + newfile)
+        newfile = self._mk_save_dir() / filename
+        newfile.write_bytes(self.cal.to_ical())
+        print('saved:%s' % newfile)
     
     def _print_cal(self):
         print(self.cal.to_ical())
