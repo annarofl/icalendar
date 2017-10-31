@@ -38,6 +38,9 @@ class Events:
         self.myclub = json_teamdata['me'] 
     
     def add_events(self):
+        """Add all events for this team / season
+        """
+        
         for match in self.matches:
             match = Match(match, self.team_data, self.myclub, self.year)
             self.cal.add_component(self._create_event(match))
@@ -146,11 +149,15 @@ class Match:
         return summary
 
     def description(self):    
+        '''
+        Return the match data in the defined format as a description
+        can change
+        '''
         #display_date = self.match_start.strftime(self.date_fmt_in)
         display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
-        print_description = '%-12s (%2s) v (%2s) %-12s on %s%-14s %s' % (self.home_team_name, self.home_score,
+        print_description = '%-12s (%2s) v (%2s) %-12s on %s %-51s %-14s' % (self.home_team_name, self.home_score,
                                                            self.away_score, self.away_team_name,
-                                                           display_date, self.label, self.id())
+                                                           display_date, self.id(), self.label)
         print(print_description)
         description = '%s (%s) v (%s) %s on %s%s' % (self.home_team_name, self.home_score,
                                                            self.away_score, self.away_team_name,
