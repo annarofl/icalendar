@@ -1,8 +1,8 @@
-'''
+"""
 Created on 11 Oct 2017
 
 @author: gmcwilliams
-'''
+"""
 from icalendar import Calendar, Alarm
 import json
 from datetime import timedelta, datetime
@@ -25,13 +25,10 @@ def get_dropbox_path():
 
 
 class Events:
-    '''
+    """
     Manage calendar events
-    '''
+    """
     def __init__(self, club, year):
-        '''
-        Constructor
-        '''
 
         self.savedir = get_dropbox_path()
         print(self.savedir)
@@ -53,8 +50,7 @@ class Events:
         self.myclub = json_teamdata['me'] 
     
     def add_events(self):
-        """Add all events for this team / season
-        """
+        """Add all events for this team / season"""
         
         for match in self.matches:
             match = Match(match, self.team_data, self.myclub, self.year)
@@ -116,14 +112,11 @@ class Events:
 
 
 class Match:
-    '''
+    """
     Manage one match
-    '''
+    """
 
     def __init__(self, match_data, team_data, myclub, year):
-        '''
-        Constructor
-        '''
 
         self.team_data = team_data
         self.myclub = myclub
@@ -156,15 +149,15 @@ class Match:
             self.label = ' (%s)' % (match_data['label'])
     
     def summary(self):
+        """Return match summary in pre-defined format"""
         summary = '%s (%s) v (%s) %s%s' % (self.home_team_name, self.home_score,
                                          self.away_score, self.away_team_name, self.label)
         return summary
 
     def description(self):    
-        '''
+        """
         Return the match data in the defined format as a description
-        can change
-        '''
+        """
         #display_date = self.match_start.strftime(self.date_fmt_in)
         display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
         print_description = '%-12s (%2s) v (%2s) %-12s on %s %-51s %-14s' % (self.home_team_name, self.home_score,
@@ -177,10 +170,7 @@ class Match:
         return description
 
     def id(self):
-        '''
-        Define a Unique ID for the match. NOTE the ID should not include the date as the date
-        can change
-        '''
+        """Define a Unique ID for the match."""
         
         id_club = '%s-%s' % (self.home_id,'AWAY')
         if (self.home_id == self.myclub) or (self.home_id == 'ZONE'):
