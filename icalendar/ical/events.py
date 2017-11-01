@@ -31,7 +31,6 @@ class Events:
     def __init__(self, club, year):
 
         self.savedir = get_dropbox_path()
-        print(self.savedir)
         
         self.club = club
         self.year = year
