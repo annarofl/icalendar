@@ -32,16 +32,16 @@
 		{
 			"label": "Charity Cup",
 			"home": "STCLA",
-			"home_score": 0,
+			"home_score": 50,
 			"away": "STCOL",
-			"away_score": 0,
+			"away_score": 51,
 			"date": "2017-10-23_19:30"
 		},
 		{
 			"home": "STCOL",
-			"home_score": 0,
+			"home_score": 1,
 			"away": "STCLA",
-			"away_score": 0,
+			"away_score": 6,
 			"date": "2017-11-02_20:00"
 		},
 		{
