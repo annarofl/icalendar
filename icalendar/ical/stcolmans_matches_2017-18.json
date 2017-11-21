@@ -80,6 +80,48 @@
 			"away": "STCOL",
 			"away_score": 0,
 			"date": "2017-12-14_20:00"
+		},
+		{
+			"home": "STCOL",
+			"home_score": 0,
+			"away": "STMAR",
+			"away_score": 0,
+			"date": "2018-01-11_20:00"
+		},
+		{
+			"home": "STCOL",
+			"home_score": 0,
+			"away": "EGLAN",
+			"away_score": 0,
+			"date": "2018-01-18_20:00"
+		},
+		{
+			"home": "STCLA",
+			"home_score": 0,
+			"away": "STCOL",
+			"away_score": 0,
+			"date": "2018-01-31_20:00"
+		},
+		{
+			"home": "ROCK",
+			"home_score": 0,
+			"away": "STCOL",
+			"away_score": 0,
+			"date": "2018-02-05_20:00"
+		},
+		{
+			"home": "STCOL",
+			"home_score": 0,
+			"away": "BROOM",
+			"away_score": 0,
+			"date": "2018-02-15_20:00"
+		},
+		{
+			"home": "SUFFO",
+			"home_score": 0,
+			"away": "STCOL",
+			"away_score": 0,
+			"date": "2018-03-01_20:00"
 		}
 	]
 }
