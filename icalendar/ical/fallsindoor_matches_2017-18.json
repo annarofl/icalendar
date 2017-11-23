@@ -51,6 +51,14 @@
 			"date": "2017-11-12_19:30"
 		},
 		{
+		    "label": "Devine Cup",
+			"home": "FALLS",
+			"home_score": 49,
+			"away": "STPAU",
+			"away_score": 40,
+			"date": "2017-11-22_19:30"
+		},
+		{
 			"home": "FALLS",
 			"home_score": 0,
 			"away": "FALLB",
