@@ -63,14 +63,14 @@
 			"away": "STEVE",
 			"away_score": 0,
 			"date": "2017-11-03_19:15"
-            ,"newdate": "2017-11-25_10:15"
+            ,"newdate": "2017-11-24_19:15"
 		}
         ,
         {
             "home": "BIRD",
-            "home_score": 0,
+            "home_score": 15,
             "away": "MCWIL",
-            "away_score": 0,
+            "away_score": 10,
             "date": "2017-11-10_19:15"
         }
         ,
