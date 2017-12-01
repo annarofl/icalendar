@@ -55,7 +55,7 @@
 		{
 			"label": "Charity Cup",
 			"home": "STCOL",
-			"home_score": 0,
+			"home_score": 1,
 			"away": "ROCK",
 			"away_score": 0,
 			"date": "2017-11-23_19:30"
@@ -70,9 +70,9 @@
         },
 		{
 			"home": "STCOL",
-			"home_score": 0,
+			"home_score": 5.5,
 			"away": "SUFFO",
-			"away_score": 0,
+			"away_score": 1.5,
 			"date": "2017-11-30_20:00"
 		},
 		{
