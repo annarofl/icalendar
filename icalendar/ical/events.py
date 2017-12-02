@@ -41,10 +41,14 @@ class Events:
         self.cal.add('calscale', 'GREGORIAN')
         self.cal.add('X-WR-TIMEZONE', 'Europe/London')
 
-        json_matchdata = self._load_json('%s_matches_%s.json' % (club, year))
+        dataPath = Path('data', club)
+        matchFile = Path(dataPath, ('%s_matches_%s.json' % (club, year)))
+
+        json_matchdata = self._load_json(matchFile)
         self.matches = json_matchdata['matches']
         
-        json_teamdata = self._load_json('%s_teams.json' % club)
+        teamFile = Path(dataPath, ('%s_teams.json' % club))
+        json_teamdata = self._load_json(teamFile)
         self.team_data = json_teamdata['teams']
         self.myclub = json_teamdata['me'] 
     
