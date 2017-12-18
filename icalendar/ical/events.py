@@ -163,7 +163,7 @@ class Match:
         """
         #display_date = self.match_start.strftime(self.date_fmt_in)
         display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
-        print_description = '%-12s (%2s) v (%2s) %-12s on %s %-51s %-14s' % (self.home_team_name, self.home_score,
+        print_description = '%-12s (%3s) v (%3s) %-12s on %s %-51s %-14s' % (self.home_team_name, self.home_score,
                                                            self.away_score, self.away_team_name,
                                                            display_date, self.id(), self.label)
         print(print_description)
