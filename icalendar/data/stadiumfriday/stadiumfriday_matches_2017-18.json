@@ -100,9 +100,9 @@
         ,
         {
             "home": "MARTI",
-            "home_score": 0,
+            "home_score": 3,
             "away": "MCWIL",
-            "away_score": 0,
+            "away_score": 24,
             "date": "2017-12-22_19:15"
         }
         ,
@@ -112,6 +112,7 @@
             "away": "MCGLE",
             "away_score": 0,
             "date": "2017-12-29_19:15"
+            ,"newdate": "2018-01-04_19:15"
         }
         ,
         {
