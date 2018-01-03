@@ -113,17 +113,17 @@
         ,
         {
             "home": "CAMPB",
-            "home_score": 0,
+            "home_score": 15,
             "away": "HENDE",
-            "away_score": 0,
+            "away_score": 7,
             "date": "2017-12-19_19:15"
         }
         ,
         {
             "home": "OROUR",
-            "home_score": 0,
+            "home_score": 21,
             "away": "CAMPB",
-            "away_score": 0,
+            "away_score": 7,
             "date": "2018-01-02_19:15"
         }
         ,
