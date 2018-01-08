@@ -140,7 +140,6 @@ class Match:
 
         if 'duration' in match_data:
             match_duration = match_data['duration']
-        print("match duration=%s" % match_duration)
         
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
