@@ -59,7 +59,7 @@ class Events:
             match = Match(match, self.team_data, self.myclub, self.year)
             self.cal.add_component(self._create_event(match))
 
-        self._print_cal()
+        #self._print_cal()
         self._write_file()
 
     def set_savedir(self, savedir):
