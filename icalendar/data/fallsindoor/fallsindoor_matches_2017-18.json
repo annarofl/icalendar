@@ -67,6 +67,15 @@
 			"date": "2017-11-30_19:30"
 		},
 		{
+		    "label": "Club Match, Dan Cregan",
+		    "duration": 1,
+			"home": "FALLS",
+			"home_score": 0,
+			"away": "FALLS",
+			"away_score": 0,
+			"date": "2018-01-08_21:30"
+		},
+		{
 			"home": "HOLYC",
 			"home_score": 0,
 			"away": "FALLS",

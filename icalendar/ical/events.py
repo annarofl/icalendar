@@ -138,6 +138,10 @@ class Match:
         self.away_team_name = away_team_data['name']
         self.away_score = match_data['away_score']
 
+        if 'duration' in match_data:
+            match_duration = match_data['duration']
+        print("match duration=%s" % match_duration)
+        
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
         # for consistency, always use the original date for id, even if match time moves
