@@ -45,6 +45,7 @@ class Events:
         matchFile = Path(dataPath, ('%s_matches_%s.json' % (club, year)))
 
         json_matchdata = self._load_json(matchFile)
+        self.duration = json_matchdata['duration']
         self.matches = json_matchdata['matches']
         
         teamFile = Path(dataPath, ('%s_teams.json' % club))
@@ -56,7 +57,7 @@ class Events:
         """Add all events for this team / season"""
         
         for match in self.matches:
-            match = Match(match, self.team_data, self.myclub, self.year)
+            match = Match(match, self.team_data, self.myclub, self.year, self.duration)
             self.cal.add_component(self._create_event(match))
 
         #self._print_cal()
@@ -119,7 +120,7 @@ class Match:
     Manage one match
     """
 
-    def __init__(self, match_data, team_data, myclub, year):
+    def __init__(self, match_data, team_data, myclub, year, match_duration):
 
         self.team_data = team_data
         self.myclub = myclub
@@ -143,7 +144,7 @@ class Match:
         self.id_time = self.match_time.strftime('%Y-%m-%d_%H:%M')
         if ('newdate' in match_data):
             self.match_time = datetime.strptime(match_data['newdate'], date_fmt_in)
-        self.match_end = self.match_time + timedelta(hours=3)
+        self.match_end = self.match_time + timedelta(hours=match_duration)
         # expect to arrive 10 mins early
         self.match_start = self.match_time - timedelta(minutes=10)
         
