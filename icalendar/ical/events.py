@@ -138,16 +138,19 @@ class Match:
         self.away_team_name = away_team_data['name']
         self.away_score = match_data['away_score']
 
+        duration = timedelta(hours=match_duration)
         if 'duration' in match_data:
-            match_duration = match_data['duration']
-        
+            duration = timedelta(hours=match_data['duration'])
+        elif 'duration_minutes' in match_data:
+            duration = timedelta(minutes=match_data['duration_minutes'])
+            
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
         # for consistency, always use the original date for id, even if match time moves
         self.id_time = self.match_time.strftime('%Y-%m-%d_%H:%M')
         if ('newdate' in match_data):
             self.match_time = datetime.strptime(match_data['newdate'], date_fmt_in)
-        self.match_end = self.match_time + timedelta(hours=match_duration)
+        self.match_end = self.match_time + duration
         # expect to arrive 10 mins early
         self.match_start = self.match_time - timedelta(minutes=10)
         

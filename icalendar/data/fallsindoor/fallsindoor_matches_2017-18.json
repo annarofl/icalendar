@@ -68,7 +68,7 @@
 		},
 		{
 		    "label": "Mens Singles, Dan Cregan",
-		    "duration": 1,
+		    "duration_minutes": 40,
 			"home": "FALLS",
 			"home_score": 0,
 			"away": "FALLS",
@@ -83,7 +83,7 @@
 			"date": "2018-01-09_19:30"
 		},
 		{
-		    "duration": 1,
+		    "duration_minutes": 90,
 			"home": "FALLS",
 			"home_score": 0,
 			"away": "STANN",

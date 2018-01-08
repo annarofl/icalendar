@@ -98,7 +98,7 @@
 			"date": "2018-01-11_20:00"
 		},
 		{
-		    "duration": 1,
+		    "duration_minutes": 90,
 			"home": "STCOL",
 			"home_score": 0,
 			"away": "EGLAN",
