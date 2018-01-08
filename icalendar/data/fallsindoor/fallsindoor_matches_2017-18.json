@@ -83,6 +83,7 @@
 			"date": "2018-01-09_19:30"
 		},
 		{
+		    "duration": 1,
 			"home": "FALLS",
 			"home_score": 0,
 			"away": "STANN",

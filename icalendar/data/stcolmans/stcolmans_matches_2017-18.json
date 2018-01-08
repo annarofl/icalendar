@@ -98,11 +98,12 @@
 			"date": "2018-01-11_20:00"
 		},
 		{
+		    "duration": 1,
 			"home": "STCOL",
 			"home_score": 0,
 			"away": "EGLAN",
 			"away_score": 0,
-			"date": "2018-01-18_20:00"
+			"date": "2018-01-18_21:30"
 		},
 		{
 			"home": "STCLA",
