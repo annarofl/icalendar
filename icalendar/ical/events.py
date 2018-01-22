@@ -12,7 +12,9 @@ from pathlib import Path
 
 
 def get_dropbox_path():
-    
+    """
+    Find the default dropbox path
+    """
     try:
         json_path = Path(os.getenv('LOCALAPPDATA'))/'Dropbox'/'info.json'
     except FileNotFoundError:
@@ -26,9 +28,21 @@ def get_dropbox_path():
 
 class Events:
     """
-    Manage calendar events
+    Manage calendar events. Includes methods for dealing with a set of matches for a
+    year.
     """
     def __init__(self, club, year):
+        """
+        Initialise.
+        
+        This will look for files beginning with the club name
+        in the data folder. club_teams will define the shorthand for each opponent as well
+        as their google maps location. club_fixtures will define the fixtures and date as
+        well as recording the scores for matches as they are played.
+        
+        :param club: String name of the club
+        :param year: String year to look for matches, e.g. 2017-18
+        """
 
         self.savedir = get_dropbox_path()
         
@@ -54,7 +68,7 @@ class Events:
         self.myclub = json_teamdata['me'] 
     
     def add_events(self):
-        """Add all events for this team / season"""
+        """Add all events for this team / season to the calendar"""
         
         for match in self.matches:
             match = Match(match, self.team_data, self.myclub, self.year, self.duration)
@@ -64,6 +78,12 @@ class Events:
         self._write_file()
 
     def set_savedir(self, savedir):
+        """
+        Where to save the calendar. By default this is not needed and the default dropbox
+        folder will be used
+        
+        :paran savedir: String path representing where to save the generated calendar files
+        """
         self.savedir = savedir
         
     def _load_json(self, json_filename):
@@ -75,6 +95,11 @@ class Events:
         return json_data;
     
     def _create_event(self, match):
+        """
+        Creates a calendar event for the given match
+        
+        :paran match: A Match object holding the match data
+        """
     #    print(match_data)
     #    print(team_data)
 
