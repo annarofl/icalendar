@@ -85,9 +85,9 @@
         ,
         {
             "home": "IRWIN",
-            "home_score": 0,
+            "home_score": 11,
             "away": "MCWIL",
-            "away_score": 0,
+            "away_score": 17,
             "date": "2017-12-08_19:15"
             ,"newdate": "2018-01-20_10:00"
         }
@@ -131,13 +131,14 @@
             "away": "TRAIN",
             "away_score": 0,
             "date": "2018-01-12_19:15"
+            ,"newdate": "2018-02-08_19:15"
         }
         ,
         {
             "home": "DOYLE",
-            "home_score": 0,
+            "home_score": 26,
             "away": "MCWIL",
-            "away_score": 0,
+            "away_score": 6,
             "date": "2018-01-19_19:15"
         }
         ,
