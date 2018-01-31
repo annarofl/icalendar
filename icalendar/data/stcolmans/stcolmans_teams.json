@@ -49,6 +49,10 @@
 			"name": "Annahilt",
 			"location": "The Church of the Acension Annahilt, 24 Glebe Road, Hillsborough"
 		},
+        "HILDE": {
+            "name": "Hilden",
+            "location": "36 Belfast Rd, Lisburn BT27 4AS"
+        },
 		"BROOM": {
 			"name": "Broomhedge",
 			"location": "St Mathews Church Hall, Lurganure Road, Lisburn BT28 2TST"
