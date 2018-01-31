@@ -105,6 +105,13 @@
 			"away_score": 0.5,
 			"date": "2018-01-18_21:30"
 		},
+		{
+			"home": "STCLA",
+			"home_score": 0,
+			"away": "STCOL",
+			"away_score": 0,
+			"date": "2018-01-31_20:00"
+		},
         {
             "label": "Charity Cup",
             "home": "HILDE",
@@ -113,13 +120,6 @@
             "away_score": 0,
             "date": "2018-02-01_19:30"
         },
-		{
-			"home": "STCLA",
-			"home_score": 0,
-			"away": "STCOL",
-			"away_score": 0,
-			"date": "2018-01-31_20:00"
-		},
 		{
 			"home": "ROCK",
 			"home_score": 0,
