@@ -146,17 +146,17 @@
         ,
         {
             "home": "TRAIN",
-            "home_score": 0,
+            "home_score": 6,
             "away": "CAMPB",
-            "away_score": 0,
+            "away_score": 17,
             "date": "2018-01-23_19:15"
         }
         ,
         {
             "home": "BELL",
-            "home_score": 0,
+            "home_score": 15,
             "away": "CAMPB",
-            "away_score": 0,
+            "away_score": 12,
             "date": "2018-01-30_19:15"
         }
         ,
