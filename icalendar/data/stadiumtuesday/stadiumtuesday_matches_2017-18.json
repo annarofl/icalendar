@@ -138,9 +138,9 @@
         ,
         {
             "home": "CAMPB",
-            "home_score": 0,
+            "home_score": 9,
             "away": "EDMON",
-            "away_score": 0,
+            "away_score": 13,
             "date": "2018-01-16_19:15"
         }
         ,
@@ -154,41 +154,41 @@
         ,
         {
             "home": "BELL",
-            "home_score": 15,
+            "home_score": 14,
             "away": "CAMPB",
-            "away_score": 12,
+            "away_score": 11,
             "date": "2018-01-30_19:15"
         }
         ,
         {
             "home": "CAMPB",
-            "home_score": 0,
+            "home_score": 12,
             "away": "SIMPS",
-            "away_score": 0,
+            "away_score": 6,
             "date": "2018-02-06_19:15"
         }
         ,
         {
             "home": "CAMPB",
-            "home_score": 0,
+            "home_score": 8,
             "away": "ORORK",
-            "away_score": 0,
+            "away_score": 15,
             "date": "2018-02-13_19:15"
         }
         ,
         {
             "home": "MCINT",
-            "home_score": 0,
+            "home_score": 16,
             "away": "CAMPB",
-            "away_score": 0,
+            "away_score": 11,
             "date": "2018-02-20_19:15"
         }
         ,
         {
             "home": "CAMPB",
-            "home_score": 0,
+            "home_score": 19,
             "away": "THOMP",
-            "away_score": 0,
+            "away_score": 7,
             "date": "2018-02-27_19:15"
         }
         ,
