@@ -129,15 +129,15 @@
 		},
 		{
 			"home": "STCOL",
-			"home_score": 0,
+			"home_score": 6.5,
 			"away": "BROOM",
-			"away_score": 0,
+			"away_score": 0.5,
 			"date": "2018-02-15_20:00"
 		},
 		{
             "label": "Zone Pairs",
 			"home": "AGHAG",
-			"home_score": 0,
+			"home_score": 1,
 			"away": "STCOL",
 			"away_score": 0,
 			"date": "2018-02-22_19:30"
