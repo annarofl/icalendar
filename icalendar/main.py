@@ -10,7 +10,8 @@ parser.add_argument('-y', '--year')
 
 args = parser.parse_args()
 
-checkFile = Path('data', args.team, ('%s_matches_%s.json' % (args.team, args.year)))
+checkFile = Path('data', args.team,
+                 ('%s_matches_%s.json' % (args.team, args.year)))
 if (not checkFile.exists()):
     print("Cannot find data for %s/%s" % (args.team, args.year))
     sys.exit(1)
