@@ -13,37 +13,9 @@
 			"name": "Ards B",
 			"location": "70 South St, Newtownards BT23 4JU"
 		},
-		"HANNA": {
-			"name": "Hannahstown",
-			"location": "Musgrave Park, 7JB, Stockmans Ln, Belfast BT9, UK"
-		},
-		"WOODB": {
-			"name": "Woodbourne",
-			"location": "Horn Drive Community Centre, 44A Horn Dr, Belfast BT11 9GS, UK"
-		},
-		"STPAU": {
-			"name": "St Paul's",
-			"location": "47 Beechmount Avenue, Belfast BT12, UK"
-		},
-		"HOLYC": {
-			"name": "Holy Cross",
-			"location": "40 Herbert St, Belfast BT14 7FH"
-		},
-		"STMIC": {
-			"name": "St Michael's",
-			"location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
-		},
-		"RIVER": {
-			"name": "Riverdale",
-			"location": "St. Michaels chapel, 327 Finaghy Rd N, Belfast BT11 9EH, UK"
-		},
-		"STANN": {
-			"name": "St Anne's",
-			"location": "St Anne's Presbytery, Kingsway, Belfast BT10 0LF"
-		},
-		"HOLYC": {
-			"name": "Holy Cross",
-			"location": "40 Herbert St, Belfast BT14 7FH"
+		"MALON": {
+			"name": "Malone",
+			"location": "240 Upper Malone Rd, Dunmurry, Belfast BT17 9GA"
 		}
 	}
 }
