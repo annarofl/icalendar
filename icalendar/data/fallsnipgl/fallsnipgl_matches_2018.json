@@ -1,0 +1,31 @@
+{
+	"duration": 3,
+	"matches": [
+		{
+			"label": "Singles",
+			"home": "WILLO",
+			"home_score": 21,
+			"away": "FALLS",
+			"away_score": 12,
+			"date": "2018-04-30_18:30"
+		}
+		,
+		{
+			"label": "Fours",
+			"home": "FALLS",
+			"home_score": 0,
+			"away": "DOWNP",
+			"away_score": 0,
+			"date": "2018-05-22_18:30"
+		}
+		,
+		{
+			"label": "Senior Fours",
+			"home": "WILLO",
+			"home_score": 0,
+			"away": "FALLS",
+			"away_score": 0,
+			"date": "2018-06-15_18:30"
+		}
+	]
+}
