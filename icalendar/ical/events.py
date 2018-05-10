@@ -171,7 +171,10 @@ class Match:
             away_team_data = self.team_data[self.away_id]
             self.away_team_name = away_team_data['name']
         else:
-            self.away_team_name = '**%s**' % self.away_id
+            if self.away_id.startswith('--'):
+                self.away_team_name = '%s' % self.away_id[2:]
+            else:
+                self.away_team_name = '**%s**' % self.away_id
         self.away_score = match_data['away_score']
 
         duration = timedelta(hours=match_duration)
@@ -209,7 +212,7 @@ class Match:
         """
         #display_date = self.match_start.strftime(self.date_fmt_in)
         display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
-        print_description = ('%-12s (%3s) v (%3s) %-12s on %s %-51s %-14s' %
+        print_description = ('%-15s (%3s) v (%3s) %-15s on %s %-51s %-14s' %
                              (self.home_team_name, self.home_score,
                               self.away_score, self.away_team_name,
                               display_date, self.id(), self.label))
@@ -225,6 +228,9 @@ class Match:
 
         id_club = '%s-%s' % (self.home_id, 'AWAY')
         if (self.home_id == self.myclub) or (self.home_id == 'ZONE'):
-            id_club = '%s-%s' % (self.away_id, 'HOME')
+            if self.away_id.startswith('--'):
+                id_club = self.away_id[2:].replace(" ", "-")
+            else:
+                id_club = '%s-%s' % (self.away_id, 'HOME')
 
         return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.id_time, id_club)
