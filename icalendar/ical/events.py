@@ -161,7 +161,7 @@ class Match:
             self.home_team_name = home_team_data['name']
             self.location = home_team_data['location']
         else:
-            self.home_team_name = self.home_id
+            self.home_team_name = '**%s**' % self.home_id
             self.location = ""
 
         self.home_score = match_data['home_score']
@@ -171,7 +171,7 @@ class Match:
             away_team_data = self.team_data[self.away_id]
             self.away_team_name = away_team_data['name']
         else:
-            self.away_team_name = self.away_id
+            self.away_team_name = '**%s**' % self.away_id
         self.away_score = match_data['away_score']
 
         duration = timedelta(hours=match_duration)
