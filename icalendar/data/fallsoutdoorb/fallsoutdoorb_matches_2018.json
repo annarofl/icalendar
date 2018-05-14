@@ -19,17 +19,17 @@
 		,
 		{
 			"home": "MALON",
-			"home_score": 0,
+			"home_score": 2,
 			"away": "FALLB",
-			"away_score": 0,
+			"away_score": 5,
 			"date": "2018-05-05_14:00"
 		}
 		,
 		{
 			"home": "FALLB",
-			"home_score": 0,
+			"home_score": 1.5,
 			"away": "BELMC",
-			"away_score": 0,
+			"away_score": 5.5,
 			"date": "2018-05-12_14:00"
 		}
 		,
