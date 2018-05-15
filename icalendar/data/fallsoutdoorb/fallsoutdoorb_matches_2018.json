@@ -50,11 +50,21 @@
 		}
 		,
 		{
+			"label": "Irish Cup",
+			"home": "OLDBL",
+			"home_score": 0,
+			"away": "FALLB",
+			"away_score": 0,
+			"date": "2018-06-02_17:30"
+		}
+		,
+		{
 			"home": "SHORT",
 			"home_score": 0,
 			"away": "FALLB",
 			"away_score": 0,
 			"date": "2018-06-02_14:00"
+            ,"newdate": "2018-06-05_18:30"
 		}
 		,
 		{
@@ -63,6 +73,15 @@
 			"away": "FALLB",
 			"away_score": 0,
 			"date": "2018-06-09_14:00"
+		}
+		,
+		{
+			"label": "PGL Cup",
+			"home": "FALLB",
+			"home_score": 0,
+			"away": "CUP",
+			"away_score": 0,
+			"date": "2018-06-14_18:30"
 		}
 		,
 		{
