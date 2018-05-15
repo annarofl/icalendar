@@ -25,7 +25,7 @@ Data Formats
 Teams
 ^^^^^
 The teams format is:
-[source,json]
+[source,json,indent=0]
 ----
 {
     "me": "FALLS",
@@ -48,7 +48,7 @@ each `team` entry then has the following values: +
 
 Matches
 ^^^^^^^
-[source,json]
+[source,json,indent=0]
 ----
 {
 	"duration": 3,
@@ -63,6 +63,6 @@ Matches
 
 Fairly simple structure, home team (KEY), away team (KEY), date and score.
 
-There are additional optional entries available:
-`label`: An optional label for the match description, e.g. "Devine Cup"
+There are additional optional entries available: +
+`label`: An optional label for the match description, e.g. "Devine Cup" +
 `newdate`: If a match date is changed, then add the new date. Keeping the original date means that the ICS unique key remains the same and the match is moved within the calendar rather than duplicated.
