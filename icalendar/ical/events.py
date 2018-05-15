@@ -36,9 +36,10 @@ class Events:
         Initialise.
         
         This will look for files beginning with the club name
-        in the data folder. club_teams will define the shorthand for each opponent as well
-        as their google maps location. club_fixtures will define the fixtures and date as
-        well as recording the scores for matches as they are played.
+        in the data folder. club_teams will define the shorthand for each
+        opponent as well as their google maps location. club_fixtures will
+        define the fixtures and date as well as recording the scores for matches
+        as they are played.
         
         :param club: String name of the club
         :param year: String year to look for matches, e.g. 2017-18
@@ -79,10 +80,11 @@ class Events:
 
     def set_savedir(self, savedir):
         """
-        Where to save the calendar. By default this is not needed and the default dropbox
-        folder will be used
+        Where to save the calendar. By default this is not needed and the
+        default dropbox folder will be used
         
-        :paran savedir: String path representing where to save the generated calendar files
+        :paran savedir: String path representing where to save the generated
+         calendar files
         """
         self.savedir = savedir
         
@@ -185,8 +187,9 @@ class Match:
     
     def summary(self):
         """Return match summary in pre-defined format"""
-        summary = '%s (%s) v (%s) %s%s' % (self.home_team_name, self.home_score,
-                                         self.away_score, self.away_team_name, self.label)
+        summary = ('%s (%s) v (%s) %s%s' %
+                   (self.home_team_name, self.home_score,
+                    self.away_score, self.away_team_name, self.label))
         return summary
 
     def description(self):    
@@ -195,13 +198,15 @@ class Match:
         """
         #display_date = self.match_start.strftime(self.date_fmt_in)
         display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
-        print_description = '%-12s (%3s) v (%3s) %-12s on %s %-51s %-14s' % (self.home_team_name, self.home_score,
-                                                           self.away_score, self.away_team_name,
-                                                           display_date, self.id(), self.label)
+        print_description = ('%-12s (%3s) v (%3s) %-12s on %s %-51s %-14s' %
+                             (self.home_team_name, self.home_score,
+                              self.away_score, self.away_team_name,
+                              display_date, self.id(), self.label))
         print(print_description)
-        description = '%s (%s) v (%s) %s on %s%s' % (self.home_team_name, self.home_score,
-                                                           self.away_score, self.away_team_name,
-                                                           display_date, self.label)
+        description = ('%s (%s) v (%s) %s on %s%s' %
+                       (self.home_team_name, self.home_score,
+                        self.away_score, self.away_team_name,
+                        display_date, self.label))
         return description
 
     def id(self):
