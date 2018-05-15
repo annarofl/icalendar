@@ -58,13 +58,13 @@ class Events:
         self.cal.add('X-WR-TIMEZONE', 'Europe/London')
 
         dataPath = Path('data', club)
-        matchFile = Path(dataPath, ('%s_matches_%s.json' % (club, year)))
+        matchFile = Path(dataPath, f'{club}_matches_{year}.json')
 
         json_matchdata = self._load_json(matchFile)
         self.duration = json_matchdata['duration']
         self.matches = json_matchdata['matches']
 
-        teamFile = Path(dataPath, ('%s_teams.json' % club))
+        teamFile = Path(dataPath, f'{club}_teams.json')
         json_teamdata = self._load_json(teamFile)
         self.team_data = json_teamdata['teams']
         self.myclub = json_teamdata['me']
@@ -135,10 +135,10 @@ class Events:
         return newdir
 
     def _write_file(self):
-        filename = '%s_%s.ics' % (self.club, self.year)
+        filename = f'{self.club}_{self.year}.ics'
         newfile = self._mk_save_dir() / filename
         newfile.write_bytes(self.cal.to_ical())
-        print('saved:%s' % newfile)
+        print(f'saved:{newfile}')
 
     def _print_cal(self):
         print(self.cal.to_ical())
@@ -161,7 +161,7 @@ class Match:
             self.home_team_name = home_team_data['name']
             self.location = home_team_data['location']
         else:
-            self.home_team_name = '**%s**' % self.home_id
+            self.home_team_name = f'**{self.home_id}**'
             self.location = ""
 
         self.home_score = match_data['home_score']
@@ -172,9 +172,9 @@ class Match:
             self.away_team_name = away_team_data['name']
         else:
             if self.away_id.startswith('--'):
-                self.away_team_name = '%s' % self.away_id[2:]
+                self.away_team_name = self.away_id[2:]
             else:
-                self.away_team_name = '**%s**' % self.away_id
+                self.away_team_name = f'**{self.away_id}**'
         self.away_score = match_data['away_score']
 
         duration = timedelta(hours=match_duration)
@@ -197,13 +197,11 @@ class Match:
 
         self.label = ''
         if ('label' in match_data):
-            self.label = ' (%s)' % (match_data['label'])
+            self.label = match_data['label']
 
     def summary(self):
         """Return match summary in pre-defined format"""
-        summary = ('%s (%s) v (%s) %s%s' %
-                   (self.home_team_name, self.home_score,
-                    self.away_score, self.away_team_name, self.label))
+        summary = f'{self.home_team_name} ({self.home_score}) v ({self.away_score}) {self.away_team_name}{self.label}'
         return summary
 
     def description(self):
@@ -226,11 +224,11 @@ class Match:
     def id(self):
         """Define a Unique ID for the match."""
 
-        id_club = '%s-%s' % (self.home_id, 'AWAY')
+        id_club = f'{self.home_id}-AWAY'
         if (self.home_id == self.myclub) or (self.home_id == 'ZONE'):
             if self.away_id.startswith('--'):
                 id_club = self.away_id[2:].replace(" ", "-")
             else:
-                id_club = '%s-%s' % (self.away_id, 'HOME')
+                id_club = f'{self.away_id}-HOME'
 
-        return '%s-%s-%s@mc-williams.co.uk' % (self.myclub, self.id_time, id_club)
+        return f'{self.myclub}-{self.id_time}-{id_club}@mc-williams.co.uk'
