@@ -8,7 +8,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="${workspace_loc:icalendar/main.py}"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_OTHER_WORKING_DIRECTORY" value="${workspace_loc:icalendar}"/>
-<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="--team fallsindoor --year 2017-18"/>
+<stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="--team fallsoutdoorb --year 2018"/>
 <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:icalendar}"/>
 <stringAttribute key="org.python.pydev.debug.ATTR_INTERPRETER" value="python3.6"/>
 <stringAttribute key="org.python.pydev.debug.ATTR_PROJECT" value="icalendar"/>
