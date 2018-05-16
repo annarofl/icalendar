@@ -209,8 +209,8 @@ class Match:
         Return the match data in the defined format as a description
         """
         #display_date = self.match_start.strftime(self.date_fmt_in)
-        display_date = self.match_time.strftime('%Y-%m-%d @ %H:%M')
-        print_description = ('%-15s (%3s) v (%3s) %-15s on %s %-51s %-14s' %
+        display_date = self.match_time.strftime('%Y-%m-%d@%H:%M')
+        print_description = ('%-15s (%3s) v (%3s) %-15s on %s %-31s %s' %
                              (self.home_team_name, self.home_score,
                               self.away_score, self.away_team_name,
                               display_date, self.id(), self.label))
@@ -224,11 +224,4 @@ class Match:
     def id(self):
         """Define a Unique ID for the match."""
 
-        id_club = f'{self.home_id}-AWAY'
-        if (self.home_id == self.myclub) or (self.home_id == 'ZONE'):
-            if self.away_id.startswith('--'):
-                id_club = self.away_id[2:].replace(" ", "-")
-            else:
-                id_club = f'{self.away_id}-HOME'
-
-        return f'{self.myclub}-{self.id_time}-{id_club}@mc-williams.co.uk'
+        return f'{self.myclub.replace(" ","")}-{self.id_time}@mc-williams.co.uk'
