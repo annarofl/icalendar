@@ -1,18 +1,76 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
-            "name": "Python",
+            "name": "StColmans",
             "type": "python",
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
             "program": "${file}",
             "args": [
-                "--team fallsindoor",
+                "--team stcolmans",
                 "--year 2017-18"
             ],
             "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsMidweekA",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsmidweeka",
+                "--year", "2018"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsOutdoorB",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsoutdoorb",
+                "--year", "2018"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsNIPGL",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallsnipgl",
+                "--year", "2018"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
             "env": {},
             "envFile": "${workspaceFolder}/.env",
             "debugOptions": [

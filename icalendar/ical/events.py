@@ -197,7 +197,7 @@ class Match:
 
         self.label = ''
         if ('label' in match_data):
-            self.label = match_data['label']
+            self.label = f" {match_data['label']}"
 
     def summary(self):
         """Return match summary in pre-defined format"""
