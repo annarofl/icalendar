@@ -1,17 +1,22 @@
 {
     "version": "0.2.0",
     "configurations": [
-
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+        },
         {
             "name": "StColmans",
             "type": "python",
             "request": "launch",
-            "stopOnEntry": true,
+            "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${file}",
+            "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team stcolmans",
-                "--year 2017-18"
+                "--team", "stcolmans",
+                "--year", "2017-18"
             ],
             "cwd": "${workspaceFolder}",
             "env": {},
