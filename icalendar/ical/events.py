@@ -187,7 +187,7 @@ class Match:
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
         # for consistency, always use the original date for id, even if match
         # time moves
-        self.id_time = self.match_time.strftime('%Y-%m-%d_%H:%M')
+        self.id_time = self.match_time.strftime('%Y-%m-%d-%H-%M')
         if ('newdate' in match_data):
             self.match_time = datetime.strptime(
                 match_data['newdate'], date_fmt_in)
