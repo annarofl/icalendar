@@ -4,13 +4,13 @@
 		{
 			"home": "NICS",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 7,
 			"date": "2018-05-02_18:30"
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 5,
 			"away": "KNOCK",
 			"away_score": 2,
@@ -20,13 +20,13 @@
 		{
 			"home": "DUNBA",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-05-16_18:30"
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "SALIS",
 			"away_score": 0,
@@ -36,13 +36,13 @@
 		{
 			"home": "CLIFT",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-05-30_18:30"
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "BALLW",
 			"away_score": 0,
@@ -50,7 +50,7 @@
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "CUP",
 			"away_score": 0,
@@ -58,7 +58,7 @@
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "BELMA",
 			"away_score": 0,
@@ -66,7 +66,7 @@
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "LARNE",
 			"away_score": 0,
@@ -76,13 +76,13 @@
 		{
 			"home": "MOSSL",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-06-27_18:30"
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "ARDS",
 			"away_score": 0,
@@ -92,7 +92,7 @@
 		{
 			"home": "DOWNP",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-07-18_18:30"
 		}
@@ -100,7 +100,7 @@
 		{
 			"home": "UTRAN",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-07-25_18:30"
 		}
@@ -108,13 +108,13 @@
 		{
 			"home": "BALLM",
 			"home_score": 0,
-			"away": "FALLA",
+			"away": "FALLSMA",
 			"away_score": 0,
 			"date": "2018-08-01_18:30"
 		}
 		,
 		{
-			"home": "FALLA",
+			"home": "FALLSMA",
 			"home_score": 0,
 			"away": "EWART",
 			"away_score": 0,
