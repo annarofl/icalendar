@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Python: Current File",
             "type": "python",
@@ -34,6 +35,25 @@
             "program": "${workspaceFolder}/src/main.py",
             "args": [
                 "--team", "fallsmidweeka",
+                "--year", "2018"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsOutdoorA",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "fallsoutdoora",
                 "--year", "2018"
             ],
             "cwd": "${workspaceFolder}/src",
