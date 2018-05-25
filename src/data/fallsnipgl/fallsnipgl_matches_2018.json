@@ -2,7 +2,7 @@
 	"duration": 3,
 	"matches": [
 		{
-			"label": "Singles",
+			"label": "PG Singles",
 			"home": "WILLO",
 			"home_score": 21,
 			"away": "FALLSN",
@@ -45,6 +45,15 @@
 			"away": "DOWNP",
 			"away_score": 0,
 			"date": "2018-05-22_18:30"
+		}
+		,
+		{
+			"label": "Senior Fours",
+			"home": "EWART",
+			"home_score": 0,
+			"away": "FALLSN",
+			"away_score": 0,
+			"date": "2018-06-12_18:30"
 		}
 		,
 		{
