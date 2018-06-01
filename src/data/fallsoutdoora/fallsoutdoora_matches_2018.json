@@ -12,10 +12,27 @@
 		{
 			"label": "PG Cup",
 			"home": "FALLSA",
-			"home_score": 0,
+			"home_score": 72,
 			"away": "BALYB",
-			"away_score": 0,
+			"away_score": 96,
 			"date": "2018-05-31_18:30"
+		}
+		,
+		{
+			"label": "Irish Cup",
+			"home": "FALLSA",
+			"home_score": 0,
+			"away": "Limavady",
+			"away_score": 0,
+			"date": "2018-06-02_14:00"
+		}
+		,
+		{
+			"home": "FALLSA",
+			"home_score": 0,
+			"away": "OLDBL",
+			"away_score": 0,
+			"date": "2018-06-05_18:30"
 		}
 	]
 }
