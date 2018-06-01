@@ -124,6 +124,8 @@ class Events:
         alarm.add("trigger", timedelta(hours=-1))
         event.add_component(alarm)
 
+        match.print_description()
+
         return event
 
     def _mk_save_dir(self):
@@ -185,6 +187,7 @@ class Match:
 
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
+        self.display_date = self.match_time.strftime('%Y-%m-%d@%H:%M')
         # for consistency, always use the original date for id, even if match
         # time moves
         self.id_time = self.match_time.strftime('%Y-%m-%d-%H-%M')
@@ -208,18 +211,18 @@ class Match:
         """
         Return the match data in the defined format as a description
         """
-        #display_date = self.match_start.strftime(self.date_fmt_in)
-        display_date = self.match_time.strftime('%Y-%m-%d@%H:%M')
-        print_description = ('%-15s (%3s) v (%3s) %-15s on %s %-31s %s' %
+        description = f'{self.home_team_name} ({self.home_score}) v ({self.away_score}) {self.away_team_name} on {self.display_date} {self.label}'
+        return description
+
+    def print_description(self):
+        """
+        Print a description of the match
+        """
+        print_description = ('%-15s (%3s) v (%3s) %-15s on %s %-31s %s %s' %
                              (self.home_team_name, self.home_score,
                               self.away_score, self.away_team_name,
-                              display_date, self.id(), self.label))
+                              self.display_date, self.id(), self.label, self.warning))
         print(print_description)
-        description = ('%s (%s) v (%s) %s on %s%s' %
-                       (self.home_team_name, self.home_score,
-                        self.away_score, self.away_team_name,
-                        display_date, self.label))
-        return description
 
     def id(self):
         """Define a Unique ID for the match."""
