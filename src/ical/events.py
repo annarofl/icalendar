@@ -158,12 +158,14 @@ class Match:
         self.year = year
 
         self.home_id = match_data['home']
+        self.warning = ""
         if self.home_id in self.team_data:
             home_team_data = self.team_data[self.home_id]
             self.home_team_name = home_team_data['name']
             self.location = home_team_data['location']
         else:
-            self.home_team_name = f'**{self.home_id}**'
+            self.warning = "****"
+            self.home_team_name = self.home_id
             self.location = ""
 
         self.home_score = match_data['home_score']
@@ -176,7 +178,8 @@ class Match:
             if self.away_id.startswith('--'):
                 self.away_team_name = self.away_id[2:]
             else:
-                self.away_team_name = f'**{self.away_id}**'
+                self.warning = "****"
+                self.away_team_name = self.away_id
         self.away_score = match_data['away_score']
 
         duration = timedelta(hours=match_duration)
