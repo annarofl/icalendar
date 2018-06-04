@@ -89,8 +89,8 @@
 			"home": "Carrickfergus B",
 			"home_score": 0,
 			"away": "FALLSB",
-			"away_score": 1,
-			"date": "2018-06-02_17:30"
+			"away_score": 0,
+			"date": "2018-06-16_14:00"
 		}
 		,
 		{
@@ -113,7 +113,7 @@
 		{
 			"home": "ARDSB",
 			"home_score": 0,
-			"away": "FALLB",
+			"away": "FALLSB",
 			"away_score": 0,
 			"date": "2018-06-30_14:00"
 		}
