@@ -190,13 +190,13 @@ class Match:
 
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(match_data['date'], date_fmt_in)
-        self.display_date = self.match_time.strftime('%Y-%m-%d@%H:%M')
         # for consistency, always use the original date for id, even if match
         # time moves
         self.id_time = self.match_time.strftime('%Y-%m-%d-%H-%M')
         if ('newdate' in match_data):
             self.match_time = datetime.strptime(
                 match_data['newdate'], date_fmt_in)
+        self.display_date = self.match_time.strftime('%Y-%m-%d@%H:%M')
         self.match_end = self.match_time + duration
         # expect to arrive 10 mins early
         self.match_start = self.match_time - timedelta(minutes=10)
