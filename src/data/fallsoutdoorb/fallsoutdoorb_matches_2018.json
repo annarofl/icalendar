@@ -85,11 +85,21 @@
 		}
 		,
 		{
+			"label": "Irish Cup",
+			"home": "Carrickfergus B",
+			"home_score": 0,
+			"away": "FALLSB",
+			"away_score": 1,
+			"date": "2018-06-02_17:30"
+		}
+		,
+		{
 			"home": "FALLSB",
 			"home_score": 0,
 			"away": "BALLC",
 			"away_score": 0,
-			"date": "2018-06-16_14:00"
+			"date": "2018-06-16_14:00",
+			"newdate": "2018-06-19_18:30"
 		}
 		,
 		{
