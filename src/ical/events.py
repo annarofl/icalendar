@@ -230,4 +230,11 @@ class Match:
     def id(self):
         """Define a Unique ID for the match."""
 
-        return f'{self.myclub.replace(" ","")}-{self.id_time}@mc-williams.co.uk'
+        # if we move match times, e.g. a cup game, then we cannot use simply the time,
+        # otherwise bot the original and the new game will have same ID, so need to add
+        # the clubname
+        id_team = self.home_id
+        if self.home_id == self.myclub:
+            id_team = self.away_id
+        id_team = id_team.replace(" ","")
+        return f'{self.myclub.replace(" ","")}-{self.id_time}-{id_team}@mc-williams.co.uk'
