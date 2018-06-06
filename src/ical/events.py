@@ -175,11 +175,8 @@ class Match:
             away_team_data = self.team_data[self.away_id]
             self.away_team_name = away_team_data['name']
         else:
-            if self.away_id.startswith('--'):
-                self.away_team_name = self.away_id[2:]
-            else:
-                self.warning = "****"
-                self.away_team_name = self.away_id
+            self.warning = "****"
+            self.away_team_name = self.away_id
         self.away_score = match_data['away_score']
 
         duration = timedelta(hours=match_duration)
