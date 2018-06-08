@@ -36,6 +36,14 @@
 		}
 		,
 		{
+			"home": "FALLSA",
+			"home_score": 0,
+			"away": "UTRNA",
+			"away_score": 0,
+			"date": "2018-06-09_14:00"
+		}
+		,
+		{
 			"label": "Irish Cup",
 			"home": "PICKA",
 			"home_score": 0,
