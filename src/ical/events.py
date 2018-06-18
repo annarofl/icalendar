@@ -127,8 +127,8 @@ class Events:
 
         return event
 
-    def _mk_save_dir(self):
-        newdir = Path(self.savedir) / "Apps" / "icalendar"
+    def _mk_save_dir(self) -> Path:
+        newdir = Path(self.savedir / "Apps" / "icalendar")
 
         if not newdir.exists():
             newdir.mkdir(parents=True)
@@ -200,12 +200,12 @@ class Match:
         if "label" in match_data:
             self.label = f" {match_data['label']}"
 
-    def summary(self):
+    def summary(self) -> str:
         """Return match summary in pre-defined format"""
         summary = f"{self.home_team_name} ({self.home_score}) v ({self.away_score}) {self.away_team_name}{self.label}"
         return summary
 
-    def description(self):
+    def description(self) -> str:
         """
         Return the match data in the defined format as a description
         """
@@ -228,7 +228,7 @@ class Match:
         )
         print(print_description)
 
-    def id(self):
+    def id(self) -> str:
         """Define a Unique ID for the match."""
 
         # if we move match times, e.g. a cup game, then we cannot use simply the time,
