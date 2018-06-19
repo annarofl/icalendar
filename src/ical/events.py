@@ -23,7 +23,7 @@ def get_dropbox_path():
     with open(str(json_path)) as f:
         j = json.load(f)
 
-    return Path(j['personal']['path']).resolve().absolute()
+    return Path(j['personal']['path'].resolve().absolute())
 
 
 class Events:
@@ -73,7 +73,7 @@ class Events:
         """Add all events for this team / season to the calendar"""
 
         for match in self.matches:
-            match = Match(match, self.team_data, self.myclub,
+            match = Match1(match, self.team_data, self.myclub,
                           self.year, self.duration)
             self.cal.add_component(self._create_event(match))
 
@@ -102,7 +102,7 @@ class Events:
         """
         Creates a calendar event for the given match
 
-        :paran match: A Match object holding the match data
+        :paran match: A Match1 object holding the match data
         """
     #    print(match_data)
     #    print(team_data)
@@ -144,7 +144,7 @@ class Events:
         print(self.cal.to_ical())
 
 
-class Match:
+class Match1:
     """
     Manage one match
     """
