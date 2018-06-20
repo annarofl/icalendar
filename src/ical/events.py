@@ -23,7 +23,7 @@ def get_dropbox_path():
     with open(str(json_path)) as f:
         j = json.load(f)
 
-    return Path(j["personal"]["path"]).resolve().absolute()
+    return Path(j["personal"]["path"].resolve().absolute())
 
 
 class Events:
