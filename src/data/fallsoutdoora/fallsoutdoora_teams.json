@@ -6,14 +6,29 @@
 			"location": "Falls Bowling & Tennis Club, 63 Andersonstown Rd, Belfast, Belfast BT11 9AH, United Kingdom"
 		}
 		,
-		"BALYB": {
-			"name": "Ballymena B",
+		"BALYA": {
+			"name": "Ballymena A",
 			"location": "10 Old Ballymoney Rd, Ballymena BT43 6LX"
 		}
 		,
 		"DUNBA": {
 			"name": "Dunbarton",
 			"location": "54 Dunbarton St, Gilford, Craigavon BT63 6HJ"
+		}
+		,
+		"OLDBL": {
+			"name": "Old Bleach A",
+			"location": "7 Neillsbrook Park, Randalstown, Antrim BT41 3AE"
+		}
+		,
+		"PICKA": {
+			"name": "Pickie A",
+			"location": "17 Broadway, Bangor BT20 4TS"
+		}
+		,
+		"UTRNA": {
+			"name": "U Transport A",
+			"location": "25 Lynda Ave, Newtownabbey BT37 0NX"
 		}
 	}
 }
