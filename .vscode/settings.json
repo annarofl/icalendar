@@ -4,6 +4,7 @@
         "-s",
         "./src",
         "-p",
+        "--cov=ical",
         "test*.py"
     ],
     "python.unitTest.pyTestEnabled": true,
