@@ -112,7 +112,7 @@ class Events:
         event.add("priority", 5)
 
         event.add("summary", match.summary())
-        event.add("description", match.description())
+        event.add("description", str(match))
         event.add("dtstart", match.match_start)
         event.add("dtend", match.match_end)
         event.add("dtstamp", datetime.utcnow())
@@ -207,16 +207,7 @@ class Match:
              "{self.display_date!r},{self.label!r}"
         )
 
-    def summary(self) -> str:
-        """Return match summary in pre-defined format"""
-        return  (
-            f"{self.home_team_name} ({self.home_score})"
-            f" v "
-            f"({self.away_score}) {self.away_team_name}"
-            f"{self.label}"
-        )
-
-    def description(self) -> str:
+    def __str__(self) -> str:
         """
         Return the match data in the defined format as a description
         """
@@ -226,6 +217,15 @@ class Match:
              f"({self.away_score}) {self.away_team_name}"
              f" on "
              f"{self.display_date} {self.label}"
+        )
+
+    def summary(self) -> str:
+        """Return match summary in pre-defined format"""
+        return  (
+            f"{self.home_team_name} ({self.home_score})"
+            f" v "
+            f"({self.away_score}) {self.away_team_name}"
+            f"{self.label}"
         )
 
     def print_description(self):
