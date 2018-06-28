@@ -200,33 +200,47 @@ class Match:
         if "label" in match_data:
             self.label = f" {match_data['label']}"
 
+    def __repr__(self):
+        return (
+             f"{self.home_team_name!r},({self.home_score!r}),"
+             "({self.away_score!r}),{self.away_team_name!r},"
+             "{self.display_date!r},{self.label!r}"
+        )
+
     def summary(self) -> str:
         """Return match summary in pre-defined format"""
-        summary = f"{self.home_team_name} ({self.home_score}) v ({self.away_score}) {self.away_team_name}{self.label}"
-        return summary
+        return  (
+            f"{self.home_team_name} ({self.home_score})"
+            f" v "
+            f"({self.away_score}) {self.away_team_name}"
+            f"{self.label}"
+        )
 
     def description(self) -> str:
         """
         Return the match data in the defined format as a description
         """
-        description = f"{self.home_team_name} ({self.home_score}) v ({self.away_score}) {self.away_team_name} on {self.display_date} {self.label}"
-        return description
+        return (
+             f"{self.home_team_name} ({self.home_score})"
+             f" v "
+             f"({self.away_score}) {self.away_team_name}"
+             f" on "
+             f"{self.display_date} {self.label}"
+        )
 
     def print_description(self):
         """
-        Print a description of the match
+        Print a well-formatted, aligned, description of the match
         """
-        print_description = "%-15s (%3s) v (%3s) %-15s on %s %-31s %s %s" % (
-            self.home_team_name,
-            self.home_score,
-            self.away_score,
-            self.away_team_name,
-            self.display_date,
-            self.id(),
-            self.label,
-            self.warning,
+        print (
+            f"{self.home_team_name:15s} ({self.home_score:3})"
+             " v "
+            f"{self.away_score:3} {self.away_team_name:15s} "
+            f"on {self.display_date} "
+            f"{self.id():31s}"
+            f"{self.label}"
+            f"{self.warning}"
         )
-        print(print_description)
 
     def id(self) -> str:
         """Define a Unique ID for the match."""
