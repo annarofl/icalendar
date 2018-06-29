@@ -28,8 +28,8 @@ def get_dropbox_path():
 
 class Events:
     """
-    Manage calendar events. Includes methods for dealing with a set of matches for a
-    year.
+    Manage calendar events. Includes methods for dealing with a set of matches
+    for a year.
     """
 
     def __init__(self, club, year):
@@ -39,8 +39,8 @@ class Events:
         This will look for files beginning with the club name
         in the data folder. club_teams will define the shorthand for each
         opponent as well as their google maps location. club_fixtures will
-        define the fixtures and date as well as recording the scores for matches
-        as they are played.
+        define the fixtures and date as well as recording the scores for
+        matches as they are played.
 
         :param club: String name of the club
         :param year: String year to look for matches, e.g. 2017-18
@@ -73,7 +73,8 @@ class Events:
         """Add all events for this team / season to the calendar"""
 
         for match in self.matches:
-            match = Match(match, self.team_data, self.myclub, self.year, self.duration)
+            match = Match(match, self.team_data, self.myclub, self.year,
+                          self.duration)
             self.cal.add_component(self._create_event(match))
 
         # self._print_cal()
@@ -190,7 +191,8 @@ class Match:
         # time moves
         self.id_time = self.match_time.strftime("%Y-%m-%d-%H-%M")
         if "newdate" in match_data:
-            self.match_time = datetime.strptime(match_data["newdate"], date_fmt_in)
+            self.match_time = datetime.strptime(match_data["newdate"],
+                                                date_fmt_in)
         self.display_date = self.match_time.strftime("%Y-%m-%d@%H:%M")
         self.match_end = self.match_time + duration
         # expect to arrive 10 mins early
@@ -221,7 +223,7 @@ class Match:
 
     def summary(self) -> str:
         """Return match summary in pre-defined format"""
-        return  (
+        return (
             f"{self.home_team_name} ({self.home_score})"
             f" v "
             f"({self.away_score}) {self.away_team_name}"
@@ -232,9 +234,9 @@ class Match:
         """
         Print a well-formatted, aligned, description of the match
         """
-        print (
+        print(
             f"{self.home_team_name:15s} ({self.home_score:3})"
-             " v "
+            f" v "
             f"{self.away_score:3} {self.away_team_name:15s} "
             f"on {self.display_date} "
             f"{self.id():31s}"
@@ -245,14 +247,16 @@ class Match:
     def id(self) -> str:
         """Define a Unique ID for the match."""
 
-        # if we move match times, e.g. a cup game, then we cannot use simply the time,
-        # otherwise bot the original and the new game will have same ID, so need to add
-        # the clubname
+        # if we move match times, e.g. a cup game, then we cannot use simply
+        # the time, otherwise bot the original and the new game will have same
+        # ID, so need to add the clubname
         id_team = self.home_id
         if self.home_id == self.myclub:
             id_team = self.away_id
         id_team = id_team.replace(" ", "")
         return (
-            f'{self.myclub.replace(" ","")}-{self.id_time}-{id_team}@mc-williams.co.uk'
+            f"{self.myclub.replace(' ','')}-"
+            f"{self.id_time}-"
+            f"{id_team}"
+            f"@mc-williams.co.uk"
         )
-
