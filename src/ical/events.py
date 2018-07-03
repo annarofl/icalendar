@@ -237,7 +237,7 @@ class Match:
         print(
             f"{self.home_team_name:15s} ({self.home_score:3})"
             f" v "
-            f"{self.away_score:3} {self.away_team_name:15s} "
+            f"({self.away_score:3}) {self.away_team_name:15s} "
             f"on {self.display_date} "
             f"{self.id():31s}"
             f"{self.label}"
