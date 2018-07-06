@@ -11,6 +11,7 @@ import os
 import sys
 
 from pathlib import Path
+from envparse import env
 
 
 def get_dropbox_path():
@@ -27,6 +28,31 @@ def get_dropbox_path():
 
     return Path(j["personal"]["path"]).absolute()
 
+def get_match_file(club, year):
+    """
+    Get the matches file for a given club/year.
+    """
+    return _get_file(club, f"{club}_matches_{year}.json")
+
+def get_team_file(club):
+    return _get_file(club, f"{club}_teams.json")
+
+def _get_file(club, filename):
+    """
+    Get a file. The base dir will be read from env var ICAL_DATAPATH.
+    If ICAL_DATAPATH is not set then the value from the .env file will be used.
+    """
+    #env = Env(
+    #    ICAL_DATAPATH=str,
+    #)
+    env.read_envfile()
+
+    dataPath = Path(env.str("ICAL_DATAPATH"), club)
+    file = Path(dataPath, filename)
+    if not file.exists():
+        print(f"Cannot find file: {file}")
+        sys.exit(1)
+    return file
 
 class Events:
     """
@@ -59,17 +85,12 @@ class Events:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-        dataPath = Path("d:/dev/gitrepos/icalendar-data", club)
-        matchFile = Path(dataPath, f"{club}_matches_{year}.json")
-        if not matchFile.exists():
-            print(f"Cannot find data for {matchFile}")
-            sys.exit(1)
-
+        matchFile = get_match_file(club, year)
         json_matchdata = self._load_json(matchFile)
         self.duration = json_matchdata["duration"]
         self.matches = json_matchdata["matches"]
 
-        teamFile = Path(dataPath, f"{club}_teams.json")
+        teamFile = get_team_file(club)
         json_teamdata = self._load_json(teamFile)
         self.team_data = json_teamdata["teams"]
         self.myclub = json_teamdata["me"]
