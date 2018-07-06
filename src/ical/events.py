@@ -8,6 +8,8 @@ import json
 from datetime import timedelta, datetime
 from icalendar.cal import Event
 import os
+import sys
+
 from pathlib import Path
 
 
@@ -57,8 +59,11 @@ class Events:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-        dataPath = Path("data", club)
+        dataPath = Path("d:/dev/gitrepos/icalendar-data", club)
         matchFile = Path(dataPath, f"{club}_matches_{year}.json")
+        if not matchFile.exists():
+            print(f"Cannot find data for {matchFile}")
+            sys.exit(1)
 
         json_matchdata = self._load_json(matchFile)
         self.duration = json_matchdata["duration"]
