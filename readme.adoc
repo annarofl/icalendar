@@ -1,29 +1,23 @@
-ICS Calendar
-------------
+= ICS Calendar
 
-Running
-~~~~~~~
+== Running
 
-command line
-^^^^^^^^^^^^
+=== command line
 [source]
 ----
 python main.py --team <team name> --year <year>
 ----
 
-In VS Code
-^^^^^^^^^^
+=== In VS Code
 Select a Debug runtime (from Debug side window), e.g. `fallsindoor`
 
-In eclipse
-^^^^^^^^^^
+=== In eclipse
 tada
 
-Data Formats
-~~~~~~~~~~~~
+== Data Formats
 
-Teams
-^^^^^
+=== Teams
+
 The teams format is:
 [source,json,indent=0]
 ----
@@ -46,8 +40,8 @@ each `team` entry then has the following values: +
 `name`: Full Name of the team +
 `location`: Address in google maps for the team
 
-Matches
-^^^^^^^
+=== Matches
+
 [source,json,indent=0]
 ----
 {
