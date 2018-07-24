@@ -103,25 +103,6 @@
             ]
         },
         {
-            "name": "FallsNIPGL",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
-            "args": [
-                "--team", "fallsnipgl",
-                "--year", "2018"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
             "name": "FallsIndoor",
             "type": "python",
             "request": "launch",
