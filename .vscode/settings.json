@@ -10,5 +10,6 @@
     "python.unitTest.pyTestEnabled": true,
     "python.unitTest.nosetestsEnabled": false,
     "python.unitTest.unittestEnabled": false,
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.jediEnabled": false
 }
