@@ -241,4 +241,3 @@ class Match:
         return (
             f'{self.myclub.replace(" ","")}-{self.id_time}-{id_team}@mc-williams.co.uk'
         )
-
