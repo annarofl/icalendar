@@ -102,6 +102,7 @@ class Events:
             match = Match(match, self.team_data, self.myclub, self.year,
                           self.duration)
             self.cal.add_component(self._create_event(match))
+            print(match.description())
 
         # self._print_cal()
         self._write_file()
@@ -149,8 +150,6 @@ class Events:
         alarm.add("description", "Reminder")
         alarm.add("trigger", timedelta(hours=-1))
         event.add_component(alarm)
-
-        match.print_description()
 
         return event
 
@@ -256,11 +255,11 @@ class Match:
             f"{self.label}"
         )
 
-    def print_description(self):
+    def description(self):
         """
-        Print a well-formatted, aligned, description of the match
+        Return a well-formatted, aligned, full description of the match
         """
-        print(
+        return (
             f"{self.home_team_name:15s} ({self.home_score:3})"
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
