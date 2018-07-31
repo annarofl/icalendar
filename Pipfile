@@ -9,6 +9,7 @@ icalendar = "*"
 
 [dev-packages]
 pylint = "*"
+pylama = "*"
 
 [requires]
 python_version = "3.7"

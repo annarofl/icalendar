@@ -1,3 +1,7 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "python.pythonPath": "c:\\Users\\gmcwilliams\\.virtualenvs\\icalendar-_QnpXV2x\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.enabled": true
 }
