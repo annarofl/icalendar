@@ -183,8 +183,6 @@ class Events:
         alarm.add("trigger", timedelta(hours=-1))
         event.add_component(alarm)
 
-        print(match.print_description())
-
         return event
 
     def _mk_save_dir(self) -> Path:
