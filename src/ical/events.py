@@ -134,7 +134,7 @@ class Events:
             match = Match(self.myclub, home_id, home_team_name, home_score, away_id, away_team_name, away_score, match_date, location, warning, duration, label)
 
             self.cal.add_component(self._create_event(match))
-            print(match.description())
+            print(match.print_description())
 
         # self._print_cal()
         self._write_file()
