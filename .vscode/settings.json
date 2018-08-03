@@ -3,5 +3,11 @@
     "python.pythonPath": "c:\\Users\\gmcwilliams\\.virtualenvs\\icalendar-_QnpXV2x\\Scripts\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
+    "python.unitTest.pyTestArgs": [
+        "src/ical"
+    ],
+    "python.unitTest.unittestEnabled": false,
+    "python.unitTest.nosetestsEnabled": false,
+    "python.unitTest.pyTestEnabled": true
 }

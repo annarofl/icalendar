@@ -3,15 +3,17 @@ Created on 11 Oct 2017
 
 @author: gmcwilliams
 """
-from icalendar import Calendar, Alarm
 import json
-from datetime import timedelta, datetime
-from icalendar.cal import Event
 import os
 import sys
-
+from datetime import datetime, timedelta
 from pathlib import Path
+
 from envparse import env
+from icalendar import Alarm, Calendar
+from icalendar.cal import Event
+
+from .match import Match
 
 
 def get_dropbox_path():
@@ -99,8 +101,38 @@ class Events:
         """Add all events for this team / season to the calendar"""
 
         for match in self.matches:
-            match = Match(match, self.team_data, self.myclub, self.year,
-                          self.duration)
+            match_date = match["date"]
+            home_id = match["home"]
+            home_score = match["home_score"]
+            location = ""
+            warning = ""
+            if home_id in self.team_data:
+                home_team_data = self.team_data[home_id]
+                home_team_name = home_team_data["name"]
+                location = home_team_data["location"]
+            else:
+                warning = "****"
+                home_team_name = home_id
+
+            away_id = match["away"]
+            away_score = match["away_score"]
+            if away_id in self.team_data:
+                away_team_data = self.team_data[away_id]
+                away_team_name = away_team_data["name"]
+            else:
+                warning = "****"
+                away_team_name = away_id
+
+            duration = self.duration
+            if "duration" in match:
+                duration = match["duration"]
+
+            label = ''
+            if "label" in match:
+                label = match["label"]
+
+            match = Match(self.myclub, home_id, home_team_name, home_score, away_id, away_team_name, away_score, match_date, location, warning, duration, label)
+
             self.cal.add_component(self._create_event(match))
 
         # self._print_cal()
@@ -130,7 +162,7 @@ class Events:
 
         :paran match: A Match object holding the match data
         """
-        #    print(match_data)
+        #    print(self.team_data)
         #    print(team_data)
 
         event = Event()
@@ -150,7 +182,7 @@ class Events:
         alarm.add("trigger", timedelta(hours=-1))
         event.add_component(alarm)
 
-        match.print_description()
+        print(match.print_description())
 
         return event
 
@@ -170,119 +202,3 @@ class Events:
 
     def _print_cal(self):
         print(self.cal.to_ical())
-
-
-class Match:
-    """
-    Manage one match
-    """
-
-    def __init__(self, match_data, team_data, myclub, year, match_duration):
-
-        self.team_data = team_data
-        self.myclub = myclub
-        self.year = year
-
-        self.home_id = match_data["home"]
-        self.warning = ""
-        if self.home_id in self.team_data:
-            home_team_data = self.team_data[self.home_id]
-            self.home_team_name = home_team_data["name"]
-            self.location = home_team_data["location"]
-        else:
-            self.warning = "****"
-            self.home_team_name = self.home_id
-            self.location = ""
-
-        self.home_score = match_data["home_score"]
-
-        self.away_id = match_data["away"]
-        if self.away_id in self.team_data:
-            away_team_data = self.team_data[self.away_id]
-            self.away_team_name = away_team_data["name"]
-        else:
-            self.warning = "****"
-            self.away_team_name = self.away_id
-        self.away_score = match_data["away_score"]
-
-        duration = timedelta(hours=match_duration)
-        if "duration" in match_data:
-            duration = timedelta(hours=match_data["duration"])
-        elif "duration_minutes" in match_data:
-            duration = timedelta(minutes=match_data["duration_minutes"])
-
-        date_fmt_in = "%Y-%m-%d_%H:%M"
-        self.match_time = datetime.strptime(match_data["date"], date_fmt_in)
-        # for consistency, always use the original date for id, even if match
-        # time moves
-        self.id_time = self.match_time.strftime("%Y-%m-%d-%H-%M")
-        if "newdate" in match_data:
-            self.match_time = datetime.strptime(match_data["newdate"],
-                                                date_fmt_in)
-        self.display_date = self.match_time.strftime("%Y-%m-%d@%H:%M")
-        self.match_end = self.match_time + duration
-        # expect to arrive 10 mins early
-        self.match_start = self.match_time - timedelta(minutes=10)
-
-        self.label = ""
-        if "label" in match_data:
-            self.label = f" {match_data['label']}"
-
-    def __repr__(self):
-        return (
-             f"{self.home_team_name!r},({self.home_score!r}),"
-             "({self.away_score!r}),{self.away_team_name!r},"
-             "{self.display_date!r},{self.label!r}"
-        )
-
-    def __str__(self) -> str:
-        """
-        Return the match data in the defined format as a description
-        """
-        return (
-             f"{self.home_team_name} ({self.home_score})"
-             f" v "
-             f"({self.away_score}) {self.away_team_name}"
-             f" on "
-             f"{self.display_date} {self.label}"
-        )
-
-    def summary(self) -> str:
-        """Return match summary in pre-defined format"""
-        return (
-            f"{self.home_team_name} ({self.home_score})"
-            f" v "
-            f"({self.away_score}) {self.away_team_name}"
-            f"{self.label}"
-        )
-
-    def print_description(self):
-        """
-        Print a well-formatted, aligned, description of the match
-        """
-        print(
-            f"{self.home_team_name:15s} ({self.home_score:3})"
-            f" v "
-            f"({self.away_score:3}) {self.away_team_name:15s} "
-            f"on {self.display_date} "
-            f"{self.id():31s}"
-            f"{self.label}"
-            f"{self.warning}"
-        )
-
-    def id(self) -> str:
-        """Define a Unique ID for the match."""
-
-        # if we move match times, e.g. a cup game, then we cannot use simply
-        # the time, otherwise bot the original and the new game will have same
-        # ID, so need to add the clubname
-        id_team = self.home_id
-        if self.home_id == self.myclub:
-            id_team = self.away_id
-        id_team = id_team.replace(" ", "")
-        return (
-            f"{self.myclub.replace(' ','')}-"
-            f"{self.id_time}-"
-            f"{id_team}"
-            f"@mc-williams.co.uk"
-        )
