@@ -127,11 +127,15 @@ class Events:
             if "duration" in match:
                 duration = match["duration"]
 
-            label = ''
+            label = None
             if "label" in match:
                 label = match["label"]
 
-            match = Match(self.myclub, home_id, home_team_name, home_score, away_id, away_team_name, away_score, match_date, location, warning, duration, label)
+            new_date = None
+            if "newdate" in match:
+                new_date=match["newdate"]
+
+            match = Match(self.myclub, home_id, home_team_name, home_score, away_id, away_team_name, away_score, match_date, location, warning, duration, label, new_date)
 
             self.cal.add_component(self._create_event(match))
             print(match.print_description())

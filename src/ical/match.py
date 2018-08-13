@@ -76,13 +76,13 @@ class Match:
             f"{self.id():31s}"
             f"{self.label} "
             f"{self.warning}"
-        )
+        ).strip()
 
     def id(self) -> str:
         """Define a Unique ID for the match."""
 
         # if we move match times, e.g. a cup game, then we cannot use simply
-        # the time, otherwise bot the original and the new game will have same
+        # the time, otherwise both the original and the new game will have same
         # ID, so need to add the clubname
         id_team = self.home_id
         if self.home_id == self.myclub:
