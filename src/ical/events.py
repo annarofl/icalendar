@@ -135,7 +135,7 @@ class Events:
             if "newdate" in match:
                 new_date=match["newdate"]
 
-            match = Match(self.myclub, home_id, home_team_name, home_score, away_id, away_team_name, away_score, match_date, location, warning, duration, label, new_date)
+            match = Match(myclub=self.myclub, home_team_id=home_id, home_team_name=home_team_name, home_score=home_score, away_team_id=away_id, away_team_name=away_team_name, away_score=away_score, date=match_date, location=location, warning=warning, duration=duration, label=label, new_date=new_date)
 
             self.cal.add_component(self._create_event(match))
             print(match.print_description())

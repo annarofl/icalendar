@@ -10,7 +10,7 @@ class Match:
     Manage one match
     """
 
-    def __init__(self, myclub, home_team_id, home_team_name, home_score, away_team_id, away_team_name, away_score, match_date, location, warning, match_duration, label=None, new_date=None):
+    def __init__(self, myclub, home_team_id, home_team_name, home_score, away_team_id, away_team_name, away_score, date, location, warning, duration, label=None, new_date=None):
 
         self.myclub = myclub
         self.home_id = home_team_id
@@ -19,11 +19,11 @@ class Match:
         self.away_id = away_team_id
         self.away_team_name = away_team_name
         self.away_score = away_score
-        self.match_time = match_date
+        self.match_time = date
         self.location = location
         self.warning = warning
 
-        duration = timedelta(hours=match_duration)
+        duration = timedelta(hours=duration)
 
         date_fmt_in = '%Y-%m-%d_%H:%M'
         self.match_time = datetime.strptime(self.match_time, date_fmt_in)
