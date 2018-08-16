@@ -1,11 +1,20 @@
 {
     "python.formatting.provider": "black",
     "python.pythonPath": "c:\\Users\\gmcwilliams\\.virtualenvs\\icalendar-_QnpXV2x\\Scripts\\python.exe",
+    "python.jediEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
     "python.unitTest.pyTestArgs": [
         "src/ical"
+    ],
+    "python.unitTest.unittestArgs": [
+        "-v",
+        "-s",
+        "./src",
+        "-p",
+        "--cov=ical",
+        "test*.py"
     ],
     "python.unitTest.unittestEnabled": false,
     "python.unitTest.nosetestsEnabled": false,
