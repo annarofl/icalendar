@@ -30,23 +30,26 @@ def get_dropbox_path():
 
     return Path(j["personal"]["path"]).absolute()
 
+
 def get_match_file(club, year):
     """
     Get the matches file for a given club/year.
     """
     return _get_file(club, f"{club}_matches_{year}.json")
 
+
 def get_team_file(club):
     return _get_file(club, f"{club}_teams.json")
+
 
 def _get_file(club, filename):
     """
     Get a file. The base dir will be read from env var ICAL_DATAPATH.
     If ICAL_DATAPATH is not set then the value from the .env file will be used.
     """
-    #env = Env(
+    # env = Env(
     #    ICAL_DATAPATH=str,
-    #)
+    # )
     env.read_envfile()
 
     dataPath = Path(env.str("ICAL_DATAPATH"), club)
@@ -55,6 +58,7 @@ def _get_file(club, filename):
         print(f"Cannot find file: {file}")
         sys.exit(1)
     return file
+
 
 class Events:
     """
@@ -133,9 +137,23 @@ class Events:
 
             new_date = None
             if "newdate" in match:
-                new_date=match["newdate"]
+                new_date = match["newdate"]
 
-            match = Match(myclub=self.myclub, home_team_id=home_id, home_team_name=home_team_name, home_score=home_score, away_team_id=away_id, away_team_name=away_team_name, away_score=away_score, date=match_date, location=location, warning=warning, duration=duration, label=label, new_date=new_date)
+            match = Match(
+                myclub=self.myclub,
+                home_team_id=home_id,
+                home_team_name=home_team_name,
+                home_score=home_score,
+                away_team_id=away_id,
+                away_team_name=away_team_name,
+                away_score=away_score,
+                date=match_date,
+                location=location,
+                warning=warning,
+                duration=duration,
+                label=label,
+                new_date=new_date,
+            )
 
             self.cal.add_component(self._create_event(match))
             print(match.print_description())
