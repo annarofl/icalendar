@@ -22,8 +22,8 @@ class Match:
         away_score,
         date,
         location,
-        warning,
-        duration,
+        warning="",
+        duration=3,
         label=None,
         new_date=None,
     ):

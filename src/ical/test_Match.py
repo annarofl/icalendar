@@ -77,7 +77,7 @@ class TestMatch:
             date="2018-06-05_18:30",
             location="location",
             duration=3,
-            new_date="2018-06-06_14:00",
+            new_date="2018-06-06_14:00"
         )
 
     def test_home_match_newdate_description(self, home_match_newdate):
