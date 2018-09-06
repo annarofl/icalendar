@@ -106,8 +106,20 @@ class Events:
 
         for match in self.matches:
             match_date = match["date"]
-            home_id = match["home"]
-            home_score = match["home_score"]
+            # match will be defined as "home": "Opponent" meaning WE are HOME
+            # against the Opponent, so some of the following will appear to be processed
+            # back to front (or home to away)
+            if "home" in match:
+                home_id = self.myclub
+                home_score = match["our_score"]
+                away_id = match["home"]
+                away_score = match["opp_score"]
+            else:
+                home_id = match["away"]
+                home_score = match["opp_score"]
+                away_id = self.myclub
+                away_score = match["our_score"]
+
             location = ""
             warning = ""
             if home_id in self.team_data:
@@ -118,8 +130,6 @@ class Events:
                 warning = "****"
                 home_team_name = home_id
 
-            away_id = match["away"]
-            away_score = match["away_score"]
             if away_id in self.team_data:
                 away_team_data = self.team_data[away_id]
                 away_team_name = away_team_data["name"]
