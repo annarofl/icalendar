@@ -18,7 +18,7 @@ flake8:
 
 coverage:
 #--cov-config .coveragerc 
-	pytest src --verbose --cov-report term --cov-report xml --cov=requests tests
+	pytest --verbose --cov-report term --cov-report xml --cov=icalendar src/ical
 
 publish:
 	pip install 'twine>=1.5.0'

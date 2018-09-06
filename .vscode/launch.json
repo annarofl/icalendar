@@ -1,7 +1,6 @@
 {
     "version": "0.2.0",
     "configurations": [
-
         {
             "name": "Python: Current File",
             "type": "python",
@@ -24,6 +23,21 @@
             "debugOptions": [
                 "RedirectOutput"
             ]
+        },
+        {
+            "name": "PyTest Coverage",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "module": "pytest",
+            "args": [
+                "--verbose",
+                "--cov=icalendar"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env"
         },
         {
             "name": "StColmans",
