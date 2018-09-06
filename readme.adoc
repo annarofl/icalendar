@@ -1,4 +1,4 @@
-= ICS Calendar
+= ICS Calendar image:https://travis-ci.org/garymcwilliams/icalendar.svg?branch=develop["Build Status", link="https://travis-ci.org/garymcwilliams/icalendar"]
 
 == Running
 
