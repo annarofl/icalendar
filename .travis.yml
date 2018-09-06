@@ -1,20 +1,20 @@
 language: python
 script:
-  - make ci
+  - make init ci
 
 jobs:
   include:
     - stage: test
       python: 3.6
       script:
-        - make ci
+        - make init ci
     - stage: test
       python: 3.7
       script:
-        - make ci
+        - make init ci
       dist: xenial
       sudo: true     
     - stage: coverage
       python: 3.6
       script:
-        - make coverage
+        - make init coverage
