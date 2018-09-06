@@ -1,19 +1,17 @@
 language: python
-python:
 script:
-  - "3.6"
-  - "3.7-dev"
+  - make ci
 
 jobs:
   include:
     - stage: test
+      python: 3.6
       script:
         - make ci
-      python: '3.6'
     - stage: test
+      python: 3.7
       script:
         - make ci
-      python: '3.7'
       dist: xenial
       sudo: true     
     - stage: coverage
