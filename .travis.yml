@@ -1,4 +1,22 @@
 language: python
 python:
+script:
+  - "3.6"
   - "3.7-dev"
-script: pytest src
+
+jobs:
+  include:
+    - stage: test
+      script:
+        - make ci
+      python: '3.6'
+    - stage: test
+      script:
+        - make ci
+      python: '3.7'
+      dist: xenial
+      sudo: true     
+    - stage: coverage
+      python: 3.6
+      script:
+        - make coverage
