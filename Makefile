@@ -8,7 +8,7 @@ test:
 	detox
 
 ci:
-	pipenv run py.test src -n 8 --boxed --junitxml=report.xml
+	pipenv run py.test src
 
 test-readme:
 	@pipenv run python setup.py check --restructuredtext --strict && ([ $$? -eq 0 ] && echo "README.rst and HISTORY.rst ok") || echo "Invalid markup in README.rst or HISTORY.rst!"
