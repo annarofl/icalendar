@@ -8,7 +8,7 @@ test:
 	detox
 
 ci:
-	pipenv run py.test src
+	pytest src
 
 test-readme:
 	@pipenv run python setup.py check --restructuredtext --strict && ([ $$? -eq 0 ] && echo "README.rst and HISTORY.rst ok") || echo "Invalid markup in README.rst or HISTORY.rst!"
@@ -18,7 +18,7 @@ flake8:
 
 coverage:
 #--cov-config .coveragerc 
-	pipenv run py.test src --verbose --cov-report term --cov-report xml --cov=requests tests
+	pytest src --verbose --cov-report term --cov-report xml --cov=requests tests
 
 publish:
 	pip install 'twine>=1.5.0'
