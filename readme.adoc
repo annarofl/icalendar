@@ -15,4 +15,4 @@ Select a Debug runtime (from Debug side window), e.g. `fallsindoor`
 tada
 
 == Data Formats
-see icalendar-data
+see link:https://github.com/garymcwilliams/icalendar-data[icalendar-data]
