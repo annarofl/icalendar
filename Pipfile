@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 envparse = "*"
 icalendar = "*"
+pyyaml = "*"
 
 [dev-packages]
 pylint = "*"
