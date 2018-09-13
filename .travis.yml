@@ -16,3 +16,9 @@ jobs:
 #      python: 3.6
 #      script:
 #        - make init coverage
+
+notifications:
+  slack:
+    - garymcwilliams:RnFlaOcjeWPN1kIPOrQkLDDV
+  email:
+    - garymcwilliams@gmail.com
