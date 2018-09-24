@@ -7,7 +7,7 @@ from datetime import timedelta, datetime
 
 def _format_date_time(date, time) -> str:
     date_fmt_in = "%Y-%m-%d_%H:%M"
-    return datetime.strptime(f"{new_date}_{time}", date_fmt_in)
+    return datetime.strptime(f"{date}_{time}", date_fmt_in)
 
 class Match:
     """
