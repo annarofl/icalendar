@@ -5,6 +5,9 @@ Created on 19 Jun 2018
 """
 from datetime import timedelta, datetime
 
+def _format_date_time(date, time) -> str:
+    date_fmt_in = "%Y-%m-%d_%H:%M"
+    return datetime.strptime(f"{new_date}_{time}", date_fmt_in)
 
 class Match:
     """
@@ -42,16 +45,15 @@ class Match:
 
         duration = timedelta(hours=duration)
 
-        date_fmt_in = "%Y-%m-%d_%H:%M"
-        self.match_date = datetime.strptime(f"{date}_{time}", date_fmt_in)
+        self.match_date = _format_date_time(date, time)
         # for consistency, always use the original date for id, even if match
         # time moves
         self.id_time = self.match_date.strftime("%Y-%m-%d-%H-%M")
         if new_date is not None:
             if new_time is not None:
-                self.match_date = datetime.strptime(f"{new_date}_{new_time}", date_fmt_in)
+                self.match_date = _format_date_time(new_date, new_time)
             else:
-                self.match_date = datetime.strptime(f"{new_date}_{time}", date_fmt_in)
+                self.match_date = _format_date_time(new_date, time)
 
         self.match_end = self.match_date + duration
         # expect to arrive 10 mins early
