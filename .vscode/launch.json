@@ -48,7 +48,7 @@
             "program": "${workspaceFolder}/src/main.py",
             "args": [
                 "--team", "stcolmans",
-                "--year", "2017-18"
+                "--year", "2018-19"
             ],
             "cwd": "${workspaceFolder}/src",
             "env": {},
