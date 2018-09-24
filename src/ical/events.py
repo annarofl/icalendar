@@ -100,6 +100,7 @@ class Events:
         json_teamdata = self._load_json(teamFile)
         self.team_data = json_teamdata["teams"]
         self.myclub = json_teamdata["me"]
+        self.default_start_time = json_teamdata["start_time"]
 
     def add_events(self):
         """Add all events for this team / season to the calendar"""
@@ -122,10 +123,14 @@ class Events:
 
             location = ""
             warning = ""
+            start_time = self.default_start_time
+
             if home_id in self.team_data:
                 home_team_data = self.team_data[home_id]
                 home_team_name = home_team_data["name"]
                 location = home_team_data["location"]
+                if "start_time" in home_team_data:
+                    start_time = home_team_data["start_time"]
             else:
                 warning = "****"
                 home_team_name = home_id
@@ -158,6 +163,7 @@ class Events:
                 away_team_name=away_team_name,
                 away_score=away_score,
                 date=match_date,
+                time=start_time,
                 location=location,
                 warning=warning,
                 duration=duration,

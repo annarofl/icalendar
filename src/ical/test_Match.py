@@ -16,7 +16,8 @@ class TestMatch:
             away_team_id="OLDLA",
             away_team_name="Old Bleach A",
             away_score=1,
-            date="2018-06-05_18:30",
+            date="2018-06-05",
+            time="18:30",
             location="location",
             duration=3,
         )
@@ -49,7 +50,8 @@ class TestMatch:
             away_team_id="OLDLA",
             away_team_name="Old Bleach A",
             away_score=1,
-            date="2018-06-05_18:30",
+            date="2018-06-05",
+            time="18:30",
             location="location",
             duration=3,
             warning="****",
@@ -74,27 +76,66 @@ class TestMatch:
             away_team_id="OLDLA",
             away_team_name="Old Bleach A",
             away_score=1,
-            date="2018-06-05_18:30",
+            date="2018-06-05",
+            time="18:30",
             location="location",
             duration=3,
-            new_date="2018-06-06_14:00"
+            new_date="2018-06-06"
         )
 
     def test_home_match_newdate_description(self, home_match_newdate):
         assert (
             home_match_newdate.description()
-            == "Falls A (6) v (1) Old Bleach A on 2018-06-06@14:00"
+            == "Falls A (6) v (1) Old Bleach A on 2018-06-06@18:30"
         )
 
     def test_home_match_newdate_print_description(self, home_match_newdate):
         assert (
             home_match_newdate.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@18:30 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
         assert (
             home_match_newdate.id() == "FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+        )
+
+    ###########################################################################################
+    # H O M E   N E W   D A T E   A N D   T I M E
+    ###########################################################################################
+    @pytest.fixture(scope="class")
+    def home_match_newdatetime(self) -> Match:
+        return Match(
+            myclub="FALLSA",
+            home_team_id="FALLSA",
+            home_team_name="Falls A",
+            home_score=6,
+            away_team_id="OLDLA",
+            away_team_name="Old Bleach A",
+            away_score=1,
+            date="2018-06-05",
+            time="18:30",
+            location="location",
+            duration=3,
+            new_date="2018-06-06",
+            new_time="14:00"
+        )
+
+    def test_home_match_newdatetime_description(self, home_match_newdatetime):
+        assert (
+            home_match_newdatetime.description()
+            == "Falls A (6) v (1) Old Bleach A on 2018-06-06@14:00"
+        )
+
+    def test_home_match_newdatetime_print_description(self, home_match_newdatetime):
+        assert (
+            home_match_newdatetime.print_description()
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+        )
+
+    def test_home_match_newdatetime_id(self, home_match_newdatetime):
+        assert (
+            home_match_newdatetime.id() == "FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
         )
 
     ###########################################################################################
@@ -110,7 +151,8 @@ class TestMatch:
             away_team_id="FALLSA",
             away_team_name="Falls A",
             away_score=0,
-            date="2018-05-29_14:00",
+            date="2018-05-29",
+            time="14:00",
             location="location",
             duration=3,
         )
@@ -143,7 +185,8 @@ class TestMatch:
             away_team_id="Limavady",
             away_team_name="Limavady",
             away_score=71,
-            date="2018-06-02_14:00",
+            date="2018-06-02",
+            time="14:00",
             location="location",
             warning="****",
             duration=3,

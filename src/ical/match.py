@@ -21,11 +21,13 @@ class Match:
         away_team_name,
         away_score,
         date,
+        time,
         location,
         warning="",
         duration=3,
         label=None,
         new_date=None,
+        new_time=None,
     ):
 
         self.myclub = myclub
@@ -35,22 +37,25 @@ class Match:
         self.away_id = away_team_id
         self.away_team_name = away_team_name
         self.away_score = away_score
-        self.match_time = date
         self.location = location
         self.warning = warning
 
         duration = timedelta(hours=duration)
 
         date_fmt_in = "%Y-%m-%d_%H:%M"
-        self.match_time = datetime.strptime(self.match_time, date_fmt_in)
+        self.match_date = datetime.strptime(f"{date}_{time}", date_fmt_in)
         # for consistency, always use the original date for id, even if match
         # time moves
-        self.id_time = self.match_time.strftime("%Y-%m-%d-%H-%M")
+        self.id_time = self.match_date.strftime("%Y-%m-%d-%H-%M")
         if new_date is not None:
-            self.match_time = datetime.strptime(new_date, date_fmt_in)
-        self.match_end = self.match_time + duration
+            if new_time is not None:
+                self.match_date = datetime.strptime(f"{new_date}_{new_time}", date_fmt_in)
+            else:
+                self.match_date = datetime.strptime(f"{new_date}_{time}", date_fmt_in)
+
+        self.match_end = self.match_date + duration
         # expect to arrive 10 mins early
-        self.match_start = self.match_time - timedelta(minutes=10)
+        self.match_start = self.match_date - timedelta(minutes=10)
 
         self.label = ""
         if label is not None:
@@ -67,7 +72,7 @@ class Match:
 
     def _display_date(self):
         # display_date = self.match_start.strftime(self.date_fmt_in)
-        return self.match_time.strftime("%Y-%m-%d@%H:%M")
+        return self.match_date.strftime("%Y-%m-%d@%H:%M")
 
     def description(self):
         """
@@ -119,7 +124,7 @@ class Match:
         return (
             f"{self.home_team_name!r},({self.home_score!r}),"
             "({self.away_score!r}),{self.away_team_name!r},"
-            "{self.match_time!r},{self.label!r}"
+            "{self.match_date!r},{self.label!r}"
         )
 
     def __str__(self) -> str:
@@ -131,5 +136,5 @@ class Match:
             f" v "
             f"({self.away_score}) {self.away_team_name}"
             f" on "
-            f"{self.match_time} {self.label}"
+            f"{self.match_date} {self.label}"
         )
