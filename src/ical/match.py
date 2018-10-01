@@ -48,7 +48,7 @@ class Match:
         self.match_date = _format_date_time(date, time)
         # for consistency, always use the original date for id, even if match
         # time moves
-        self.id_time = self.match_date.strftime("%Y-%m-%d-%H-%M")
+        self.id_time = self.match_date.strftime("%Y-%m-%d")
         if new_date is not None:
             if new_time is not None:
                 self.match_date = _format_date_time(new_date, new_time)

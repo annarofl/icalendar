@@ -31,11 +31,11 @@ class TestMatch:
     def test_home_match_print_description(self, home_match):
         assert (
             home_match.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     def test_home_match_id(self, home_match):
-        assert home_match.id() == "FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+        assert home_match.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
     ###########################################################################################
     #  H O M E   W A R N I N G
@@ -60,7 +60,7 @@ class TestMatch:
     def test_home_match_print_description(self, home_match):
         assert (
             home_match.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk ****"
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk ****"
         )
 
     ###########################################################################################
@@ -92,12 +92,12 @@ class TestMatch:
     def test_home_match_newdate_print_description(self, home_match_newdate):
         assert (
             home_match_newdate.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@18:30 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
         assert (
-            home_match_newdate.id() == "FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            home_match_newdate.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     ###########################################################################################
@@ -130,12 +130,12 @@ class TestMatch:
     def test_home_match_newdatetime_print_description(self, home_match_newdatetime):
         assert (
             home_match_newdatetime.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     def test_home_match_newdatetime_id(self, home_match_newdatetime):
         assert (
-            home_match_newdatetime.id() == "FALLSA-2018-06-05-18-30-OLDLA@mc-williams.co.uk"
+            home_match_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     ###########################################################################################
@@ -164,12 +164,12 @@ class TestMatch:
         )
 
     def test_at_away_id(self, away_match):
-        assert away_match.id() == "FALLSA-2018-05-29-14-00-DUNBA@mc-williams.co.uk"
+        assert away_match.id() == "FALLSA-2018-05-29-DUNBA@mc-williams.co.uk"
 
     def test_at_away_print_description(self, away_match):
         assert (
             away_match.print_description()
-            == "Dunbarton       (  7) v (  0) Falls A         on 2018-05-29@14:00 FALLSA-2018-05-29-14-00-DUNBA@mc-williams.co.uk"
+            == "Dunbarton       (  7) v (  0) Falls A         on 2018-05-29@14:00 FALLSA-2018-05-29-DUNBA@mc-williams.co.uk"
         )
 
     ###########################################################################################
@@ -202,5 +202,5 @@ class TestMatch:
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()
-            == "Falls A         ( 96) v ( 71) Limavady        on 2018-06-02@14:00 FALLSA-2018-06-02-14-00-Limavady@mc-williams.co.uk Irish Cup ****"
+            == "Falls A         ( 96) v ( 71) Limavady        on 2018-06-02@14:00 FALLSA-2018-06-02-Limavady@mc-williams.co.uk Irish Cup ****"
         )
