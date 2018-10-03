@@ -2,44 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
-            "type": "python",
-            "request": "launch",
-            "program": "${file}"
-        },
-        {
-            "name": "PyTest",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "module": "pytest",
-            "args": [
-                "-sv"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
-            "name": "PyTest Coverage",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "module": "pytest",
-            "args": [
-                "--verbose",
-                "--cov=icalendar"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env"
-        },
-        {
             "name": "StColmans",
             "type": "python",
             "request": "launch",
@@ -51,6 +13,63 @@
                 "--year", "2018-19"
             ],
             "cwd": "${workspaceFolder}/src",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsIndoor",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "fallsindoor",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "StadiumTuesday",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "stadiumtuesday",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "StadiumFriday",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "stadiumfriday",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
             "env": {},
             "envFile": "${workspaceFolder}/src/.env",
             "debugOptions": [
@@ -134,18 +153,22 @@
             ]
         },
         {
-            "name": "FallsIndoor",
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}"
+        },
+        {
+            "name": "PyTest",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "module": "pytest",
             "args": [
-                "--team", "fallsindoor",
-                "--year", "2018-19"
+                "-sv"
             ],
             "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
             "env": {},
             "envFile": "${workspaceFolder}/src/.env",
             "debugOptions": [
@@ -153,44 +176,21 @@
             ]
         },
         {
-            "name": "StadiumTuesday",
+            "name": "PyTest Coverage",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "module": "pytest",
             "args": [
-                "--team", "stadiumtuesday",
-                "--year", "2018-19"
+                "--verbose",
+                "--cov=icalendar"
             ],
             "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
+            "envFile": "${workspaceFolder}/src/.env"
         },
-        {
-            "name": "StadiumFriday",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
-            "args": [
-                "--team", "stadiumfriday",
-                "--year", "2018-19"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
+       {
             "name": "Python: Attach",
             "type": "python",
             "request": "attach",
