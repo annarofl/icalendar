@@ -2,24 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "StColmans",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
-            "args": [
-                "--team", "stcolmans",
-                "--year", "2018-19"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
             "name": "FallsIndoor",
             "type": "python",
             "request": "launch",
@@ -39,44 +21,6 @@
             ]
         },
         {
-            "name": "StadiumTuesday",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
-            "args": [
-                "--team", "stadiumtuesday",
-                "--year", "2018-19"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
-            "name": "StadiumFriday",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
-            "args": [
-                "--team", "stadiumfriday",
-                "--year", "2018-19"
-            ],
-            "cwd": "${workspaceFolder}/src",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
             "name": "FallsMidweekA",
             "type": "python",
             "request": "launch",
@@ -85,6 +29,25 @@
             "program": "${workspaceFolder}/src/main.py",
             "args": [
                 "--team", "fallsmidweeka",
+                "--year", "2018"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsNIPGL",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "fallsnipgl",
                 "--year", "2018"
             ],
             "cwd": "${workspaceFolder}/src",
@@ -134,18 +97,55 @@
             ]
         },
         {
-            "name": "FallsNIPGL",
+            "name": "StadiumFriday",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
             "program": "${workspaceFolder}/src/main.py",
             "args": [
-                "--team", "fallsnipgl",
-                "--year", "2018"
+                "--team", "stadiumfriday",
+                "--year", "2018-19"
             ],
             "cwd": "${workspaceFolder}/src",
             "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "StadiumTuesday",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "stadiumtuesday",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "StColmans",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "stcolmans",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
             "env": {},
             "envFile": "${workspaceFolder}/src/.env",
             "debugOptions": [
