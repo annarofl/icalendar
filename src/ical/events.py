@@ -135,6 +135,9 @@ class Events:
                 warning = "****"
                 home_team_name = home_id
 
+            if "start_time" in match:
+                start_time = match["start_time"]
+
             if away_id in self.team_data:
                 away_team_data = self.team_data[away_id]
                 away_team_name = away_team_data["name"]
