@@ -25,7 +25,7 @@ TESTRUN = 0
 PROFILE = 0
 
 # read the data from the file
-data = open('Falls Indoor@group.calendar.google.com.ics').read()
+data = open('FallsIndoor@group.calendar.google.com.ics').read()
 
 g = open('Falls Indoor@group.calendar.google.com.ics', 'rb')
 gcal = Calendar.from_ical(g.read())
