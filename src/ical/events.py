@@ -5,6 +5,7 @@ Created on 11 Oct 2017
 """
 import json
 import os
+import strictyaml
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -21,11 +22,11 @@ def get_dropbox_path():
     Find the default dropbox path
     """
     try:
-        json_path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
+        path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
     except FileNotFoundError:
-        json_path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
+        path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
 
-    with open(str(json_path)) as f:
+    with open(str(path)) as f:
         j = json.load(f)
 
     return Path(j["personal"]["path"]).absolute()
@@ -35,11 +36,21 @@ def get_match_file(club, year):
     """
     Get the matches file for a given club/year.
     """
-    return _get_file(club, f"{club}_matches_{year}.json")
+    return _get_file(club, f"{club}_matches_{year}.yml")
 
+def _get_match_schema(self):
+    return strictyaml.Map({"duration": strictyaml.Int(),
+                "matches": strictyaml.Seq(
+                    strictyaml.Map({
+                        "away": strictyaml.Str(),
+                        "date": strictyaml.Str(),
+                        "newdate": strictyaml.Str(),
+                        "our_score": strictyaml.Int(),
+                        "opp_score": strictyaml.Int()
+    }))})
 
 def get_team_file(club):
-    return _get_file(club, f"{club}_teams.json")
+    return _get_file(club, f"{club}_teams.yml")
 
 
 def _get_file(club, filename):
@@ -92,15 +103,15 @@ class Events:
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
         matchFile = get_match_file(club, year)
-        json_matchdata = self._load_json(matchFile)
-        self.duration = json_matchdata["duration"]
-        self.matches = json_matchdata["matches"]
+        matchdata = self._load_data(matchFile)
+        self.duration = int(matchdata["duration"])
+        self.matches = matchdata["matches"]
 
         teamFile = get_team_file(club)
-        json_teamdata = self._load_json(teamFile)
-        self.team_data = json_teamdata["teams"]
-        self.myclub = json_teamdata["me"]
-        self.default_start_time = json_teamdata["start_time"]
+        teamdata = self._load_data(teamFile, None)
+        self.team_data = teamdata["teams"]
+        self.myclub = teamdata["me"]
+        self.default_start_time = teamdata["start_time"]
 
     def add_events(self):
         """Add all events for this team / season to the calendar"""
@@ -158,13 +169,13 @@ class Events:
                 new_date = match["newdate"]
 
             match = Match(
-                myclub=self.myclub,
-                home_team_id=home_id,
-                home_team_name=home_team_name,
-                home_score=home_score,
-                away_team_id=away_id,
-                away_team_name=away_team_name,
-                away_score=away_score,
+                myclub=self.myclub.data,
+                home_team_id=home_id.data,
+                home_team_name=home_team_name.data,
+                home_score=home_score.data,
+                away_team_id=away_id.data,
+                away_team_name=away_team_name.data,
+                away_score=away_score.data,
                 date=match_date,
                 time=start_time,
                 location=location,
@@ -190,13 +201,14 @@ class Events:
         """
         self.savedir = savedir
 
-    def _load_json(self, json_filename):
-        "loads the JSON file"
-        with open(json_filename) as data_file:
-            json_data = json.load(data_file)
+    def _load_data(self, filename: str, schema=None):
+        "loads the data file"
+        with open(filename, 'r') as data_file:
+            ymldata = data_file.read()
+            data = strictyaml.load(ymldata, schema)
         # print(json.dumps(json_data, indent=2))
         # print(json_data['matches'])
-        return json_data
+        return data
 
     def _create_event(self, match):
         """
