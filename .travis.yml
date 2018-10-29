@@ -22,3 +22,5 @@ notifications:
     - garymcwilliams:RnFlaOcjeWPN1kIPOrQkLDDV
   email:
     - garymcwilliams@gmail.com
+  webhooks:
+    - https://www.travisbuddy.com/
