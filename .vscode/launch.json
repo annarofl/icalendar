@@ -2,6 +2,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "FallsBelfast",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/src/main.py",
+            "args": [
+                "--team", "fallsbelfast",
+                "--year", "2018-19"
+            ],
+            "cwd": "${workspaceFolder}/src",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/src/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
             "name": "FallsIndoor",
             "type": "python",
             "request": "launch",
