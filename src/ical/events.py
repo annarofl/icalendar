@@ -104,7 +104,7 @@ class Events:
 
         matchFile = get_match_file(club, year)
         matchdata = self._load_data(matchFile)
-        self.duration = int(matchdata["duration"])
+        self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
         teamFile = get_team_file(club)
