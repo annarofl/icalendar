@@ -3,10 +3,6 @@ language: python
 jobs:
   include:
     - stage: test
-      python: 3.6
-      script:
-        - make init ci
-    - stage: test
       python: 3.7
       script:
         - make init ci
