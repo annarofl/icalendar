@@ -40,6 +40,7 @@ jobs:
       - run:
           name: run tests
           command: |
+            pipenv shell
             pytest src
 
 #      - store_artifacts:
