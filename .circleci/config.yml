@@ -41,7 +41,7 @@ jobs:
           name: run tests
           command: |
             pipenv shell
-            pytest src
+            pipenv run pytest src
 
 #      - store_artifacts:
 #          path: test-reports
