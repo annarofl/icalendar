@@ -52,7 +52,6 @@ def _get_match_schema(self):
 def get_team_file(club):
     return _get_file(club, f"{club}_teams.yml")
 
-
 def _get_file(club, filename):
     """
     Get a file. The base dir will be read from env var ICAL_DATAPATH.
@@ -185,7 +184,12 @@ class Events:
                 new_date=new_date,
             )
 
-            self.cal.add_component(self._create_event(match))
+            #32: If new_date is "" then don't add event, but still print match content
+            if new_date != "":
+                self.cal.add_component(self._create_event(match))
+            else:
+                print("Not creating")
+
             print(match.print_description())
 
         # self._print_cal()

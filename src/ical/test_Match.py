@@ -38,7 +38,7 @@ class TestMatch:
         assert home_match.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
     ###########################################################################################
-    #  H O M E   W A R N I N G
+    #  H O M E   A W A Y   N O T   K N O W N
     ###########################################################################################
     @pytest.fixture(scope="class")
     def home_match(self) -> Match:
@@ -136,6 +136,43 @@ class TestMatch:
     def test_home_match_newdatetime_id(self, home_match_newdatetime):
         assert (
             home_match_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+        )
+
+    ###########################################################################################
+    # H O M E   N E W   D A T E   N O T   K N O W N
+    ###########################################################################################
+    @pytest.fixture(scope="class")
+    def home_match_newdateunknown(self) -> Match:
+        return Match(
+            myclub="FALLSA",
+            home_team_id="FALLSA",
+            home_team_name="Falls A",
+            home_score=6,
+            away_team_id="OLDLA",
+            away_team_name="Old Bleach A",
+            away_score=1,
+            date="2018-06-05",
+            time="18:30",
+            location="location",
+            duration=3,
+            new_date=""
+        )
+
+    def test_home_match_newdateunknown_description(self, home_match_newdateunknown):
+        assert (
+            home_match_newdateunknown.description()
+            == "Falls A (6) v (1) Old Bleach A on 2018-06-05@18:30****-TBD-****"
+        )
+
+    def test_home_match_newdateunknown_print_description(self, home_match_newdateunknown):
+        assert (
+            home_match_newdateunknown.print_description()
+            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk****-TBD-****"
+        )
+
+    def test_home_match_newdateunknown_id(self, home_match_newdateunknown):
+        assert (
+            home_match_newdateunknown.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
     ###########################################################################################

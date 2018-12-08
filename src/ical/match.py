@@ -49,7 +49,7 @@ class Match:
         # for consistency, always use the original date for id, even if match
         # time moves
         self.id_time = self.match_date.strftime("%Y-%m-%d")
-        if new_date is not None:
+        if new_date is not None and new_date != "":
             if new_time is not None:
                 self.match_date = _format_date_time(new_date, new_time)
             else:
@@ -62,6 +62,8 @@ class Match:
         self.label = ""
         if label is not None:
             self.label = f" {label}"
+        if new_date == "":
+            self.label = "****-TBD-****"
 
     def summary(self) -> str:
         """Return match summary in pre-defined format"""
