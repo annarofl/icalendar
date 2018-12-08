@@ -7,8 +7,10 @@ test:
 	# This runs all of the tests, on both Python 2 and Python 3.
 	detox
 
-ci:
-	pytest src
+ci: test coverage
+
+test:
+	pytest src/ical --junitxml=test_reports/icalendar.xml
 
 test-readme:
 	@pipenv run python setup.py check --restructuredtext --strict && ([ $$? -eq 0 ] && echo "README.rst and HISTORY.rst ok") || echo "Invalid markup in README.rst or HISTORY.rst!"
