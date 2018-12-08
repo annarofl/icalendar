@@ -40,8 +40,8 @@ jobs:
       - run:
           name: run tests
           command: |
-            pipenv run pytest src
+            pipenv run pytest src --junitxml=test_reports/icalendar.xml
 
-#      - store_artifacts:
-#          path: test-reports
-#          destination: test-reports
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
