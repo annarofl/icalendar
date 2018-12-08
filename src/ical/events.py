@@ -187,8 +187,6 @@ class Events:
             #32: If new_date is "" then don't add event, but still print match content
             if new_date != "":
                 self.cal.add_component(self._create_event(match))
-            else:
-                print("Not creating")
 
             print(match.print_description())
 
