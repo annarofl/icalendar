@@ -7,7 +7,8 @@ test:
 	# This runs all of the tests, on both Python 2 and Python 3.
 	detox
 
-ci: test coverage
+#ci: test coverage
+ci: test
 
 test:
 	pytest src/ical --junitxml=test_reports/icalendar.xml
