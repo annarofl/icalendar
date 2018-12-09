@@ -44,3 +44,6 @@ jobs:
 
       - store_test_results:
           path: test_reports
+
+      - store_artifacts:
+          path: test_reports
