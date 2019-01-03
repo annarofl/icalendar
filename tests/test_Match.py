@@ -1,11 +1,12 @@
-from .match import Match
+from .context import Match
+#from ical.match import Match
 import pytest
 
 
 class TestMatch:
-    ###########################################################################################
+    ###########################################################################
     #  H O M E
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
     def home_match(self) -> Match:
         return Match(
@@ -37,11 +38,11 @@ class TestMatch:
     def test_home_match_id(self, home_match):
         assert home_match.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
-    ###########################################################################################
+    ###########################################################################
     #  H O M E   A W A Y   N O T   K N O W N
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
-    def home_match(self) -> Match:
+    def home_awaynotknown(self) -> Match:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
@@ -57,15 +58,15 @@ class TestMatch:
             warning="****",
         )
 
-    def test_home_match_print_description(self, home_match):
+    def test_home_awaynotknown_print_description(self, home_awaynotknown):
         assert (
-            home_match.print_description()
+            home_awaynotknown.print_description()
             == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk ****"
         )
 
-    ###########################################################################################
+    ###########################################################################
     # H O M E   N E W   D A T E
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
     def home_match_newdate(self) -> Match:
         return Match(
@@ -80,7 +81,7 @@ class TestMatch:
             time="18:30",
             location="location",
             duration=3,
-            new_date="2018-06-06"
+            new_date="2018-06-06",
         )
 
     def test_home_match_newdate_description(self, home_match_newdate):
@@ -96,15 +97,13 @@ class TestMatch:
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
-        assert (
-            home_match_newdate.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
-        )
+        assert home_match_newdate.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
-    ###########################################################################################
+    ###########################################################################
     # H O M E   N E W   D A T E   A N D   T I M E
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
-    def home_match_newdatetime(self) -> Match:
+    def home_newdatetime(self) -> Match:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
@@ -118,18 +117,18 @@ class TestMatch:
             location="location",
             duration=3,
             new_date="2018-06-06",
-            new_time="14:00"
+            new_time="14:00",
         )
 
-    def test_home_match_newdatetime_description(self, home_match_newdatetime):
+    def test_home_newdatetime_description(self, home_newdatetime):
         assert (
-            home_match_newdatetime.description()
+            home_newdatetime.description()
             == "Falls A (6) v (1) Old Bleach A on 2018-06-06@14:00"
         )
 
-    def test_home_match_newdatetime_print_description(self, home_match_newdatetime):
+    def test_home_newdatetime_print_description(self, home_newdatetime):
         assert (
-            home_match_newdatetime.print_description()
+            home_newdatetime.print_description()
             == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
@@ -138,11 +137,11 @@ class TestMatch:
             home_match_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
-    ###########################################################################################
+    ###########################################################################
     # H O M E   N E W   D A T E   N O T   K N O W N
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
-    def home_match_newdateunknown(self) -> Match:
+    def home_newdateunknwon(self) -> Match:
         return Match(
             myclub="FALLSA",
             home_team_id="FALLSA",
@@ -155,29 +154,32 @@ class TestMatch:
             time="18:30",
             location="location",
             duration=3,
-            new_date=""
+            new_date="",
         )
 
-    def test_home_match_newdateunknown_description(self, home_match_newdateunknown):
+    def test_home_newdateunknwon_description(self, home_newdateunknwon):
         assert (
-            home_match_newdateunknown.description()
+            home_newdateunknwon.description()
             == "Falls A (6) v (1) Old Bleach A on 2018-06-05@18:30****-TBD-****"
         )
 
-    def test_home_match_newdateunknown_print_description(self, home_match_newdateunknown):
+    def test_home_newdateunknwon_print_description(
+        self, home_newdateunknwon
+    ):
         assert (
-            home_match_newdateunknown.print_description()
+            home_newdateunknwon.print_description()
             == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk****-TBD-****"
         )
 
-    def test_home_match_newdateunknown_id(self, home_match_newdateunknown):
+    def test_home_newdateunknwon_id(self, home_newdateunknwon):
         assert (
-            home_match_newdateunknown.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+            home_newdateunknwon.id()
+            == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
-    ###########################################################################################
+    ###########################################################################
     #  A W A Y
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
     def away_match(self) -> Match:
         return Match(
@@ -209,9 +211,9 @@ class TestMatch:
             == "Dunbarton       (  7) v (  0) Falls A         on 2018-05-29@14:00 FALLSA-2018-05-29-DUNBA@mc-williams.co.uk"
         )
 
-    ###########################################################################################
+    ###########################################################################
     #  C U P
-    ###########################################################################################
+    ###########################################################################
     @pytest.fixture(scope="class")
     def cup_home_match(self) -> Match:
         return Match(

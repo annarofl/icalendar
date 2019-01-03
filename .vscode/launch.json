@@ -7,15 +7,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "competitions",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -26,15 +26,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsbelfast",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -45,15 +45,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsindoor",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -64,15 +64,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsmidweeka",
                 "--year", "2018"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -83,15 +83,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsnipgl",
                 "--year", "2018"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -102,15 +102,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoora",
                 "--year", "2018"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -121,15 +121,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsoutdoorb",
                 "--year", "2018"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -140,15 +140,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stadiumfriday",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -159,15 +159,15 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stadiumtuesday",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -178,14 +178,14 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/main.py",
+            "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "stcolmans",
                 "--year", "2018-19"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -206,9 +206,9 @@
             "args": [
                 "-sv"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -224,16 +224,16 @@
                 "--verbose",
                 "--cov=icalendar"
             ],
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env"
+            "envFile": "${workspaceFolder}/.env"
         },
        {
             "name": "Python: Attach",
             "type": "python",
             "request": "attach",
-            "localRoot": "${workspaceFolder}/src",
-            "remoteRoot": "${workspaceFolder}/src",
+            "localRoot": "${workspaceFolder}",
+            "remoteRoot": "${workspaceFolder}",
             "port": 3000,
             "secret": "my_secret",
             "host": "localhost"
@@ -248,7 +248,7 @@
             "cwd": "",
             "console": "integratedTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": []
         },
         {
@@ -261,7 +261,7 @@
             "cwd": "",
             "console": "externalTerminal",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": []
         },
         {
@@ -271,16 +271,16 @@
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
             "program": "fully qualified path fo 'flask' executable. Generally located along with python interpreter",
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {
-                "FLASK_APP": "${workspaceFolder}/src/quickstart/app.py"
+                "FLASK_APP": "${workspaceFolder}/quickstart/app.py"
             },
             "args": [
                 "run",
                 "--no-debugger",
                 "--no-reload"
             ],
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -291,11 +291,11 @@
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/run.py",
-            "cwd": "${workspaceFolder}/src",
+            "program": "${workspaceFolder}/run.py",
+            "cwd": "${workspaceFolder}",
             "args": [],
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -315,9 +315,9 @@
                 "pythonPath": "${env:SPARK_HOME}/bin/spark-submit"
             },
             "program": "${file}",
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -329,9 +329,9 @@
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
             "module": "module.name",
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
@@ -342,11 +342,11 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "args": [
-                "${workspaceFolder}/src/development.ini"
+                "${workspaceFolder}/development.ini"
             ],
             "debugOptions": [
                 "RedirectOutput",
@@ -359,15 +359,15 @@
             "request": "launch",
             "stopOnEntry": true,
             "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/src/console.py",
-            "cwd": "${workspaceFolder}/src",
+            "program": "${workspaceFolder}/console.py",
+            "cwd": "${workspaceFolder}",
             "args": [
                 "dev",
                 "runserver",
                 "--noreload=True"
             ],
             "env": {},
-            "envFile": "${workspaceFolder}/src/.env",
+            "envFile": "${workspaceFolder}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]
