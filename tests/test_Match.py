@@ -1,5 +1,6 @@
 from .context import Match
-#from ical.match import Match
+
+# from ical.match import Match
 import pytest
 
 
@@ -132,10 +133,8 @@ class TestMatch:
             == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
         )
 
-    def test_home_match_newdatetime_id(self, home_match_newdatetime):
-        assert (
-            home_match_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
-        )
+    def test_home_match_newdatetime_id(self, home_newdatetime):
+        assert home_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
     ###########################################################################
     # H O M E   N E W   D A T E   N O T   K N O W N
@@ -163,19 +162,14 @@ class TestMatch:
             == "Falls A (6) v (1) Old Bleach A on 2018-06-05@18:30****-TBD-****"
         )
 
-    def test_home_newdateunknwon_print_description(
-        self, home_newdateunknwon
-    ):
+    def test_home_newdateunknwon_print_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.print_description()
             == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk****-TBD-****"
         )
 
     def test_home_newdateunknwon_id(self, home_newdateunknwon):
-        assert (
-            home_newdateunknwon.id()
-            == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
-        )
+        assert home_newdateunknwon.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
 
     ###########################################################################
     #  A W A Y
