@@ -191,6 +191,24 @@
             ]
         },
         {
+            "name": "StColmansEnv",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "ICAL_TEAM":"stcolmans",
+                "ICAL_YEAR":"2018-19"
+            },
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",

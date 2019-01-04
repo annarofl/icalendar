@@ -5,6 +5,7 @@
 === command line
 [source]
 ----
+cd src
 python main.py --team <team name> --year <year>
 ----
 

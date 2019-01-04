@@ -17,19 +17,27 @@ from icalendar.cal import Event
 from .match import Match
 
 
-def get_dropbox_path():
+def savedir():
     """
-    Find the default dropbox path
+    Return a Path object for the savedir. If env ICAL_OUTPUT is set then use
+    that, otherwise find the default dropbox path
     """
+    if os.getenv("ICAL_OUTPUT") is not None:
+        return Path(os.getenv("ICAL_OUTPUT"))
+
     try:
-        path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
+        if os.getenv("LOCALAPPDATA") is not None:
+            path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
+        elif os.getenv("APPDATA") is not None:
+            path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
+        else:
+            print("Could not find dropbox path")
+
+        with open(str(path)) as f:
+            j = json.load(f)
+        return Path(j["personal"]["path"]).absolute()
     except FileNotFoundError:
-        path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
-
-    with open(str(path)) as f:
-        j = json.load(f)
-
-    return Path(j["personal"]["path"]).absolute()
+        print("info.json NotFound")
 
 
 def get_match_file(club, year):
@@ -38,19 +46,29 @@ def get_match_file(club, year):
     """
     return _get_file(club, f"{club}_matches_{year}.yml")
 
+
 def _get_match_schema(self):
-    return strictyaml.Map({"duration": strictyaml.Int(),
-                "matches": strictyaml.Seq(
-                    strictyaml.Map({
+    return strictyaml.Map(
+        {
+            "duration": strictyaml.Int(),
+            "matches": strictyaml.Seq(
+                strictyaml.Map(
+                    {
                         "away": strictyaml.Str(),
                         "date": strictyaml.Str(),
                         "newdate": strictyaml.Str(),
                         "our_score": strictyaml.Int(),
-                        "opp_score": strictyaml.Int()
-    }))})
+                        "opp_score": strictyaml.Int(),
+                    }
+                )
+            ),
+        }
+    )
+
 
 def get_team_file(club):
     return _get_file(club, f"{club}_teams.yml")
+
 
 def _get_file(club, filename):
     """
@@ -91,7 +109,7 @@ class Events:
         :param year: String year to look for matches, e.g. 2017-18
         """
 
-        self.savedir = get_dropbox_path()
+        self.savedir = savedir()
 
         self.club = club
         self.year = year
@@ -185,7 +203,7 @@ class Events:
                 new_date=new_date,
             )
 
-            #32: If new_date is "" then don't add event, but still print match content
+            # 32: If new_date is "" then don't add event, but still print match content
             if new_date != "":
                 self.cal.add_component(self._create_event(match))
 
@@ -206,7 +224,7 @@ class Events:
 
     def _load_data(self, filename: str, schema=None):
         "loads the data file"
-        with open(filename, 'r') as data_file:
+        with open(filename, "r") as data_file:
             ymldata = data_file.read()
             data = strictyaml.load(ymldata, schema)
         # print(json.dumps(json_data, indent=2))
