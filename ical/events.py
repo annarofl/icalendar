@@ -80,7 +80,6 @@ def _get_file(club, filename):
     # )
     env.read_envfile()
 
-    print(env.str("ICAL_DATAPATH"))
     dataPath = Path(env.str("ICAL_DATAPATH"), club)
     file = Path(dataPath, filename)
     if not file.exists():
