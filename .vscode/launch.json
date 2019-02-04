@@ -67,7 +67,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsmidweeka",
-                "--year", "2018"
+                "--year", "2019"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
