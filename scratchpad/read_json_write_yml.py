@@ -45,7 +45,7 @@ team = args.team
 year = args.year
 matchFile = get_match_file(team, year)
 matchdata = _load_json(matchFile)
-#print(matchdata)
+# print(matchdata)
 ymlfile = _get_file(team, f"{team}_matches_{year}.yml")
 with open(ymlfile, 'w') as outfile:
     yaml.dump(matchdata, outfile, default_flow_style=False)

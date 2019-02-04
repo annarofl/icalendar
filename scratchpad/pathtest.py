@@ -3,6 +3,7 @@ import sys
 
 savedir = Path('e:/temp') / 'gary'
 
+
 def _mk_save_dir():    
     newdir = Path(savedir) / 'Apps' / 'icalendar'
 
@@ -11,6 +12,7 @@ def _mk_save_dir():
         
     return newdir
 
+
 def _write_file():
     filename = 'foo'
     newfile = _mk_save_dir() / filename
@@ -18,6 +20,7 @@ def _write_file():
     print(type(newfile))
     newfile.write_text('gary')
     print('saved:%s' % newfile)
+
 
 def main(argv):
     _write_file()
