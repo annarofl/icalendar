@@ -6,12 +6,10 @@
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
     "python.unitTest.pyTestArgs": [
-        "src/ical"
+        "ical"
     ],
     "python.unitTest.unittestArgs": [
         "-v",
-        "-s",
-        "./src",
         "-p",
         "--cov=ical",
         "test*.py"
