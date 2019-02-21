@@ -3,89 +3,15 @@ Created on 11 Oct 2017
 
 @author: gmcwilliams
 """
-import json
-import os
 import strictyaml
-import sys
+
+from .utils import savedir, get_team_file, get_match_file
+from .match import Match
 from datetime import datetime, timedelta
 from pathlib import Path
 
-from envparse import env
 from icalendar import Alarm, Calendar
 from icalendar.cal import Event
-
-from .match import Match
-
-
-def savedir():
-    """
-    Return a Path object for the savedir. If env ICAL_OUTPUT is set then use
-    that, otherwise find the default dropbox path
-    """
-    if os.getenv("ICAL_OUTPUT") is not None:
-        return Path(os.getenv("ICAL_OUTPUT"))
-
-    try:
-        if os.getenv("LOCALAPPDATA") is not None:
-            path = Path(os.getenv("LOCALAPPDATA")) / "Dropbox" / "info.json"
-        elif os.getenv("APPDATA") is not None:
-            path = Path(os.getenv("APPDATA")) / "Dropbox" / "info.json"
-        else:
-            print("Could not find dropbox path")
-
-        with open(str(path)) as f:
-            j = json.load(f)
-        return Path(j["personal"]["path"]).absolute()
-    except FileNotFoundError:
-        print("info.json NotFound")
-
-
-def get_match_file(club, year):
-    """
-    Get the matches file for a given club/year.
-    """
-    return _get_file(club, f"{club}_matches_{year}.yml")
-
-
-def _get_match_schema(self):
-    return strictyaml.Map(
-        {
-            "duration": strictyaml.Int(),
-            "matches": strictyaml.Seq(
-                strictyaml.Map(
-                    {
-                        "away": strictyaml.Str(),
-                        "date": strictyaml.Str(),
-                        "newdate": strictyaml.Str(),
-                        "our_score": strictyaml.Int(),
-                        "opp_score": strictyaml.Int(),
-                    }
-                )
-            ),
-        }
-    )
-
-
-def get_team_file(club):
-    return _get_file(club, f"{club}_teams.yml")
-
-
-def _get_file(club, filename):
-    """
-    Get a file. The base dir will be read from env var ICAL_DATAPATH.
-    If ICAL_DATAPATH is not set then the value from the .env file will be used.
-    """
-    # env = Env(
-    #    ICAL_DATAPATH=str,
-    # )
-    env.read_envfile()
-
-    dataPath = Path(env.str("ICAL_DATAPATH"), club)
-    file = Path(dataPath, filename)
-    if not file.exists():
-        print(f"Cannot find file: {file}")
-        sys.exit(1)
-    return file
 
 
 class Events:
@@ -136,8 +62,8 @@ class Events:
         for match in self.matches:
             match_date = match["date"]
             # match will be defined as "home": "Opponent" meaning WE are HOME
-            # against the Opponent, so some of the following will appear to be processed
-            # back to front (or home to away)
+            # against the Opponent, so some of the following will appear to be
+            # processed back to front (or home to away)
             if "home" in match:
                 home_id = self.myclub
                 home_score = match["our_score"]
@@ -202,7 +128,8 @@ class Events:
                 new_date=new_date,
             )
 
-            # 32: If new_date is "" then don't add event, but still print match content
+            # 32: If new_date is "" then don't add event, but still print
+            # match content
             if new_date != "":
                 self.cal.add_component(self._create_event(match))
 
