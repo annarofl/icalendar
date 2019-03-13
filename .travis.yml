@@ -1,17 +1,18 @@
 language: python
+python:
+  - 3.6
+  - 3.7
 
-jobs:
-  include:
-    - stage: test
-      python: 3.7
-      script:
-        - make init ci
-      dist: xenial
-      sudo: true     
-#    - stage: coverage
-#      python: 3.6
-#      script:
-#        - make init coverage
+install:
+  - pip install pipenv --upgrade
+  - pipenv install --dev --skip-lock
+
+script:
+#  - coverage run --source=slumber setup.py test
+  - pytest tests --junitxml=test_reports/icalendar.xml
+
+#after_success:
+#  - coveralls
 
 notifications:
   slack:
