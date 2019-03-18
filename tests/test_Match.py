@@ -27,13 +27,13 @@ class TestMatch:
     def test_home_match_description(self, home_match):
         assert (
             home_match.description()
-            == "Falls A (6) v (1) Old Bleach A on 2018-06-05@18:30"
+            == "Falls A (6) v (1) Old Bleach A 2018-06-05@18:30"
         )
 
     def test_home_match_print_description(self, home_match):
         assert (
             home_match.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30" 
         )
 
     def test_home_match_id(self, home_match):
@@ -62,7 +62,7 @@ class TestMatch:
     def test_home_awaynotknown_print_description(self, home_awaynotknown):
         assert (
             home_awaynotknown.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk ****"
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30 ****"
         )
 
     ###########################################################################
@@ -88,13 +88,13 @@ class TestMatch:
     def test_home_match_newdate_description(self, home_match_newdate):
         assert (
             home_match_newdate.description()
-            == "Falls A (6) v (1) Old Bleach A on 2018-06-06@18:30"
+            == "Falls A (6) v (1) Old Bleach A 2018-06-06@18:30"
         )
 
     def test_home_match_newdate_print_description(self, home_match_newdate):
         assert (
             home_match_newdate.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-06@18:30"
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
@@ -124,13 +124,13 @@ class TestMatch:
     def test_home_newdatetime_description(self, home_newdatetime):
         assert (
             home_newdatetime.description()
-            == "Falls A (6) v (1) Old Bleach A on 2018-06-06@14:00"
+            == "Falls A (6) v (1) Old Bleach A 2018-06-06@14:00"
         )
 
     def test_home_newdatetime_print_description(self, home_newdatetime):
         assert (
             home_newdatetime.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-06@14:00 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-06@14:00"
         )
 
     def test_home_match_newdatetime_id(self, home_newdatetime):
@@ -159,13 +159,13 @@ class TestMatch:
     def test_home_newdateunknwon_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.description()
-            == "Falls A (6) v (1) Old Bleach A on 2018-06-05@18:30****-TBD-****"
+            == "Falls A (6) v (1) Old Bleach A 2018-06-05@18:30 ****-TBD-****"
         )
 
     def test_home_newdateunknwon_print_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    on 2018-06-05@18:30 FALLSA-2018-06-05-OLDLA@mc-williams.co.uk****-TBD-****"
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30 ****-TBD-****"
         )
 
     def test_home_newdateunknwon_id(self, home_newdateunknwon):
@@ -193,7 +193,7 @@ class TestMatch:
     def test_at_away_description(self, away_match):
         assert (
             away_match.description()
-            == "Dunbarton (7) v (0) Falls A on 2018-05-29@14:00"
+            == "Dunbarton (7) v (0) Falls A 2018-05-29@14:00"
         )
 
     def test_at_away_id(self, away_match):
@@ -202,7 +202,7 @@ class TestMatch:
     def test_at_away_print_description(self, away_match):
         assert (
             away_match.print_description()
-            == "Dunbarton       (  7) v (  0) Falls A         on 2018-05-29@14:00 FALLSA-2018-05-29-DUNBA@mc-williams.co.uk"
+            == "Dunbarton       (  7) v (  0) Falls A         2018-05-29@14:00"
         )
 
     ###########################################################################
@@ -229,11 +229,11 @@ class TestMatch:
     def test_cup_home_match_description(self, cup_home_match):
         assert (
             cup_home_match.description()
-            == "Falls A (96) v (71) Limavady on 2018-06-02@14:00 Irish Cup"
+            == "Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup"
         )
 
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()
-            == "Falls A         ( 96) v ( 71) Limavady        on 2018-06-02@14:00 FALLSA-2018-06-02-Limavady@mc-williams.co.uk Irish Cup ****"
+            == "Falls A         ( 96) v ( 71) Limavady        2018-06-02@14:00 Irish Cup ****"
         )

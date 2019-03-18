@@ -65,7 +65,7 @@ class Match:
         if label is not None:
             self.label = f" {label}"
         if new_date == "":
-            self.label = "****-TBD-****"
+            self.label = " ****-TBD-****"
 
     def summary(self) -> str:
         """Return match summary in pre-defined format"""
@@ -84,27 +84,25 @@ class Match:
         """
         Return the match data in the defined format as a description
         """
-        description = "%s (%s) v (%s) %s on %s%s" % (
-            self.home_team_name,
-            self.home_score,
-            self.away_score,
-            self.away_team_name,
-            self._display_date(),
-            self.label,
+        return (
+            f"{self.home_team_name} "
+            f"({self.home_score}) "
+            "v "
+            f"({self.away_score}) "
+            f"{self.away_team_name} "
+            f"{self._display_date()}"
+            f"{self.label}"
         )
-        return description
 
     def print_description(self):
         """
         Return a well-formatted, aligned, description of the match, suitable for printing
         """
-        display_date = self._display_date()
         return (
             f"{self.home_team_name:15s} ({self.home_score:3})"
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
-            f"on {display_date} "
-            f"{self.id():31s}"
+            f"{self._display_date()}"
             f"{self.label} "
             f"{self.warning}"
         ).strip()
