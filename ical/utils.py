@@ -12,7 +12,7 @@ from envparse import env
 from pathlib import Path
 
 
-def savedir():
+def savedir() -> Path:
     """
     Return a Path object for the savedir. If env ICAL_OUTPUT is set then use
     that, otherwise find the default dropbox path
@@ -34,13 +34,31 @@ def savedir():
     except FileNotFoundError:
         print("info.json NotFound")
 
-
-def get_match_file(club, year):
+def get_match_file(club, year) -> Path:
     """
     Get the matches file for a given club/year.
     """
     return _get_file(club, f"{club}_matches_{year}.yml")
 
+def get_team_file(club) -> Path:
+    return _get_file(club, f"{club}_teams.yml")
+
+def _get_file(club, filename) -> Path:
+    """
+    Get a file. The base dir will be read from env var ICAL_DATAPATH.
+    If ICAL_DATAPATH is not set then the value from the .env file will be used.
+    """
+    # env = Env(
+    #    ICAL_DATAPATH=str,
+    # )
+    env.read_envfile()
+
+    dataPath = Path(env.str("ICAL_DATAPATH"), club)
+    file = Path(dataPath, filename)
+    if not file.exists():
+        print(f"Cannot find file: {file}")
+        sys.exit(1)
+    return file
 
 def _get_match_schema(self):
     return strictyaml.Map(
@@ -59,25 +77,3 @@ def _get_match_schema(self):
             ),
         }
     )
-
-
-def get_team_file(club):
-    return _get_file(club, f"{club}_teams.yml")
-
-
-def _get_file(club, filename):
-    """
-    Get a file. The base dir will be read from env var ICAL_DATAPATH.
-    If ICAL_DATAPATH is not set then the value from the .env file will be used.
-    """
-    # env = Env(
-    #    ICAL_DATAPATH=str,
-    # )
-    env.read_envfile()
-
-    dataPath = Path(env.str("ICAL_DATAPATH"), club)
-    file = Path(dataPath, filename)
-    if not file.exists():
-        print(f"Cannot find file: {file}")
-        sys.exit(1)
-    return file
