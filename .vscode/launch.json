@@ -40,6 +40,44 @@
             ]
         },
         {
+            "name": "FallsCompMe",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallscompme",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
+            "name": "FallsCompAnnette",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": false,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${workspaceFolder}/main.py",
+            "args": [
+                "--team", "fallscompannette",
+                "--year", "2019"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
+        },
+        {
             "name": "FallsIndoor",
             "type": "python",
             "request": "launch",
@@ -86,7 +124,7 @@
             "program": "${workspaceFolder}/main.py",
             "args": [
                 "--team", "fallsnipgl",
-                "--year", "2018"
+                "--year", "2019"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
