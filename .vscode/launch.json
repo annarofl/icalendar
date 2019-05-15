@@ -40,25 +40,6 @@
             ]
         },
         {
-            "name": "FallsCompMe",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": false,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "${workspaceFolder}/main.py",
-            "args": [
-                "--team", "fallscompme",
-                "--year", "2019"
-            ],
-            "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceFolder}/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
             "name": "FallsCompAnnette",
             "type": "python",
             "request": "launch",
@@ -116,14 +97,14 @@
             ]
         },
         {
-            "name": "FallsNIPGL",
+            "name": "OutdoorComp",
             "type": "python",
             "request": "launch",
             "stopOnEntry": false,
             "pythonPath": "${config:python.pythonPath}",
             "program": "${workspaceFolder}/main.py",
             "args": [
-                "--team", "fallsnipgl",
+                "--team", "outdoorcomp",
                 "--year", "2019"
             ],
             "cwd": "${workspaceFolder}",

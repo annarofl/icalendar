@@ -5,16 +5,16 @@
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
-    "python.unitTest.pyTestArgs": [
+    "python.testing.pyTestArgs": [
         "ical"
     ],
-    "python.unitTest.unittestArgs": [
+    "python.testing.unittestArgs": [
         "-v",
         "-p",
         "--cov=ical",
         "test*.py"
     ],
-    "python.unitTest.unittestEnabled": false,
-    "python.unitTest.nosetestsEnabled": false,
-    "python.unitTest.pyTestEnabled": true
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pyTestEnabled": true
 }
