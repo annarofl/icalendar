@@ -34,14 +34,17 @@ def savedir() -> Path:
     except FileNotFoundError:
         print("info.json NotFound")
 
+
 def get_match_file(club, year) -> Path:
     """
     Get the matches file for a given club/year.
     """
     return _get_file(club, f"{club}_matches_{year}.yml")
 
+
 def get_team_file(club) -> Path:
     return _get_file(club, f"{club}_teams.yml")
+
 
 def _get_file(club, filename) -> Path:
     """
@@ -59,6 +62,7 @@ def _get_file(club, filename) -> Path:
         print(f"Cannot find file: {file}")
         sys.exit(1)
     return file
+
 
 def _get_match_schema(self):
     return strictyaml.Map(
