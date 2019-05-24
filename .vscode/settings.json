@@ -6,7 +6,7 @@
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
     "python.testing.pyTestArgs": [
-        "ical"
+        "tests"
     ],
     "python.testing.unittestArgs": [
         "-v",
