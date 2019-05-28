@@ -33,7 +33,7 @@ class TestMatch:
     def test_home_match_print_description(self, home_match):
         assert (
             home_match.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30" 
+            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30"
         )
 
     def test_home_match_id(self, home_match):
@@ -62,7 +62,8 @@ class TestMatch:
     def test_home_awaynotknown_print_description(self, home_awaynotknown):
         assert (
             home_awaynotknown.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30 ****"
+            == "Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-05@18:30 ****"
         )
 
     ###########################################################################
@@ -98,7 +99,8 @@ class TestMatch:
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
-        assert home_match_newdate.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+        assert home_match_newdate.id() == 'FALLSA-2018-06-05-OLDLA@' \
+            'mc-williams.co.uk'
 
     ###########################################################################
     # H O M E   N E W   D A T E   A N D   T I M E
@@ -134,7 +136,8 @@ class TestMatch:
         )
 
     def test_home_match_newdatetime_id(self, home_newdatetime):
-        assert home_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+        assert home_newdatetime.id() == "FALLSA-2018-06-05-OLDLA@" \
+            "mc-williams.co.uk"
 
     ###########################################################################
     # H O M E   N E W   D A T E   N O T   K N O W N
@@ -165,11 +168,13 @@ class TestMatch:
     def test_home_newdateunknwon_print_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30 ****-TBD-****"
+            == "Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-05@18:30 ****-TBD-****"
         )
 
     def test_home_newdateunknwon_id(self, home_newdateunknwon):
-        assert home_newdateunknwon.id() == "FALLSA-2018-06-05-OLDLA@mc-williams.co.uk"
+        assert home_newdateunknwon.id() == "FALLSA-2018-06-05-OLDLA@" \
+            "mc-williams.co.uk"
 
     ###########################################################################
     #  A W A Y
@@ -235,5 +240,6 @@ class TestMatch:
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()
-            == "Falls A         ( 96) v ( 71) Limavady        2018-06-02@14:00 Irish Cup ****"
+            == "Falls A         ( 96) v ( 71) Limavady        "
+            "2018-06-02@14:00 Irish Cup ****"
         )

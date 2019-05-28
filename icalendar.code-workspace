@@ -10,5 +10,6 @@
 	"settings": {
     "python.linting.enabled": true,
 	"python.jediEnabled": false,
+	"editor.find.autoFindInSelection": true,
 	}
 }
