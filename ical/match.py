@@ -96,7 +96,8 @@ class Match:
 
     def print_description(self):
         """
-        Return a well-formatted, aligned, description of the match, suitable for printing
+        Return a well-formatted, aligned, description of the match, suitable
+        for printing
         """
         return (
             f"{self.home_team_name:15s} ({self.home_score:3})"
