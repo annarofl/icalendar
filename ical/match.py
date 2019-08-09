@@ -117,7 +117,8 @@ class Match:
 
     def print_description(self):
         """
-        Return a well-formatted, aligned, description of the match, suitable for printing
+        Return a well-formatted, aligned, description of the match, suitable
+        for printing
         """
         return (
             f"{self.result:1s} "
