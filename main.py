@@ -3,6 +3,8 @@ from ical.events import Events
 import argparse
 from envparse import env
 
+env.read_envfile()
+
 parser = argparse.ArgumentParser(description="Process Bowls matches.")
 parser.add_argument("-t", "--team")
 parser.add_argument("-y", "--year")

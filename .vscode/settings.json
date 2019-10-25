@@ -1,11 +1,11 @@
 {
     "python.formatting.provider": "black",
-    "python.pythonPath": "c:\\Users\\gmcwilliams\\.virtualenvs\\icalendar-_QnpXV2x\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Users\\gmcwilliams\\.virtualenvs\\icalendar-_QnpXV2x\\Scripts\\python.exe",
     "python.jediEnabled": false,
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
     "python.linting.enabled": true,
-    "python.testing.pyTestArgs": [
+    "python.testing.pytestArgs": [
         "tests"
     ],
     "python.testing.unittestArgs": [
@@ -16,5 +16,5 @@
     ],
     "python.testing.unittestEnabled": false,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.pyTestEnabled": true
+    "python.testing.pytestEnabled": true
 }

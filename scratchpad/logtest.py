@@ -2,7 +2,8 @@ import logging
 import logging.config
 import os
 import yaml
-#import json
+# import json
+
 
 def setup_logging(
     default_path='logging.yml',
@@ -28,11 +29,13 @@ def setup_logging(
     else:
         logging.basicConfig(level=default_level)
 
+
 def main():
     setup_logging()
- 
+
     logger = logging.getLogger(__name__)
     logger.info(f"setting up Match")
+
 
 if __name__ == '__main__':
     main()

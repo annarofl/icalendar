@@ -27,13 +27,14 @@ class TestMatch:
     def test_home_match_description(self, home_match):
         assert (
             home_match.description()
-            == "Falls A (6) v (1) Old Bleach A 2018-06-05@18:30"
+            == "W Falls A (6) v (1) Old Bleach A 2018-06-05@18:30"
         )
 
     def test_home_match_print_description(self, home_match):
         assert (
             home_match.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-05@18:30"
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-05@18:30"
         )
 
     def test_home_match_id(self, home_match):
@@ -62,7 +63,7 @@ class TestMatch:
     def test_home_awaynotknown_print_description(self, home_awaynotknown):
         assert (
             home_awaynotknown.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    "
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
             "2018-06-05@18:30 ****"
         )
 
@@ -89,13 +90,14 @@ class TestMatch:
     def test_home_match_newdate_description(self, home_match_newdate):
         assert (
             home_match_newdate.description()
-            == "Falls A (6) v (1) Old Bleach A 2018-06-06@18:30"
+            == "W Falls A (6) v (1) Old Bleach A 2018-06-06@18:30"
         )
 
     def test_home_match_newdate_print_description(self, home_match_newdate):
         assert (
             home_match_newdate.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-06@18:30"
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-06@18:30"
         )
 
     def test_home_match_newdate_id(self, home_match_newdate):
@@ -126,13 +128,14 @@ class TestMatch:
     def test_home_newdatetime_description(self, home_newdatetime):
         assert (
             home_newdatetime.description()
-            == "Falls A (6) v (1) Old Bleach A 2018-06-06@14:00"
+            == "W Falls A (6) v (1) Old Bleach A 2018-06-06@14:00"
         )
 
     def test_home_newdatetime_print_description(self, home_newdatetime):
         assert (
             home_newdatetime.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    2018-06-06@14:00"
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-06@14:00"
         )
 
     def test_home_match_newdatetime_id(self, home_newdatetime):
@@ -162,13 +165,14 @@ class TestMatch:
     def test_home_newdateunknwon_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.description()
-            == "Falls A (6) v (1) Old Bleach A 2018-06-05@18:30 ****-TBD-****"
+            == "W Falls A (6) v (1) Old Bleach A 2018-06-05@18:30 "
+            "****-TBD-****"
         )
 
     def test_home_newdateunknwon_print_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.print_description()
-            == "Falls A         (  6) v (  1) Old Bleach A    "
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
             "2018-06-05@18:30 ****-TBD-****"
         )
 
@@ -198,7 +202,7 @@ class TestMatch:
     def test_at_away_description(self, away_match):
         assert (
             away_match.description()
-            == "Dunbarton (7) v (0) Falls A 2018-05-29@14:00"
+            == "L Dunbarton (7) v (0) Falls A 2018-05-29@14:00"
         )
 
     def test_at_away_id(self, away_match):
@@ -207,7 +211,8 @@ class TestMatch:
     def test_at_away_print_description(self, away_match):
         assert (
             away_match.print_description()
-            == "Dunbarton       (  7) v (  0) Falls A         2018-05-29@14:00"
+            == "L Dunbarton       (  7) v (  0) Falls A         "
+            "2018-05-29@14:00"
         )
 
     ###########################################################################
@@ -234,12 +239,45 @@ class TestMatch:
     def test_cup_home_match_description(self, cup_home_match):
         assert (
             cup_home_match.description()
-            == "Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup"
+            == "W Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup"
         )
 
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()
-            == "Falls A         ( 96) v ( 71) Limavady        "
+            == "W Falls A         ( 96) v ( 71) Limavady        "
             "2018-06-02@14:00 Irish Cup ****"
+        )
+
+    ###########################################################################
+    #  N O T   Y E T   P L A Y E D
+    ###########################################################################
+    @pytest.fixture(scope="class")
+    def notyet_home_match(self) -> Match:
+        return Match(
+            myclub="FALLSA",
+            home_team_id="FALLSA",
+            home_team_name="Falls A",
+            home_score=0,
+            away_team_id="Limavady",
+            away_team_name="Limavady",
+            away_score=0,
+            date="2018-06-02",
+            time="14:00",
+            location="location",
+            warning="",
+            duration=3
+        )
+
+    def test_notyet_home_match_description(self, notyet_home_match):
+        assert (
+            notyet_home_match.description()
+            == ". Falls A (0) v (0) Limavady 2018-06-02@14:00"
+        )
+
+    def test_notyet_home_match_print_description(self, notyet_home_match):
+        assert (
+            notyet_home_match.print_description()
+            == ". Falls A         (  0) v (  0) Limavady        "
+            "2018-06-02@14:00"
         )

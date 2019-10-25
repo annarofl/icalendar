@@ -11,6 +11,21 @@ def _format_date_time(date, time) -> str:
     return datetime.strptime(f"{date}_{time}", date_fmt_in)
 
 
+def _calc_result(our_score: str, opp_score: str) -> str:
+    ourscore = float(our_score)
+    oppscore = float(opp_score)
+    if ourscore == 0 and oppscore == 0:
+        result = "."  # not yet played
+    elif ourscore > oppscore:
+        result = "W"
+    elif ourscore < oppscore:
+        result = "L"
+    else:
+        result = "D"
+
+    return result
+
+
 class Match:
     """
     Manage one match
@@ -46,6 +61,11 @@ class Match:
         self.warning = warning
 
         duration = timedelta(hours=duration)
+
+        if myclub == home_team_id:
+            self.result = _calc_result(home_score, away_score)
+        else:
+            self.result = _calc_result(away_score, home_score)
 
         self.match_date = _format_date_time(date, time)
         # for consistency, always use the original date for id, even if match
@@ -85,6 +105,7 @@ class Match:
         Return the match data in the defined format as a description
         """
         return (
+            f"{self.result:1s} "
             f"{self.home_team_name} "
             f"({self.home_score}) "
             "v "
@@ -100,6 +121,7 @@ class Match:
         for printing
         """
         return (
+            f"{self.result:1s} "
             f"{self.home_team_name:15s} ({self.home_score:3})"
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
