@@ -17,3 +17,18 @@ tada
 
 == Data Formats
 see link:https://github.com/garymcwilliams/icalendar-data[icalendar-data]
+
+= Managing python pip dependencies
+
+[source]
+----
+pipenv upgrade
+----
+
+To also generate a new requirements.txt file:
+[source]
+----
+pipenv shell
+pip freeze > requirements.txt
+exit
+----
