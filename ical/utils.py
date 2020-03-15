@@ -35,15 +35,20 @@ def savedir() -> Path:
         print("info.json NotFound")
 
 
-def get_match_file(club, year) -> Path:
+def get_match_data(club, year):
     """
-    Get the matches file for a given club/year.
+    Get and read the matches file for a given club/year.
     """
-    return _get_file(club, f"{club}_matches_{year}.yml")
+    filename = _get_file(club, f"{club}_matches_{year}.yml")
+    return _load_data(filename)
 
 
-def get_team_file(club) -> Path:
-    return _get_file(club, f"{club}_teams.yml")
+def get_team_data(club):
+    """
+    Get and read the teams file for a given club.
+    """
+    filename = _get_file(club, f"{club}_teams.yml")
+    return _load_data(filename)
 
 
 def _get_file(club, filename) -> Path:
@@ -81,3 +86,13 @@ def _get_match_schema(self):
             ),
         }
     )
+
+
+def _load_data(filename: Path, schema=None):
+    "loads the data file"
+    with open(filename, "r") as data_file:
+        ymldata = data_file.read()
+        data = strictyaml.load(ymldata, schema)
+    # print(json.dumps(json_data, indent=2))
+    # print(json_data['matches'])
+    return data

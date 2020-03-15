@@ -3,9 +3,7 @@ Created on 11 Oct 2017
 
 @author: gmcwilliams
 """
-import strictyaml
-
-from .utils import savedir, get_team_file, get_match_file
+from .utils import savedir, get_team_data, get_match_data
 from .match import Match
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -45,13 +43,11 @@ class Events:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-        matchfile = get_match_file(club, year)
-        matchdata = self._load_data(matchfile)
+        matchdata = get_match_data(club, year)
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        teamfile = get_team_file(club)
-        teamdata = self._load_data(teamfile, None)
+        teamdata = get_team_data(club)
         self.team_data = teamdata["teams"]
         self.myclub = teamdata["me"]
         self.default_start_time = teamdata["start_time"]
@@ -60,27 +56,24 @@ class Events:
         """Add all events for this team / season to the calendar"""
 
         for match in self.matches:
+            self._process_match(match)
+
+        self._write_file()
+
+    def _process_match(self, match):
             match_date = match["date"]
             # match will be defined as "home": "Opponent" meaning WE are HOME
             # against the Opponent, so some of the following will appear to be
             # processed back to front (or home to away)
-            if "home" in match:
-                home_id = self.myclub
-                home_score = match["our_score"]
-                away_id = match["home"]
-                away_score = match["opp_score"]
-            else:
-                home_id = match["away"]
-                home_score = match["opp_score"]
-                away_id = self.myclub
-                away_score = match["our_score"]
+
+            self._setup_home_and_away(match)
 
             location = ""
             warning = ""
             start_time = self.default_start_time
 
-            if home_id in self.team_data:
-                home_team_data = self.team_data[home_id]
+            if self.home_id in self.team_data:
+                home_team_data = self.team_data[self.home_id]
                 home_team_name = home_team_data["name"]
                 location = home_team_data["location"]
                 if "start_time" in home_team_data:
@@ -96,12 +89,12 @@ class Events:
             if "start_time" in match:
                 start_time = match["start_time"]
 
-            if away_id in self.team_data:
-                away_team_data = self.team_data[away_id]
+            if self.away_id in self.team_data:
+                away_team_data = self.team_data[self.away_id]
                 away_team_name = away_team_data["name"]
             else:
                 warning = "****"
-                away_team_name = away_id
+                away_team_name = self.away_id
 
             duration = self.duration
             if "duration" in match:
@@ -117,12 +110,12 @@ class Events:
 
             match = Match(
                 myclub=self.myclub.data,
-                home_team_id=home_id.data,
+                home_team_id=self.home_id.data,
                 home_team_name=home_team_name.data,
-                home_score=home_score.data,
-                away_team_id=away_id.data,
+                home_score=self.home_score.data,
+                away_team_id=self.away_id.data,
                 away_team_name=away_team_name.data,
-                away_score=away_score.data,
+                away_score=self.away_score.data,
                 date=match_date,
                 time=start_time,
                 location=location,
@@ -139,8 +132,17 @@ class Events:
 
             print(match.print_description())
 
-        # self._print_cal()
-        self._write_file()
+    def _setup_home_and_away(self, match):
+        if "home" in match:
+            self.home_id = self.myclub
+            self.home_score = match["our_score"]
+            self.away_id = match["home"]
+            self.away_score = match["opp_score"]
+        else:
+            self.home_id = match["away"]
+            self.home_score = match["opp_score"]
+            self.away_id = self.myclub
+            self.away_score = match["our_score"]
 
     def set_savedir(self, savedir):
         """
@@ -151,15 +153,6 @@ class Events:
          calendar files
         """
         self.savedir = savedir
-
-    def _load_data(self, filename: str, schema=None):
-        "loads the data file"
-        with open(filename, "r") as data_file:
-            ymldata = data_file.read()
-            data = strictyaml.load(ymldata, schema)
-        # print(json.dumps(json_data, indent=2))
-        # print(json_data['matches'])
-        return data
 
     def _create_event(self, match):
         """
