@@ -1,4 +1,4 @@
-= ICS Calendar image:https://travis-ci.org/garymcwilliams/icalendar.svg?branch=develop["Build Status", link="https://travis-ci.org/garymcwilliams/icalendar"] image:https://circleci.com/gh/garymcwilliams/icalendar.svg?style=svg["CircleCI", link="https://circleci.com/gh/garymcwilliams/icalendar"] image:https://github.com/garymcwilliams/icalendar/workflows/Python%20Coverage%20Workflow/badge.svg?branch=master[]
+= ICS Calendar image:https://travis-ci.org/garymcwilliams/icalendar.svg?branch=master["Build Status", link="https://travis-ci.org/garymcwilliams/icalendar"] image:https://circleci.com/gh/garymcwilliams/icalendar.svg?style=svg["CircleCI", link="https://circleci.com/gh/garymcwilliams/icalendar"] image:https://github.com/garymcwilliams/icalendar/workflows/Python%20Coverage%20Workflow/badge.svg?branch=master[]
 
 == Running
 
