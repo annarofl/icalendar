@@ -45,13 +45,13 @@ class Events:
         self.cal.add("calscale", "GREGORIAN")
         self.cal.add("X-WR-TIMEZONE", "Europe/London")
 
-        matchFile = get_match_file(club, year)
-        matchdata = self._load_data(matchFile)
+        matchfile = get_match_file(club, year)
+        matchdata = self._load_data(matchfile)
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        teamFile = get_team_file(club)
-        teamdata = self._load_data(teamFile, None)
+        teamfile = get_team_file(club)
+        teamdata = self._load_data(teamfile, None)
         self.team_data = teamdata["teams"]
         self.myclub = teamdata["me"]
         self.default_start_time = teamdata["start_time"]
