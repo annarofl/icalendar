@@ -80,7 +80,7 @@ class Events:
                     start_time = home_team_data["start_time"]
             else:
                 warning = "****"
-                home_team_name = home_id
+                home_team_name = self.home_id
 
             if "location" in match:
                 location_data = self.team_data[match["location"]]
