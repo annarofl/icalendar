@@ -1,15 +1,8 @@
 """
-Created on 11 Oct 2017
+Created on 11 March 2020
 
 @author: gmcwilliams
 """
-#from .utils import savedir, get_team_data, get_match_data
-#from .match import Match
-#from datetime import datetime, timedelta
-#from pathlib import Path
-
-#from icalendar import Alarm, Calendar
-#from icalendar.cal import Event
 
 
 class TeamData:
@@ -22,14 +15,10 @@ class TeamData:
         Initialise.
 
         """
-#        print(f"data={data}")
-#        for k, v in data.items():
-#            print(f"k={k}, v={v}")
-
         self.data = data
 
-    def _lookup_value(self, teamId: str, attr: str) -> str:
-        return self.data['teams'][teamId][attr]
+    def _lookup_value(self, team_id: str, attr: str) -> str:
+        return self.data['teams'][team_id][attr]
 
     def start_time(self) -> str:
         return self.data['start_time']
@@ -40,8 +29,8 @@ class TeamData:
     def my_location(self) -> str:
         return self._lookup_value(self.data['me'], 'location')
 
-    def team_name(self, teamId: str) -> str:
-        return self._lookup_value(teamId, 'name')
+    def team_name(self, team_id: str) -> str:
+        return self._lookup_value(team_id, 'name')
 
-    def team_location(self, teamId: str) -> str:
-        return self._lookup_value(teamId, 'location')
+    def team_location(self, team_id: str) -> str:
+        return self._lookup_value(team_id, 'location')
