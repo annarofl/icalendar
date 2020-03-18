@@ -3,13 +3,14 @@ Created on 11 Oct 2017
 
 @author: gmcwilliams
 """
-from .utils import savedir, get_team_data, get_match_data
+from .utils import savedir, get_match_data
 from .match import Match
 from datetime import datetime, timedelta
 from pathlib import Path
 
 from icalendar import Alarm, Calendar
 from icalendar.cal import Event
+from ical import teamdata
 
 
 class Events:
@@ -47,10 +48,8 @@ class Events:
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        teamdata = get_team_data(club)
-        self.team_data = teamdata["teams"]
-        self.myclub = teamdata["me"]
-        self.default_start_time = teamdata["start_time"]
+        self.team_data = teamdata.instance(club)
+        self.default_start_time = self.team_data.start_time()
 
     def add_events(self):
         """Add all events for this team / season to the calendar"""
@@ -72,29 +71,19 @@ class Events:
             warning = ""
             start_time = self.default_start_time
 
-            if self.home_id in self.team_data:
-                home_team_data = self.team_data[self.home_id]
-                home_team_name = home_team_data["name"]
-                location = home_team_data["location"]
-                if "start_time" in home_team_data:
-                    start_time = home_team_data["start_time"]
-            else:
-                warning = "****"
-                home_team_name = self.home_id
+            home_team_name = self.team_data.team_name(self.home_id)
+            away_team_name = self.team_data.team_name(self.away_id)
+            location = self.team_data.team_location(self.home_id)
+            start_time = self.team_data.team_start_time(self.home_id)
+            #TODO, if id missing:  home_team_name = self.home_id
+            #TODO, if id missing:  away_team_name = self.away_id
 
-            if "location" in match:
-                location_data = self.team_data[match["location"]]
-                location = location_data["location"]
+            if "location" in match: #  match location can be a link to another club, e.g. neutral venue
+                location = self.team_data.team_location(match["location"])
 
-            if "start_time" in match:
+            if "start_time" in match: #  allow specification of new start time, e.g. Playing outdoor at venue
+                                      #  where match usually starts at 2:200, but cup starts at 5:00
                 start_time = match["start_time"]
-
-            if self.away_id in self.team_data:
-                away_team_data = self.team_data[self.away_id]
-                away_team_name = away_team_data["name"]
-            else:
-                warning = "****"
-                away_team_name = self.away_id
 
             duration = self.duration
             if "duration" in match:
@@ -109,12 +98,12 @@ class Events:
                 new_date = match["newdate"]
 
             match = Match(
-                myclub=self.myclub.data,
-                home_team_id=self.home_id.data,
-                home_team_name=home_team_name.data,
+                myclub=self.team_data.my_id(),
+                home_team_id=self.home_id,
+                home_team_name=home_team_name,
                 home_score=self.home_score.data,
-                away_team_id=self.away_id.data,
-                away_team_name=away_team_name.data,
+                away_team_id=self.away_id,
+                away_team_name=away_team_name,
                 away_score=self.away_score.data,
                 date=match_date,
                 time=start_time,
@@ -134,14 +123,14 @@ class Events:
 
     def _setup_home_and_away(self, match):
         if "home" in match:
-            self.home_id = self.myclub
+            self.home_id = self.team_data.my_id()
             self.home_score = match["our_score"]
-            self.away_id = match["home"]
+            self.away_id = match["home"].data
             self.away_score = match["opp_score"]
         else:
-            self.home_id = match["away"]
+            self.home_id = match["away"].data
             self.home_score = match["opp_score"]
-            self.away_id = self.myclub
+            self.away_id = self.team_data.my_id()
             self.away_score = match["our_score"]
 
     def set_savedir(self, savedir):
