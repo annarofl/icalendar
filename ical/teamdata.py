@@ -34,8 +34,14 @@ class TeamData:
     def start_time(self) -> str:
         return self.data['start_time']
 
-    def my_team(self) -> str:
+    def my_name(self) -> str:
         return self._lookup_value(self.data['me'], 'name')
+
+    def my_location(self) -> str:
+        return self._lookup_value(self.data['me'], 'location')
 
     def team_name(self, teamId: str) -> str:
         return self._lookup_value(teamId, 'name')
+
+    def team_location(self, teamId: str) -> str:
+        return self._lookup_value(teamId, 'location')
