@@ -56,9 +56,6 @@ def _get_file(club, filename) -> Path:
     Get a file. The base dir will be read from env var ICAL_DATAPATH.
     If ICAL_DATAPATH is not set then the value from the .env file will be used.
     """
-    # env = Env(
-    #    ICAL_DATAPATH=str,
-    # )
     env.read_envfile()
 
     dataPath = Path(env.str("ICAL_DATAPATH"), club)
@@ -93,6 +90,5 @@ def _load_data(filename: Path, schema=None):
     with open(filename, "r") as data_file:
         ymldata = data_file.read()
         data = strictyaml.load(ymldata, schema)
-    # print(json.dumps(json_data, indent=2))
-    # print(json_data['matches'])
+    # print(json.dumps(json_data, indent=2)) #NOSONAR
     return data
