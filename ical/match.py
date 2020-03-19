@@ -3,7 +3,9 @@ Created on 19 Jun 2018
 
 @author: gmcwilliams
 """
-from datetime import timedelta, datetime
+from datetime import datetime, timedelta
+
+from .teamdata import TeamData, instance
 
 
 def _format_date_time(date, time) -> str:
@@ -33,36 +35,33 @@ class Match:
 
     def __init__(
         self,
-        myclub,
         home_team_id,
-        home_team_name,
         home_score,
         away_team_id,
-        away_team_name,
         away_score,
         date,
         time,
         location,
-        warning="",
         duration=3,
         label=None,
         new_date=None,
         new_time=None,
     ):
 
-        self.myclub = myclub
+        self.team_data = instance()
+
+        self.myclub = self.team_data.my_id()
         self.home_id = home_team_id
-        self.home_team_name = home_team_name
+        self.home_team_name = self.team_data.team_name(self.home_id)
         self.home_score = home_score
         self.away_id = away_team_id
-        self.away_team_name = away_team_name
+        self.away_team_name = self.team_data.team_name(self.away_id)
         self.away_score = away_score
         self.location = location
-        self.warning = warning
 
         duration = timedelta(hours=duration)
 
-        if myclub == home_team_id:
+        if self.myclub == home_team_id:
             self.result = _calc_result(home_score, away_score)
         else:
             self.result = _calc_result(away_score, home_score)
@@ -127,7 +126,6 @@ class Match:
             f"({self.away_score:3}) {self.away_team_name:15s} "
             f"{self._display_date()}"
             f"{self.label} "
-            f"{self.warning}"
         ).strip()
 
     def id(self) -> str:

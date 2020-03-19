@@ -1,7 +1,10 @@
 from .context import Match
+from .context import TeamData
 
 # from ical.match import Match
 import pytest
+from .test_utils import fallsa_test_data
+from ical.teamdata import instance_load
 
 
 class TestMatch:
@@ -10,13 +13,11 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def home_match(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -45,26 +46,23 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def home_awaynotknown(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
             away_score=1,
             date="2018-06-05",
             time="18:30",
             location="location",
             duration=3,
-            warning="****",
         )
 
     def test_home_awaynotknown_print_description(self, home_awaynotknown):
         assert (
             home_awaynotknown.print_description()
             == "W Falls A         (  6) v (  1) Old Bleach A    "
-            "2018-06-05@18:30 ****"
+            "2018-06-05@18:30"
         )
 
     ###########################################################################
@@ -72,13 +70,11 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def home_match_newdate(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -109,13 +105,11 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def home_newdatetime(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -147,13 +141,11 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def home_newdateunknwon(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=6,
             away_team_id="OLDLA",
-            away_team_name="Old Bleach A",
             away_score=1,
             date="2018-06-05",
             time="18:30",
@@ -185,13 +177,11 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def away_match(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="DUNBA",
-            home_team_name="Dunbarton",
             home_score=7,
             away_team_id="FALLSA",
-            away_team_name="Falls A",
             away_score=0,
             date="2018-05-29",
             time="14:00",
@@ -220,18 +210,15 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def cup_home_match(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=96,
             away_team_id="Limavady",
-            away_team_name="Limavady",
             away_score=71,
             date="2018-06-02",
             time="14:00",
             location="location",
-            warning="****",
             duration=3,
             label="Irish Cup",
         )
@@ -246,7 +233,7 @@ class TestMatch:
         assert (
             cup_home_match.print_description()
             == "W Falls A         ( 96) v ( 71) Limavady        "
-            "2018-06-02@14:00 Irish Cup ****"
+            "2018-06-02@14:00 Irish Cup"
         )
 
     ###########################################################################
@@ -254,18 +241,15 @@ class TestMatch:
     ###########################################################################
     @pytest.fixture(scope="class")
     def notyet_home_match(self) -> Match:
+        instance_load(fallsa_test_data())
         return Match(
-            myclub="FALLSA",
             home_team_id="FALLSA",
-            home_team_name="Falls A",
             home_score=0,
             away_team_id="Limavady",
-            away_team_name="Limavady",
             away_score=0,
             date="2018-06-02",
             time="14:00",
             location="location",
-            warning="",
             duration=3
         )
 

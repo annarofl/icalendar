@@ -4,12 +4,28 @@ Created on 11 March 2020
 @author: gmcwilliams
 """
 
-from ical.utils import get_team_data
+from .utils import get_team_data
+
+team_data = None
 
 
-def instance(club):  # -> TeamData:
-    data = get_team_data(club)
-    return TeamData(data.data)
+def instance_for_club(club):
+    global team_data
+    if team_data is None:
+        print("initialising team_data")
+        data = get_team_data(club)
+        instance_load(data.data)
+
+
+def instance_load(data):
+    global team_data
+    if team_data is None:
+        team_data = TeamData(data)
+
+
+def instance():  # -> TeamData:
+    global team_data
+    return team_data
 
 
 class TeamData:
@@ -43,7 +59,7 @@ class TeamData:
         if team_id in self.data['teams']:
             return self._lookup_value(team_id, 'name')
         else:
-            return f"**** {team_id}"
+            return team_id
 
     def team_location(self, team_id: str) -> str:
         return self._lookup_value(team_id, 'location')

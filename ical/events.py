@@ -48,7 +48,7 @@ class Events:
         self.duration = float(matchdata["duration"])
         self.matches = matchdata["matches"]
 
-        self.team_data = teamdata.instance(club)
+        self.team_data = teamdata.instance()
         self.default_start_time = self.team_data.start_time()
 
     def add_events(self):
@@ -68,15 +68,9 @@ class Events:
             self._setup_home_and_away(match)
 
             location = ""
-            warning = ""
-            start_time = self.default_start_time
 
-            home_team_name = self.team_data.team_name(self.home_id)
-            away_team_name = self.team_data.team_name(self.away_id)
             location = self.team_data.team_location(self.home_id)
             start_time = self.team_data.team_start_time(self.home_id)
-            #TODO, if id missing:  home_team_name = self.home_id
-            #TODO, if id missing:  away_team_name = self.away_id
 
             if "location" in match: #  match location can be a link to another club, e.g. neutral venue
                 location = self.team_data.team_location(match["location"])
@@ -98,17 +92,13 @@ class Events:
                 new_date = match["newdate"]
 
             match = Match(
-                myclub=self.team_data.my_id(),
                 home_team_id=self.home_id,
-                home_team_name=home_team_name,
                 home_score=self.home_score.data,
                 away_team_id=self.away_id,
-                away_team_name=away_team_name,
                 away_score=self.away_score.data,
                 date=match_date,
                 time=start_time,
                 location=location,
-                warning=warning,
                 duration=duration,
                 label=label,
                 new_date=new_date,
