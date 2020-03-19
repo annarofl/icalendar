@@ -40,6 +40,13 @@ class TeamData:
         """
         self.data = data
 
+    def verify_teams(self, team1_id: str, team2_id: str) -> bool:
+        "true if both team_id's are valid within the data, else false"
+        if team1_id in self.data['teams'] and team2_id in self.data['teams']:
+            return True
+        else:
+            return False
+        
     def _lookup_value(self, team_id: str, attr: str) -> str:
         return self.data['teams'][team_id][attr]
 

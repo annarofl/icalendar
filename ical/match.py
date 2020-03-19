@@ -50,6 +50,10 @@ class Match:
 
         self.team_data = instance()
 
+        self.warning = ""
+        if not (self.team_data.verify_teams(home_team_id, away_team_id)):
+            self.warning = " ****"
+
         self.myclub = self.team_data.my_id()
         self.home_id = home_team_id
         self.home_team_name = self.team_data.team_name(self.home_id)
@@ -93,6 +97,7 @@ class Match:
             f" v "
             f"({self.away_score}) {self.away_team_name}"
             f"{self.label}"
+            f"{self.warning}"
         )
 
     def _display_date(self):
@@ -112,6 +117,7 @@ class Match:
             f"{self.away_team_name} "
             f"{self._display_date()}"
             f"{self.label}"
+            f"{self.warning}"
         )
 
     def print_description(self):
@@ -125,7 +131,8 @@ class Match:
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
             f"{self._display_date()}"
-            f"{self.label} "
+            f"{self.label}"
+            f"{self.warning}"
         ).strip()
 
     def id(self) -> str:

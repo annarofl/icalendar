@@ -226,14 +226,14 @@ class TestMatch:
     def test_cup_home_match_description(self, cup_home_match):
         assert (
             cup_home_match.description()
-            == "W Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup"
+            == "W Falls A (96) v (71) Limavady 2018-06-02@14:00 Irish Cup ****"
         )
 
     def test_cup_home_match_print_description(self, cup_home_match):
         assert (
             cup_home_match.print_description()
             == "W Falls A         ( 96) v ( 71) Limavady        "
-            "2018-06-02@14:00 Irish Cup"
+            "2018-06-02@14:00 Irish Cup ****"
         )
 
     ###########################################################################
@@ -256,12 +256,12 @@ class TestMatch:
     def test_notyet_home_match_description(self, notyet_home_match):
         assert (
             notyet_home_match.description()
-            == ". Falls A (0) v (0) Limavady 2018-06-02@14:00"
+            == ". Falls A (0) v (0) Limavady 2018-06-02@14:00 ****"
         )
 
     def test_notyet_home_match_print_description(self, notyet_home_match):
         assert (
             notyet_home_match.print_description()
             == ". Falls A         (  0) v (  0) Limavady        "
-            "2018-06-02@14:00"
+            "2018-06-02@14:00 ****"
         )
