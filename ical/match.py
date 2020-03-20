@@ -41,7 +41,7 @@ class Match:
         away_score,
         date,
         time,
-        location,
+        location=None,
         duration=3,
         label=None,
         new_date=None,
@@ -61,8 +61,7 @@ class Match:
         self.away_id = away_team_id
         self.away_team_name = self.team_data.team_name(self.away_id)
         self.away_score = away_score
-        self.location = location
-
+        self.location = self._get_location(location)
         duration = timedelta(hours=duration)
 
         if self.myclub == home_team_id:
@@ -170,3 +169,13 @@ class Match:
             f" on "
             f"{self.match_date} {self.label}"
         )
+
+    def _get_location(self, location: str) -> str:
+        """
+        use location of home team, unless there is an override, e.g.
+        for a neutral cup venue
+        """
+        match_id = self.home_id
+        if (location is not None):
+            match_id = location
+        return self.team_data.team_location(match_id)

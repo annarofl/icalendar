@@ -69,7 +69,16 @@ class TeamData:
             return team_id
 
     def team_location(self, team_id: str) -> str:
-        return self._lookup_value(team_id, 'location')
+        """
+        If the team_id is a valid team, then return the location for that team.
+        Otherwise just return the passed in text.
+        This allows us to add simple, random locations, e.g. in a IBA cup where
+        we would not typically store the location for all the teams.
+        """
+        if team_id in self.data['teams']:
+            return self._lookup_value(team_id, 'location')
+        else:
+            return team_id
 
     def team_start_time(self, team_id: str) -> str:
         """

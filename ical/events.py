@@ -67,14 +67,11 @@ class Events:
 
             self._setup_home_and_away(match)
 
-            location = ""
+            location = None
+            if "location" in match:  # match location can be a link to another club, e.g. neutral venue
+                location = match["location"]
 
-            location = self.team_data.team_location(self.home_id)
             start_time = self.team_data.team_start_time(self.home_id)
-
-            if "location" in match: #  match location can be a link to another club, e.g. neutral venue
-                location = self.team_data.team_location(match["location"])
-
             if "start_time" in match: #  allow specification of new start time, e.g. Playing outdoor at venue
                                       #  where match usually starts at 2:200, but cup starts at 5:00
                 start_time = match["start_time"]
