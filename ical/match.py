@@ -87,7 +87,7 @@ class Match:
         if label is not None:
             self.label = f" {label}"
         if new_date == "":
-            self.label = " ****-TBD-****"
+            self.warning += " -TBD-"
 
     def summary(self) -> str:
         """Return match summary in pre-defined format"""

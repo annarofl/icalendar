@@ -186,6 +186,42 @@ class TestMatch:
             "mc-williams.co.uk"
 
     ###########################################################################
+    # H O M E   N E W   D A T E   N O T   K N O W N  W I T H   L A B E L
+    ###########################################################################
+    @pytest.fixture(scope="class")
+    def home_newdateunknownlabel(self) -> Match:
+        instance_load(fallsa_test_data())
+        return Match(
+            home_team_id="FALLSA",
+            home_score=6,
+            away_team_id="OLDLA",
+            away_score=1,
+            date="2018-06-05",
+            time="18:30",
+            duration=3,
+            new_date="",
+            label="Cup",
+        )
+
+    def test_home_newdateunknownlabel_description(self, home_newdateunknownlabel):
+        assert (
+            home_newdateunknownlabel.description()
+            == "W Falls A (6) v (1) Old Bleach A 2018-06-05@18:30 "
+            "Cup -TBD-"
+        )
+
+    def test_home_newdateunknownlabel_print_description(self, home_newdateunknownlabel):
+        assert (
+            home_newdateunknownlabel.print_description()
+            == "W Falls A         (  6) v (  1) Old Bleach A    "
+            "2018-06-05@18:30 Cup -TBD-"
+        )
+
+    def test_home_newdateunknownlabel_id(self, home_newdateunknownlabel):
+        assert home_newdateunknownlabel.id() == "FALLSA-2018-06-05-OLDLA@" \
+            "mc-williams.co.uk"
+
+    ###########################################################################
     # H O M E   N E W   D A T E   N O T   K N O W N
     ###########################################################################
     @pytest.fixture(scope="class")
@@ -206,14 +242,14 @@ class TestMatch:
         assert (
             home_newdateunknwon.description()
             == "W Falls A (6) v (1) Old Bleach A 2018-06-05@18:30 "
-            "****-TBD-****"
+            "-TBD-"
         )
 
     def test_home_newdateunknwon_print_description(self, home_newdateunknwon):
         assert (
             home_newdateunknwon.print_description()
             == "W Falls A         (  6) v (  1) Old Bleach A    "
-            "2018-06-05@18:30 ****-TBD-****"
+            "2018-06-05@18:30 -TBD-"
         )
 
     def test_home_newdateunknwon_id(self, home_newdateunknwon):
