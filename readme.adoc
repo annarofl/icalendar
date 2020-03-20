@@ -3,7 +3,7 @@
 https://travis-ci.org/garymcwilliams/icalendar[image:https://travis-ci.org/garymcwilliams/icalendar.svg?branch=master[Build Status]]
 https://circleci.com/gh/garymcwilliams/icalendar[image:https://circleci.com/gh/garymcwilliams/icalendar.svg?style=svg[CircleCI]] 
 https://codecov.io/gh/garymcwilliams/icalendar[image:https://codecov.io/gh/garymcwilliams/icalendar/branch/master/graph/badge.svg[CodeCov]]
-https://sonarcloud.io/dashboard/id=garymcwilliams_icalendar[image:https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_icalendar&metric=alert_status[Quality Gate]]
+https://sonarcloud.io/dashboard?id=garymcwilliams_icalendar[image:https://sonarcloud.io/api/project_badges/measure?project=garymcwilliams_icalendar&metric=alert_status[Quality Gate]]
 
 
 == Running
