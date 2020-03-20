@@ -46,7 +46,7 @@ class TeamData:
             return True
         else:
             return False
-        
+
     def _lookup_value(self, team_id: str, attr: str) -> str:
         return self.data['teams'][team_id][attr]
 

@@ -1,5 +1,4 @@
 from .context import Match
-from .context import TeamData
 
 # from ical.match import Match
 import pytest
@@ -94,7 +93,7 @@ class TestMatch:
         assert (away_homenotknown.location == "OLDXX")
 
     ###########################################################################
-    #  A W A Y   W I T H   L O C A T I O N    H O M E   N O T   K N O W N
+    #  A W A Y   W I T H   L O C A T I O N    H O M E   N O T  K N O W N
     ###########################################################################
     @pytest.fixture(scope="class")
     def away_loc_homenotknown(self) -> Match:
@@ -110,7 +109,8 @@ class TestMatch:
             location="Where OLDXX play",
         )
 
-    def test_away_loc_homenotknown_won_description(self, away_loc_homenotknown):
+    def test_away_loc_homenotknown_won_description(self,
+                                                   away_loc_homenotknown):
         assert (
             away_loc_homenotknown.print_description()
             == "L OLDXX           (  6) v (  1) Falls A         "

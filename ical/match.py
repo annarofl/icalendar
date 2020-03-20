@@ -5,7 +5,7 @@ Created on 19 Jun 2018
 """
 from datetime import datetime, timedelta
 
-from .teamdata import TeamData, instance
+from .teamdata import instance
 
 
 def _format_date_time(date, time) -> str:
