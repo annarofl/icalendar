@@ -21,6 +21,7 @@ SCOPES = 'https://www.googleapis.com/auth/calendar.readonly'
 CLIENT_SECRET_FILE = 'client_secret.json'
 APPLICATION_NAME = 'Google Calendar API Python Quickstart'
 
+
 def _get_credentials_dir():
     #home_dir = _get_credentials_curdir()
     home_dir = _get_credentials_homedir()
@@ -28,8 +29,10 @@ def _get_credentials_dir():
     print(credential_path)
     return credential_path
     
+
 def _get_credentials_curdir():
     return os.path.abspath('.')
+
 
 def _get_credentials_homedir():
     #home_dir = os.path.expanduser('~')
@@ -39,6 +42,7 @@ def _get_credentials_homedir():
     if not os.path.exists(credential_dir):
         os.makedirs(credential_dir)
     return credential_dir
+
 
 def get_credentials():
     """Gets valid user credentials from storage.
@@ -55,12 +59,11 @@ def get_credentials():
     if not credentials or credentials.invalid:
         flow = client.flow_from_clientsecrets(CLIENT_SECRET_FILE, SCOPES)
         flow.user_agent = APPLICATION_NAME
-        if flags:
-            credentials = tools.run_flow(flow, store, flags)
-        else:  # Needed only for compatibility with Python 2.6
-            credentials = tools.run(flow, store)
+        credentials = (tools.run_flow(flow, store, flags) if flags
+                       else tools.run(flow, store)) # python 2.6
         print('Storing credentials to ' + credential_path)
     return credentials
+
 
 def main():
     """Shows basic usage of the Google Calendar API.
