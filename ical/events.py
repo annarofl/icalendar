@@ -137,6 +137,7 @@ class Events:
             if new_date != "":
                 self.cal.add_component(self._create_event(match))
 
+            # TODO #56 look at PrettyTable for formatting
             print(match.print_description())
 
         # self._print_cal()

@@ -115,6 +115,7 @@ class Match:
             f"{self.label}"
         )
 
+    # TODO #56 print_description should return csv and let caller do the formatting
     def print_description(self):
         """
         Return a well-formatted, aligned, description of the match, suitable
@@ -123,6 +124,7 @@ class Match:
         return (
             f"{self.result:1s} "
             f"{self.home_team_name:15s} ({self.home_score:3})"
+            # #56 don't return the v, let caller do all formatting
             f" v "
             f"({self.away_score:3}) {self.away_team_name:15s} "
             f"{self._display_date()}"
