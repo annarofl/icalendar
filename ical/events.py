@@ -143,16 +143,6 @@ class Events:
         # self._print_cal()
         self._write_file()
 
-    def set_savedir(self, savedir):
-        """
-        Where to save the calendar. By default this is not needed and the
-        default dropbox folder will be used
-
-        :paran savedir: String path representing where to save the generated
-         calendar files
-        """
-        self.savedir = savedir
-
     def _load_data(self, filename: str, schema=None):
         "loads the data file"
         with open(filename, "r") as data_file:
